@@ -1,0 +1,22 @@
+<h2>Add mechanic</h2>
+<p>
+  <label>Name:</label>
+  <input [(ngModel)]="mechanicName">
+</p>
+
+<form [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+
+  <p>
+    <label>Select Finished Order</label>
+    <label> By Description:</label>
+    <select formControlName="order">
+      <option [ngValue]="null" disabled>Select Order</option>
+      <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </p>
+
+</form>
+
+<button (click)="add()">Add</button>

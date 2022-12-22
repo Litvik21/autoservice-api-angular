@@ -1,0 +1,24 @@
+<div *ngIf="order">
+  <h2>Order Details</h2>
+  <div><span>id: </span>{{order.id}}</div>
+
+  <form [formGroup]="statusForm" (ngSubmit)="submitStatus()">
+
+    <p>
+      <label>Select status</label>
+      <select>
+        <option *ngFor="let status of statuses"
+                [value]="status">
+          {{StatusMapping[status]}}
+        </option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </p>
+
+  </form>
+
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>
+

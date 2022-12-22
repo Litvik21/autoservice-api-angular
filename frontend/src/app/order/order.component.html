@@ -1,0 +1,60 @@
+<h2>Add order</h2>
+
+<form [formGroup]="carForm" (ngSubmit)="submitCar()">
+
+  <p>
+    <label>Select Car</label>
+    <label> By VIN number:</label>
+    <select formControlName="car">
+      <option [ngValue]="null" disabled>Select Car</option>
+      <option *ngFor="let car of cars" [ngValue]="car.id">{{car.number}}</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </p>
+
+</form>
+
+<p>
+  <label>Description:</label>
+  <input [(ngModel)]="description">
+</p>
+
+<form [formGroup]="taskForm" (ngSubmit)="submitTask()">
+
+  <p>
+    <label>Select Task</label>
+    <label> By Task ID:</label>
+    <select formControlName="task">
+      <option [ngValue]="null" disabled>Select Task</option>
+      <option *ngFor="let task of tasks" [ngValue]="task.id">{{task.id}}</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </p>
+
+</form>
+<form [formGroup]="productForm" (ngSubmit)="submitProduct()">
+
+  <p>
+    <label>Select Product</label>
+    <label> By Title:</label>
+    <select formControlName="title">
+      <option [ngValue]="null" disabled>Select Product</option>
+      <option *ngFor="let product of products" [ngValue]="product.id">{{product.title}}</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </p>
+
+</form>
+<p>
+  <label>Date Finished: </label>
+  <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</p>
+<button (click)="add()">Add</button>

@@ -1,0 +1,67 @@
+<h2>Add task</h2>
+
+<form [formGroup]="typeOfTaskForm" (ngSubmit)="submitTypeOfTask()">
+
+  <p>
+    <label>Select type of task</label>
+    <select>
+      <option *ngFor="let type of types"
+              [value]="type">
+        {{TypeOfTaskMapping[type]}}
+      </option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </p>
+
+</form>
+
+<form [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+
+  <p>
+    <label>Select Order</label>
+    <label> By Description:</label>
+    <select formControlName="order">
+      <option [ngValue]="null" disabled>Select Order</option>
+      <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </p>
+
+</form>
+<form [formGroup]="mechanicForm" (ngSubmit)="submitMechanic()">
+
+  <p>
+    <label>Select Mechanic</label>
+    <label> By Name:</label>
+    <select formControlName="mechanic">
+      <option [ngValue]="null" disabled>Select Mechanic</option>
+      <option *ngFor="let mechanic of mechanics" [ngValue]="mechanic.id">{{mechanic.name}}</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </p>
+
+</form>
+<p>
+  <label>Price:</label>
+  <input [(ngModel)]="price">
+</p>
+<form [formGroup]="paymentStatusForm" (ngSubmit)="submitPaymentStatus()">
+
+  <p>
+    <label>Select payment status</label>
+    <select>
+      <option *ngFor="let status of statuses"
+              [value]="status">
+        {{PaymentStatusMapping[status]}}
+      </option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </p>
+
+</form>
+
+<button (click)="add()">Add</button>

@@ -1,0 +1,26 @@
+<div *ngIf="task">
+  <h2>Task Details</h2>
+  <div><span>id: </span>{{task.id}}</div>
+  <div>
+    <label>Task type:
+      <input [(ngModel)]="task.typeOfTask" placeholder="type"/>
+    </label>
+  </div>
+  <div>
+    <label>Order's id:
+      <input [(ngModel)]="task.order" placeholder="orderId"/>
+    </label>
+  </div>
+  <div>
+    <label>Mechanic's id:
+      <input [(ngModel)]="task.mechanic" placeholder="mechanicId"/>
+    </label>
+  </div>
+  <div>
+    <label>Price:
+      <input [(ngModel)]="task.price" placeholder="price"/>
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>

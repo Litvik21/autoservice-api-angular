@@ -1,0 +1,27 @@
+<div *ngIf="order">
+  <h2>Order Details</h2>
+  <div><span>id: </span>{{order.id}}</div>
+
+  <h3>Products of this order:</h3>
+  <div *ngFor="let item of order.products">
+    {{item.title}} -- {{item.price}}
+  </div>
+
+  <form [formGroup]="productForm" (ngSubmit)="submitProduct()">
+
+    <p>
+      <label>Select Product</label>
+      <label> By Title:</label>
+      <select formControlName="title">
+        <option [ngValue]="null" disabled>Select Product</option>
+        <option *ngFor="let product of products" [ngValue]="product.id">{{product.title}}</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </p>
+
+  </form>
+
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">Save</button>
+</div>

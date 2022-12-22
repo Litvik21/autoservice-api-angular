@@ -1,0 +1,17 @@
+<div *ngIf="mechanic">
+  <h2>{{mechanic.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{mechanic.id}}</div>
+  <div>
+    <label>Name:
+      <input [(ngModel)]="mechanic.name" placeholder="name"/>
+    </label>
+  </div>
+  <div>
+    <label>Finished Orders:
+      <input [(ngModel)]="mechanic.finishedOrders" placeholder="finishedOrders"/>
+    </label>
+  </div>
+
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>

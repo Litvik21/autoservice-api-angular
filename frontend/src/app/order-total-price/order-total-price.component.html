@@ -1,0 +1,9 @@
+<div *ngIf="order">
+  <h2>Order Details</h2>
+  <div><span>id: </span>{{order.id}}</div>
+
+  <button (click)="goBack()">Go back</button>
+  <button (click)="getTotalPrice()">Get Total Price</button>
+
+  <h3>Total price: {{totalPrice}}</h3>
+</div>

@@ -1,0 +1,33 @@
+<h2>Add car</h2>
+<p>
+  <label>Brand:</label>
+  <input [(ngModel)]="carBrand">
+</p>
+<p>
+  <label>Model:</label>
+  <input [(ngModel)]="carModel">
+</p>
+<p>
+  <label>Year:</label>
+  <input [(ngModel)]="carYear">
+</p>
+<p>
+  <label>VIN number:</label>
+  <input [(ngModel)]="carNumber">
+</p>
+
+<form [formGroup]="contactForm" (ngSubmit)="submit()">
+
+  <p>
+    <label>Select Owner ID:</label>
+    <select formControlName="owner">
+      <option [ngValue]="null" disabled>Select Owner</option>
+      <option *ngFor="let owner of owners" [ngValue]="owner.id">{{owner.id}}</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </p>
+
+</form>
+
+<button (click)="add()">Add</button>

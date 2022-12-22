@@ -1,0 +1,21 @@
+<div *ngIf="task">
+  <h2>Task Details</h2>
+  <div><span>id: </span>{{task.id}}</div>
+  <form [formGroup]="statusForm" (ngSubmit)="submitStatus()">
+
+    <label>Select Status</label>
+    <p>
+      <select>
+        <option *ngFor="let status of statuses"
+                [value]="status">
+          {{PaymentStatusMapping[status]}}
+        </option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </p>
+
+  </form>
+  <button (click)="goBack()">Go back</button>
+  <button (click)="save()">Save</button>
+</div>

@@ -1,0 +1,7 @@
+<div *ngIf="mechanic">
+  <h2>Mechanic {{mechanic.name}} Details</h2>
+  <div><span>id: </span>{{mechanic.id}}</div>
+
+  <button (click)="goBack()">Go back</button>
+  <button (click)="getOrders()">Get Orders</button>
+</div>
