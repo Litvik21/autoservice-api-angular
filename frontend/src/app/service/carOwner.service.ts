@@ -1,23 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
+import { catchError } from 'rxjs/operators';
 import { CarOwner } from '../model/carOwner';
-import {Order} from "../model/order";
-import {environment} from "../../environments/environment";
+import { Order } from '../model/order';
+import { environment } from '../../environments/environment';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class CarOwnerService {
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
   private ownersUrl = environment.urlPath + '/car-owners';
 
   constructor(
-    private http: HttpClient) { }
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+    private http: HttpClient) {
+  }
 
   getCarOwners(): Observable<CarOwner[]> {
     return this.http.get<CarOwner[]>(this.ownersUrl)

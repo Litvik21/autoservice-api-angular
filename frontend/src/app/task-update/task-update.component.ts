@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Location} from "@angular/common";
-
-import {Task} from "../model/task";
-import {TaskService} from "../service/task.service";
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { Task } from '../model/task';
+import { TaskService } from '../service/task.service';
 
 @Component({
   selector: 'app-task-update',

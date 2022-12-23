@@ -1,22 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
+import { catchError } from 'rxjs/operators';
 import { Car } from '../model/car';
-import {environment} from "../../environments/environment";
+import { environment } from '../../environments/environment';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class CarService {
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
   private carsUrl = environment.urlPath + '/cars';
 
   constructor(
-    private http: HttpClient) { }
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+    private http: HttpClient) {
+  }
 
   getCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.carsUrl)

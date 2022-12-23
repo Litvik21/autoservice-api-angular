@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from "../model/order";
-import {ActivatedRoute} from "@angular/router";
-import {OrderService} from "../service/order.service";
-import {Location} from "@angular/common";
-import {Status, StatusMapping} from "../model/status";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import { Order } from '../model/order';
+import { ActivatedRoute } from '@angular/router';
+import { OrderService } from '../service/order.service';
+import { Location } from '@angular/common';
+import { Status, StatusMapping } from '../model/status';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-order-update-status',

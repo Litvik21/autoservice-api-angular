@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Car} from "../model/car";
-import {CarService} from "../service/car.service";
-import {CarOwner} from "../model/carOwner";
-import {CarOwnerService} from "../service/carOwner.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import { Car } from '../model/car';
+import { CarService } from '../service/car.service';
+import { CarOwner } from '../model/carOwner';
+import { CarOwnerService } from '../service/carOwner.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-car',

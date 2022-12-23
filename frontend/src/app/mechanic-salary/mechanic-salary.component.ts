@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Mechanic} from "../model/mechanic";
-import {ActivatedRoute} from "@angular/router";
-import {MechanicService} from "../service/mechanic.service";
-import {Location} from "@angular/common";
+import { Mechanic } from '../model/mechanic';
+import { ActivatedRoute } from '@angular/router';
+import { MechanicService } from '../service/mechanic.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-mechanic-salary',

@@ -1,7 +1,7 @@
-import {Mechanic} from "./mechanic";
-import {TypeOfTask} from "./typeOfTask";
-import {PaymentStatus} from "./paymentStatus";
-import {Order} from "./order";
+import { Mechanic } from './mechanic';
+import { TypeOfTask } from './typeOfTask';
+import { PaymentStatus } from './paymentStatus';
+import { Order } from './order';
 
 export interface Task {
   id?: number;

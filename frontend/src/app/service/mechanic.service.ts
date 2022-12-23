@@ -1,23 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
+import { catchError } from 'rxjs/operators';
 import { Mechanic } from '../model/mechanic';
-import {Order} from "../model/order";
-import {environment} from "../../environments/environment";
+import { Order } from '../model/order';
+import { environment } from '../../environments/environment';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class MechanicService {
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
   private mechanicsUrl = environment.urlPath + '/mechanics';
 
   constructor(
-    private http: HttpClient) { }
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+    private http: HttpClient) {
+  }
 
   getMechanics(): Observable<Mechanic[]> {
     return this.http.get<Mechanic[]>(this.mechanicsUrl)

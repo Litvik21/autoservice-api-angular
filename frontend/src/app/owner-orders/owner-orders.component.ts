@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Location} from "@angular/common";
-import {CarOwnerService} from "../service/carOwner.service";
-import {CarOwner} from "../model/carOwner";
-import {Order} from "../model/order";
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { CarOwnerService } from '../service/carOwner.service';
+import { CarOwner } from '../model/carOwner';
+import { Order } from '../model/order';
 
 @Component({
   selector: 'app-owner-orders',
@@ -13,7 +13,7 @@ import {Order} from "../model/order";
 export class OwnerOrdersComponent implements OnInit {
 
   owner!: CarOwner;
-  orders: Order[] = []
+  orders: Order[] = [];
 
   constructor(
     private route: ActivatedRoute,

@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {Task} from "../model/task";
-import {TaskService} from "../service/task.service";
-import {Mechanic} from "../model/mechanic";
-import {OrderService} from "../service/order.service";
-import {MechanicService} from "../service/mechanic.service";
-import {Order} from "../model/order";
-import {PaymentStatus, PaymentStatusMapping} from "../model/paymentStatus";
-import {TypeOfTask, TypeOfTaskMapping} from "../model/typeOfTask";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { Task } from '../model/task';
+import { TaskService } from '../service/task.service';
+import { Mechanic } from '../model/mechanic';
+import { OrderService } from '../service/order.service';
+import { MechanicService } from '../service/mechanic.service';
+import { Order } from '../model/order';
+import { PaymentStatus, PaymentStatusMapping } from '../model/paymentStatus';
+import { TypeOfTask, TypeOfTaskMapping } from '../model/typeOfTask';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-task',

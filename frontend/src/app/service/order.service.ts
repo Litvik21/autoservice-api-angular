@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Order } from '../model/order';
-import {Product} from "../model/product";
-import {Car} from "../model/car";
-import {Task} from "../model/task";
-import {environment} from "../../environments/environment";
+import { Product } from '../model/product';
+import { Car } from '../model/car';
+import { Task } from '../model/task';
+import { environment } from '../../environments/environment';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class OrderService {
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
   private ordersUrl = environment.urlPath + '/orders';
 
   constructor(
-    private http: HttpClient) { }
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+    private http: HttpClient) {
+  }
 
   getOrders(): Observable<Order[]> {
     return this.http.get<Order[]>(this.ordersUrl)

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Location} from "@angular/common";
-import {Mechanic} from "../model/mechanic";
-import {OrderService} from "../service/order.service";
-import {MechanicService} from "../service/mechanic.service";
-import {Order} from "../model/order";
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { Mechanic } from '../model/mechanic';
+import { OrderService } from '../service/order.service';
+import { MechanicService } from '../service/mechanic.service';
+import { Order } from '../model/order';
 
 @Component({
   selector: 'app-mechanic-update',

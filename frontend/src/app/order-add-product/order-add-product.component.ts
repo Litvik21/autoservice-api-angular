@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from "../model/order";
-import {Product} from "../model/product";
-import {ActivatedRoute} from "@angular/router";
-import {OrderService} from "../service/order.service";
-import {Location} from "@angular/common";
-import {ProductService} from "../service/product.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import { Order } from '../model/order';
+import { Product } from '../model/product';
+import { ActivatedRoute } from '@angular/router';
+import { OrderService } from '../service/order.service';
+import { Location } from '@angular/common';
+import { ProductService } from '../service/product.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-order-add-product',

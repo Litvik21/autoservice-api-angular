@@ -1,7 +1,7 @@
-import {Car} from "./car";
-import {Product} from "./product";
-import {Status} from "./status";
-import {Task} from "./task";
+import { Car } from './car';
+import { Product } from './product';
+import { Status } from './status';
+import { Task } from './task';
 
 export interface Order {
   id?: number;

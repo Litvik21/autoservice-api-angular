@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {CarOwner} from "../model/carOwner";
-import {CarOwnerService} from "../service/carOwner.service";
-import {Car} from "../model/car";
-import {Order} from "../model/order";
-import {CarService} from "../service/car.service";
-import {OrderService} from "../service/order.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import { CarOwner } from '../model/carOwner';
+import { CarOwnerService } from '../service/carOwner.service';
+import { Car } from '../model/car';
+import { Order } from '../model/order';
+import { CarService } from '../service/car.service';
+import { OrderService } from '../service/order.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-car-owner',

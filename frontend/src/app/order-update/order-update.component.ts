@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {Car} from "../model/car";
-import {ActivatedRoute} from "@angular/router";
-import {CarService} from "../service/car.service";
-import {Location} from "@angular/common";
-import {Order} from "../model/order";
-import {OrderService} from "../service/order.service";
-import {Product} from "../model/product";
-import {TaskService} from "../service/task.service";
-import {ProductService} from "../service/product.service";
-import {Task} from "../model/task";
+import { Car } from '../model/car';
+import { ActivatedRoute } from '@angular/router';
+import { CarService } from '../service/car.service';
+import { Location } from '@angular/common';
+import { Order } from '../model/order';
+import { OrderService } from '../service/order.service';
+import { Product } from '../model/product';
+import { TaskService } from '../service/task.service';
+import { ProductService } from '../service/product.service';
+import { Task } from '../model/task';
 
 @Component({
   selector: 'app-order-update',

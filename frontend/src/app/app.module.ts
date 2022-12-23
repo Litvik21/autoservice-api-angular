@@ -7,11 +7,11 @@ import { CarComponent } from './car/car.component';
 import { MechanicComponent } from './mechanic/mechanic.component';
 import { CarOwnerComponent } from './car-owner/car-owner.component';
 import { TaskComponent } from './task/task.component';
-import { OrderComponent } from './order/order.component'
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { OrderComponent } from './order/order.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductUpdateComponent } from './product-update/product-update.component';
 import { TaskUpdateComponent } from './task-update/task-update.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 import { CarUpdateComponent } from './car-update/car-update.component';
 import { CarOwnerUpdateComponent } from './car-owner-update/car-owner-update.component';
 import { MechanicUpdateComponent } from './mechanic-update/mechanic-update.component';
@@ -23,12 +23,12 @@ import { OrderAddProductComponent } from './order-add-product/order-add-product.
 import { OrderUpdateStatusComponent } from './order-update-status/order-update-status.component';
 import { OrderTotalPriceComponent } from './order-total-price/order-total-price.component';
 import { TaskUpdateStatusComponent } from './task-update-status/task-update-status.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {DateAdapter, MAT_DATE_FORMATS} from "@angular/material/core";
-import {AppDateAdapter, APP_DATE_FORMATS} from "./adapter/date.adapter";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { APP_DATE_FORMATS, AppDateAdapter } from './adapter/date.adapter';
 
 @NgModule({
   declarations: [

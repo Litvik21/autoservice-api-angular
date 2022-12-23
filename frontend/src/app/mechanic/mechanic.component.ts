@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Mechanic} from "../model/mechanic";
-import {MechanicService} from "../service/mechanic.service";
-import {Order} from "../model/order";
-import {OrderService} from "../service/order.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import { Mechanic } from '../model/mechanic';
+import { MechanicService } from '../service/mechanic.service';
+import { Order } from '../model/order';
+import { OrderService } from '../service/order.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-mechanic',

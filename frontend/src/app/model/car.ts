@@ -1,4 +1,4 @@
-import {CarOwner} from "./carOwner";
+import { CarOwner } from './carOwner';
 
 export interface Car{
   id: number;

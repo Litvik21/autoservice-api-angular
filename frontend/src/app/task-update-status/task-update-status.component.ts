@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Task} from "../model/task";
-import {ActivatedRoute} from "@angular/router";
-import {TaskService} from "../service/task.service";
-import {Location} from "@angular/common";
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {PaymentStatus, PaymentStatusMapping} from "../model/paymentStatus";
+import { Task } from '../model/task';
+import { ActivatedRoute } from '@angular/router';
+import { TaskService } from '../service/task.service';
+import { Location } from '@angular/common';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { PaymentStatus, PaymentStatusMapping } from '../model/paymentStatus';
 
 @Component({
   selector: 'app-task-update-status',

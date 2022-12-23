@@ -1,5 +1,5 @@
-import {Car} from "./car";
-import {Order} from "./order";
+import { Car } from './car';
+import { Order } from './order';
 
 export interface CarOwner {
   id: number;

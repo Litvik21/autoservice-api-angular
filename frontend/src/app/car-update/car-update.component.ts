@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Location} from "@angular/common";
-import {Car} from "../model/car";
-import {CarService} from "../service/car.service";
-import {CarOwnerService} from "../service/carOwner.service";
-import {CarOwner} from "../model/carOwner";
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { Car } from '../model/car';
+import { CarService } from '../service/car.service';
+import { CarOwnerService } from '../service/carOwner.service';
+import { CarOwner } from '../model/carOwner';
 
 @Component({
   selector: 'app-car-update',

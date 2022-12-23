@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from "../model/order";
-import {ActivatedRoute} from "@angular/router";
-import {Location} from "@angular/common";
-import {Mechanic} from "../model/mechanic";
-import {MechanicService} from "../service/mechanic.service";
+import { Order } from '../model/order';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { Mechanic } from '../model/mechanic';
+import { MechanicService } from '../service/mechanic.service';
 
 @Component({
   selector: 'app-mechanic-finished-orders',
@@ -13,7 +13,7 @@ import {MechanicService} from "../service/mechanic.service";
 export class MechanicFinishedOrdersComponent implements OnInit {
 
   mechanic!: Mechanic;
-  orders: Order[] = []
+  orders: Order[] = [];
 
   constructor(
     private route: ActivatedRoute,

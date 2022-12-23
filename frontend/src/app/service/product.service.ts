@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Product } from '../model/product';
-import {environment} from "../../environments/environment";
+import { environment } from '../../environments/environment';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class ProductService {
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
   private productsUrl = environment.urlPath + '/products';
 
   constructor(
-    private http: HttpClient) { }
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+    private http: HttpClient) {
+  }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.productsUrl)

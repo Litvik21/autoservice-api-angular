@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {Car} from "../model/car";
-import {CarOwner} from "../model/carOwner";
-import {ActivatedRoute} from "@angular/router";
-import {CarService} from "../service/car.service";
-import {Location} from "@angular/common";
-import {CarOwnerService} from "../service/carOwner.service";
-import {Order} from "../model/order";
-import {OrderService} from "../service/order.service";
+import { Car } from '../model/car';
+import { CarOwner } from '../model/carOwner';
+import { ActivatedRoute } from '@angular/router';
+import { CarService } from '../service/car.service';
+import { Location } from '@angular/common';
+import { CarOwnerService } from '../service/carOwner.service';
+import { Order } from '../model/order';
+import { OrderService } from '../service/order.service';
 
 @Component({
   selector: 'app-car-owner-update',
@@ -17,7 +17,7 @@ export class CarOwnerUpdateComponent implements OnInit {
 
   owner!: CarOwner;
   cars: Car[] = [];
-  orders: Order[] = []
+  orders: Order[] = [];
 
   constructor(
     private route: ActivatedRoute,

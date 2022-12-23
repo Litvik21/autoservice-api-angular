@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from "../model/order";
-import {OrderService} from "../service/order.service";
-import {Car} from "../model/car";
-import {Task} from "../model/task";
-import {Product} from "../model/product";
-import {CarService} from "../service/car.service";
-import {ProductService} from "../service/product.service";
-import {TaskService} from "../service/task.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import { Order } from '../model/order';
+import { OrderService } from '../service/order.service';
+import { Car } from '../model/car';
+import { Task } from '../model/task';
+import { Product } from '../model/product';
+import { CarService } from '../service/car.service';
+import { ProductService } from '../service/product.service';
+import { TaskService } from '../service/task.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-order',

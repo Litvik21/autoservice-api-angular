@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    image: 'mysql:8.0.31'
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=12Marvel21
+      - MYSQL_DATABASE=auto_service
+    ports:
+      - '3307:3306'
+  backend:
+    image: litvik/backend-autoservice
+    restart: on-failure
+    build: api/.
+    ports:
+      - "6868:8080"
+    depends_on:
+      - mysqldb
+    environment:
+      SPRING_APPLICATION_JSON: '{
+          "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/auto_service?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=UTC",
+          "spring.datasource.username" : "root",
+          "spring.datasource.password" : "12Marvel21",
+          "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5Dialect",
+          "spring.jpa.hibernate.ddl-auto" : "create-drop"
+      }'
+  frontend:
+    image: litvik/frontend-autoservice
+    build: frontend/.
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend

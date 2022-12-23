@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from "../model/order";
-import {Task} from "../model/task";
-import {Product} from "../model/product";
-import {ActivatedRoute} from "@angular/router";
-import {OrderService} from "../service/order.service";
-import {CarService} from "../service/car.service";
-import {Location} from "@angular/common";
+import { Order } from '../model/order';
+import { Task } from '../model/task';
+import { Product } from '../model/product';
+import { ActivatedRoute } from '@angular/router';
+import { OrderService } from '../service/order.service';
+import { CarService } from '../service/car.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-order-total-price',
