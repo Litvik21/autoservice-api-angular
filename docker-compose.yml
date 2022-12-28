@@ -27,6 +27,7 @@ services:
       }'
   frontend:
     image: litvik/frontend-autoservice
+    restart: unless-stopped
     build: frontend/.
     ports:
       - "4200:4200"

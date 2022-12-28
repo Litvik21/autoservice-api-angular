@@ -22,13 +22,13 @@ export class AppDateAdapter extends NativeDateAdapter {
       const month = date.getMonth() + 1;
       const year = date.getFullYear();
       return this.to2Digit(day) + '.' + this.to2Digit(month) + '.' + year;
-    } else if (displayFormat === 'inputMonth') {
+    }
+    if (displayFormat === 'inputMonth') {
       const month = date.getMonth() + 1;
       const year = date.getFullYear();
       return this.to2Digit(month) + '.' + year;
-    } else {
-      return date.toDateString();
     }
+    return date.toDateString();
   }
 
   private to2Digit(n: number): string {

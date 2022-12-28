@@ -44,7 +44,7 @@ export class OrderComponent implements OnInit {
     this.getProducts();
     this.getTasks();
     this.productForm = this.fb.group({
-      product: [null]
+      title: [null]
     })
     this.taskForm = this.fb.group({
       task: [null]
