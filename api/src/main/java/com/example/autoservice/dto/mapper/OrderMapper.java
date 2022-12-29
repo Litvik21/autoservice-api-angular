@@ -1,29 +1,27 @@
 package com.example.autoservice.dto.mapper;
 
+import com.example.autoservice.dto.order.OrderRequestDto;
+import com.example.autoservice.dto.order.OrderResponseDto;
+import com.example.autoservice.model.Order;
+import com.example.autoservice.model.Product;
+import com.example.autoservice.model.Task;
+import com.example.autoservice.service.CarService;
+import com.example.autoservice.service.ProductService;
+import com.example.autoservice.service.TaskService;
+import org.springframework.stereotype.Component;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.stream.Collectors;
-import com.example.autoservice.dto.order.OrderRequestDto;
-import com.example.autoservice.dto.order.OrderResponseDto;
-import com.example.autoservice.model.Task;
-import com.example.autoservice.model.Order;
-import com.example.autoservice.model.Product;
-import com.example.autoservice.service.CarService;
-import com.example.autoservice.service.TaskService;
-import com.example.autoservice.service.OrderService;
-import com.example.autoservice.service.ProductService;
-import org.springframework.stereotype.Component;
 
 @Component
 public class OrderMapper {
-    private final OrderService orderService;
     private final CarService carService;
     private final ProductService productService;
     private final TaskService taskService;
 
-    public OrderMapper(OrderService orderService, CarService carService,
+    public OrderMapper(CarService carService,
                        ProductService productService, TaskService taskService) {
-        this.orderService = orderService;
         this.carService = carService;
         this.productService = productService;
         this.taskService = taskService;

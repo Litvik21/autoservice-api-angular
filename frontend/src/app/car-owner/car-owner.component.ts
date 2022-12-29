@@ -22,10 +22,13 @@ export class CarOwnerComponent implements OnInit {
   newCars: Car[] = [];
   newOrders: Order[] = [];
 
+  name = '';
+
   constructor(private ownerService: CarOwnerService,
               private carService: CarService,
-              private orderService:OrderService,
-              private fb:FormBuilder) { }
+              private orderService: OrderService,
+              private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.getCarOwners();
@@ -63,8 +66,14 @@ export class CarOwnerComponent implements OnInit {
   }
 
   add(): void {
-    let id = Math.max.apply(Math, this.owners.map(function (o) {return o.id;}))
-    this.ownerService.addCarOwner({id: id + 1, cars: this.newCars, orders: this.newOrders} as CarOwner)
-      .subscribe(owner => {this.owners.push(owner)})
+    let id = Math.max.apply(Math, this.owners.map(function (o) {
+      return o.id;
+    }));
+    this.ownerService.addCarOwner({id: id + 1, name: this.name, cars: this.newCars, orders: this.newOrders} as CarOwner)
+      .subscribe(owner => {
+        this.owners.push(owner);
+      });
+
+    this.name = '';
   }
 }

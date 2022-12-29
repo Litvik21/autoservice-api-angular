@@ -1,7 +1,5 @@
 package com.example.autoservice.controller;
 
-import java.util.Collections;
-import java.util.List;
 import com.example.autoservice.dto.owner.CarOwnerRequestDto;
 import com.example.autoservice.model.Car;
 import com.example.autoservice.model.CarOwner;
@@ -20,6 +18,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.util.Collections;
+import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
@@ -40,16 +41,17 @@ class CarOwnerControllerTest {
     void shouldSaveCarOwner() {
         CarOwner owner = new CarOwner();
         Mockito.when(ownerService.save(owner))
-                .thenReturn(new CarOwner(3L, Collections.emptyList(), Collections.emptyList()));
+                .thenReturn(new CarOwner(3L, "Nazar", Collections.emptyList(), Collections.emptyList()));
 
         RestAssuredMockMvc.given()
                 .contentType(ContentType.JSON)
-                .body(new CarOwnerRequestDto(Collections.emptyList(), Collections.emptyList()))
+                .body(new CarOwnerRequestDto("Nazar", Collections.emptyList(), Collections.emptyList()))
                 .when()
                 .post("/car-owners")
                 .then()
                 .statusCode(200)
-                .body("id", Matchers.equalTo(3));
+                .body("id", Matchers.equalTo(3))
+                .body("name", Matchers.equalTo("Nazar"));
     }
 
     @Test

@@ -1,10 +1,11 @@
 package com.example.autoservice.dto.owner;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -12,6 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CarOwnerResponseDto {
     private Long id;
+    private String name;
     private List<Long> carsId;
     private List<Long> ordersId;
 }

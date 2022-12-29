@@ -4,11 +4,11 @@
   <input [(ngModel)]="mechanicName">
 </p>
 
-<form [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+<form (ngSubmit)="submitOrder()" [formGroup]="orderForm">
 
   <p>
     <label>Select Finished Order</label>
-    <label> By Description:</label>
+    <label> By Description: (Optional)</label>
     <select formControlName="order">
       <option [ngValue]="null" disabled>Select Order</option>
       <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>

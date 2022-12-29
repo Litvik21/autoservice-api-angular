@@ -1,6 +1,5 @@
 package com.example.autoservice.controller;
 
-import java.util.Collections;
 import com.example.autoservice.dto.car.CarRequestDto;
 import com.example.autoservice.model.Car;
 import com.example.autoservice.model.CarOwner;
@@ -19,6 +18,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.util.Collections;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
@@ -40,9 +41,9 @@ class CarControllerTest {
 
     @Test
     void shouldSaveCar() {
-        CarOwner owner = new CarOwner(2L, Collections.emptyList(), Collections.emptyList());
-        Car car = new Car(null,"audi", "a7",
-                "2018", "12312",  owner);
+        CarOwner owner = new CarOwner(2L, "", Collections.emptyList(), Collections.emptyList());
+        Car car = new Car(null, "audi", "a7",
+                "2018", "12312", owner);
         Mockito.when(ownerService.getById(2L)).thenReturn(owner);
         Mockito.when(carService.save(car)).thenReturn(new Car(103L,"audi",
                 "a7", "2018", "12312",  owner));

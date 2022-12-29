@@ -21,7 +21,9 @@ public class CarMapper {
         dto.setModel(car.getModel());
         dto.setYear(car.getYear());
         dto.setNumber(car.getNumber());
-        dto.setOwnerId(car.getOwner().getId());
+        if (car.getOwner() != null) {
+            dto.setOwnerId(car.getOwner().getId());
+        }
 
         return dto;
     }
@@ -32,7 +34,9 @@ public class CarMapper {
         car.setModel(requestDto.getModel());
         car.setYear(requestDto.getYear());
         car.setNumber(requestDto.getNumber());
-        car.setOwner(ownerService.getById(requestDto.getOwnerId()));
+        if (requestDto.getOwnerId() != null) {
+            car.setOwner(ownerService.getById(requestDto.getOwnerId()));
+        }
 
         return car;
     }

@@ -1,9 +1,14 @@
 <h2>Add car owner</h2>
 
-<form [formGroup]="carForm" (ngSubmit)="submitCar()">
+<p>
+  <label>Name:</label>
+  <input [(ngModel)]="name">
+</p>
+
+<form (ngSubmit)="submitCar()" [formGroup]="carForm">
 
   <p>
-    <label>Select Car VIN number:</label>
+    <label>Select Car VIN number: (Optional)</label>
     <select formControlName="car">
       <option [ngValue]="null" disabled>Select Car</option>
       <option *ngFor="let car of cars" [ngValue]="car.id">{{car.number}}</option>
@@ -14,10 +19,10 @@
 
 </form>
 
-<form [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+<form (ngSubmit)="submitOrder()" [formGroup]="orderForm">
 
   <p>
-    <label>Select Order description:</label>
+    <label>Select Order description: (Optional)</label>
     <select formControlName="order">
       <option [ngValue]="null" disabled>Select Order</option>
       <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>

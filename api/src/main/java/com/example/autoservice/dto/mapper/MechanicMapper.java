@@ -19,9 +19,11 @@ public class MechanicMapper {
         MechanicResponseDto dto = new MechanicResponseDto();
         dto.setId(mechanic.getId());
         dto.setName(mechanic.getName());
-        dto.setFinishedOrdersId(mechanic.getFinishedOrders().stream()
-                .map(Order::getId)
-                .toList());
+        if (mechanic.getFinishedOrders() != null) {
+            dto.setFinishedOrdersId(mechanic.getFinishedOrders().stream()
+                    .map(Order::getId)
+                    .toList());
+        }
 
         return dto;
     }
@@ -29,10 +31,11 @@ public class MechanicMapper {
     public Mechanic toModel(MechanicRequestDto requestDto) {
         Mechanic mechanic = new Mechanic();
         mechanic.setName(requestDto.getName());
-        mechanic.setFinishedOrders(requestDto.getFinishedOrdersId().stream()
-                .map(orderService::getById)
-                .toList());
-
+        if (requestDto.getFinishedOrdersId() != null) {
+            mechanic.setFinishedOrders(requestDto.getFinishedOrdersId().stream()
+                    .map(orderService::getById)
+                    .toList());
+        }
         return mechanic;
     }
 }

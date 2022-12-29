@@ -21,8 +21,12 @@ public class TaskMapperDto {
         TaskResponseDto dto = new TaskResponseDto();
         dto.setId(task.getId());
         dto.setType(task.getType());
-        dto.setOrderId(task.getOrder().getId());
-        dto.setMechanicId(task.getMechanic().getId());
+        if (task.getOrder() != null) {
+            dto.setOrderId(task.getOrder().getId());
+        }
+        if (task.getMechanic() != null) {
+            dto.setMechanicId(task.getMechanic().getId());
+        }
         dto.setPrice(task.getPrice());
         dto.setPaymentStatus(task.getPaymentStatus());
 
@@ -32,8 +36,12 @@ public class TaskMapperDto {
     public Task toModel(TaskRequestDto requestDto) {
         Task task = new Task();
         task.setType(requestDto.getType());
-        task.setOrder(orderService.getById(requestDto.getOrderId()));
-        task.setMechanic(mechanicService.getById(requestDto.getMechanicId()));
+        if (requestDto.getOrderId() != null) {
+            task.setOrder(orderService.getById(requestDto.getOrderId()));
+        }
+        if (requestDto.getMechanicId() != null) {
+            task.setMechanic(mechanicService.getById(requestDto.getMechanicId()));
+        }
         task.setPrice(requestDto.getPrice());
         task.setPaymentStatus(requestDto.getPaymentStatus());
 
