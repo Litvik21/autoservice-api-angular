@@ -28,7 +28,6 @@ export class OrderComponent implements OnInit {
   newProducts: Product[] = [];
 
   description = "";
-  dateFinished = new Date;
   picker = new Date;
 
 
@@ -89,11 +88,12 @@ export class OrderComponent implements OnInit {
   add(): void {
     let id = Math.max.apply(Math, this.orders.map(function (o) {return o.id!;} ));
 
-    this.orderService.addOrder({id: id + 1, car: this.newCar, dateFinished: this.dateFinished,
-      description: this.description, tasks: this.newTasks, products: this.newProducts} as Order)
+    this.orderService.addOrder({
+      id: id + 1, car: this.newCar, dateFinished: this.picker,
+      description: this.description, tasks: this.newTasks, products: this.newProducts
+    } as Order)
       .subscribe(order => {this.orders.push(order)});
 
     this.description = "";
-    this.dateFinished = new Date;
   }
 }

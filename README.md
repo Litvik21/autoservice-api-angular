@@ -32,11 +32,28 @@ But if the owner agrees to repair the car, diagnostic is free.
 - Angular
 
 ## ⚡️Quickstart
-## For lau
+
+### For launch project
+
+1. Install Docker Desktop and register on DockerHub
+
+2. Run next command in terminal from `autoservice-api-angular` directory:
+
+   > mvn clean package
+
+3. Run next command in terminal from the main directory:
+
+   > docker-compose up --build
+
+4. Open your browser on http://localhost:4200.
+
+### For local development
+
 1. Fork this repository
 2. Copy link of project
 3. Create new project from Version Control
 4. Edit resources/application.properties - set the necessary parameters
+
 ``` java
     spring.datasource.driver-class-name=YOUR_DRIVER
     spring.datasource.url=YOUR_URL
@@ -49,7 +66,6 @@ But if the owner agrees to repair the car, diagnostic is free.
 ```
 6. Create the necessary name of DB
 7. Run project
-8. this command "docker pull litvik/autoservice:latest" for using docker
 
 ## 👀 Example of parameters for db.properties
 ``` java

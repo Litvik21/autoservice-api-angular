@@ -11,10 +11,11 @@ services:
       - '3307:3306'
   backend:
     image: litvik/backend-autoservice
-    restart: on-failure
+    restart:
+      on-failure
     build: api/.
     ports:
-      - "6868:8080"
+      - "8080:8080"
     depends_on:
       - mysqldb
     environment:
