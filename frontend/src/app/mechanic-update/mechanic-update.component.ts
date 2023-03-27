@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { Mechanic } from '../model/mechanic';
 import { OrderService } from '../service/order.service';
 import { MechanicService } from '../service/mechanic.service';
 import { Order } from '../model/order';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-mechanic-update',
@@ -12,31 +12,50 @@ import { Order } from '../model/order';
   styleUrls: ['./mechanic-update.component.scss']
 })
 export class MechanicUpdateComponent implements OnInit {
-
-  mechanic!: Mechanic;
+  orderForm!: FormGroup;
+  newOrders: Order[] = [];
+  mechanic: any;
   orders: Order[] = [];
+  name = '';
 
   constructor(
     private route: ActivatedRoute,
     private mechanicService: MechanicService,
     private location: Location,
-    private orderService: OrderService
-  ) {}
+    private orderService: OrderService,
+    private fb: FormBuilder
+  ) {
+  }
 
   ngOnInit(): void {
     this.getMechanic();
     this.getOrders();
+    this.orderForm = this.fb.group({
+      order: [null]
+    });
   }
 
   getOrders(): void {
     this.orderService.getOrders()
-      .subscribe(orders =>  this.orders = orders);
+      .subscribe(orders => this.orders = orders);
+  }
+
+  submitOrder() {
+    if (this.orderForm.valid) {
+      const orderId = this.orderForm.get('order')!.value;
+      if (orderId !== null) {
+        this.newOrders.push(this.orders.find(t => t.id === orderId)!);
+      }
+    }
   }
 
   getMechanic(): void {
     const id = +this.route.snapshot.paramMap.get('id')!;
     this.mechanicService.getMechanic(id)
-      .subscribe(mechanic => this.mechanic = mechanic);
+      .subscribe(mechanic => {
+        this.mechanic = mechanic;
+        this.name = mechanic.name;
+      });
   }
 
   goBack(): void {
@@ -44,6 +63,13 @@ export class MechanicUpdateComponent implements OnInit {
   }
 
   save(): void {
+    console.log(this.newOrders);
+    this.mechanic = {
+      id: this.mechanic.id,
+      name: this.name != '' ? this.name : this.mechanic.name,
+      finishedOrdersId: this.newOrders && this.newOrders.length > 0 ?
+        this.newOrders.map(order => order.id) : this.mechanic.finishedOrdersId
+    };
     this.mechanicService.updateMechanic(this.mechanic)
       .subscribe(() => this.goBack());
   }

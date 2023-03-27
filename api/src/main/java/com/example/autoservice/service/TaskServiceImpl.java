@@ -1,11 +1,11 @@
 package com.example.autoservice.service;
 
-import java.util.List;
-import java.util.Optional;
-
 import com.example.autoservice.model.Task;
 import com.example.autoservice.repository.TaskRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaskServiceImpl implements TaskService {
@@ -26,9 +26,9 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task updateStatus(Long taskId, Task.PaymentStatus statusPaid) {
+    public Task updateStatus(Long taskId, String statusPaid) {
         Task taskToUpdate = getById(taskId);
-        taskToUpdate.setPaymentStatus(statusPaid);
+        taskToUpdate.setPaymentStatus(Task.PaymentStatus.valueOf(statusPaid.toUpperCase()));
         return taskRepository.save(taskToUpdate);
     }
 

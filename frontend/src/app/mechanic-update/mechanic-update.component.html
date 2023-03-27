@@ -1,17 +1,24 @@
 <div *ngIf="mechanic">
-  <h2>{{mechanic.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{mechanic.id}}</div>
-  <div>
-    <label>Name:
-      <input [(ngModel)]="mechanic.name" placeholder="name"/>
-    </label>
-  </div>
-  <div>
-    <label>Finished Orders:
-      <input [(ngModel)]="mechanic.finishedOrders" placeholder="finishedOrders"/>
-    </label>
-  </div>
+  <p style="margin-top: 10px">
+    <label>Name:</label>
+    <input [(ngModel)]="name">
+  </p>
 
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
+  <form (ngSubmit)="submitOrder()" [formGroup]="orderForm">
+
+    <p>
+      <label>Select Finished Order</label>
+      <label> By Description: </label>
+      <select formControlName="order">
+        <option [ngValue]="null" disabled>Select Order</option>
+        <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
+      </select>
+
+      <button style="margin-top: 5px" type="submit">Submit</button>
+    </p>
+
+  </form>
+
+  <button (click)="goBack()">Go back</button>
+  <button (click)="save()" style="margin-top: 5px">Save</button>
 </div>

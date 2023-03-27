@@ -1,0 +1,26 @@
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Type</th>
+    <th>Payment Status</th>
+    <th>Price</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let task of tasks">
+    <td>{{ task.id }}</td>
+    <td>{{ task.type }}</td>
+    <td>{{ task.paymentStatus }}</td>
+    <td>{{ task.price }}</td>
+    <td>
+      <button (click)="update(task.id)" style="margin-top: 5px" >Update</button>
+      <button (click)="updateStatus(task.id)" style="margin-top: 5px" >Update Status</button>
+    </td>
+  </tr>
+  <tr *ngIf="!tasks || tasks.length === 0">
+    <td colspan="4">No orders found.</td>
+  </tr>
+  </tbody>
+</table>

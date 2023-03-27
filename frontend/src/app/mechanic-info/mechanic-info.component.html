@@ -1,0 +1,23 @@
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let mechanic of mechanics">
+    <td>{{ mechanic.id }}</td>
+    <td>{{ mechanic.name }}</td>
+    <td>
+      <button (click)="update(mechanic.id)" style="margin-top: 5px" >Update</button>
+      <button (click)="getSalary(mechanic.id)" style="margin-top: 5px" >Get Salary</button>
+      <button (click)="getFinishedOrders(mechanic.id)" style="margin-top: 5px" >Get Finished Orders</button>
+    </td>
+  </tr>
+  <tr *ngIf="!mechanics || mechanics.length === 0">
+    <td colspan="4">No orders found.</td>
+  </tr>
+  </tbody>
+</table>

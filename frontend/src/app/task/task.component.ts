@@ -31,7 +31,6 @@ export class TaskComponent implements OnInit {
   type!: TypeOfTask;
   types = Object.values(TypeOfTask);
   TypeOfTaskMapping = TypeOfTaskMapping;
-
   price = 0;
 
   constructor(private taskService: TaskService,
@@ -40,9 +39,9 @@ export class TaskComponent implements OnInit {
               private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.getTasks();
     this.getOrders();
     this.getMechanics();
-    this.getTasks();
     this.paymentStatusForm = this.fb.group({
       status: [null]
     })

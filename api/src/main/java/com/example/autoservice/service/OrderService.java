@@ -1,10 +1,10 @@
 package com.example.autoservice.service;
 
-import java.math.BigDecimal;
-import java.util.List;
-
 import com.example.autoservice.model.Order;
 import com.example.autoservice.model.Product;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 public interface OrderService {
     Order save(Order order);

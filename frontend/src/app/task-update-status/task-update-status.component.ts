@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from '../model/task';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from '../service/task.service';
 import { Location } from '@angular/common';
@@ -12,35 +11,37 @@ import { PaymentStatus, PaymentStatusMapping } from '../model/paymentStatus';
   styleUrls: ['./task-update-status.component.scss']
 })
 export class TaskUpdateStatusComponent implements OnInit {
-  statusForm!: FormGroup;
-
+  paymentStatusForm!: FormGroup;
+  task: any;
+  paymentStatus!: PaymentStatus;
   statuses = Object.values(PaymentStatus);
-  PaymentStatusMapping = PaymentStatusMapping;
-  task!: Task;
-  status!: string;
+  paymentStatusMapping = PaymentStatusMapping;
 
   constructor(
     private route: ActivatedRoute,
     private taskService: TaskService,
     private location: Location,
     private fb: FormBuilder
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.getTask();
-    this.statusForm = this.fb.group({
-      status: [null]
-    })
   }
 
   getTask(): void {
     const id = +this.route.snapshot.paramMap.get('id')!;
     this.taskService.getTask(id)
-      .subscribe(task => this.task = task);
+      .subscribe(task => {
+        this.task = task;
+        this.paymentStatusForm = this.fb.group({
+          status: [this.task.paymentStatus]
+        });
+      });
   }
 
-  submitStatus() {
-    this.status = this.statusForm.value
+  submitPaymentStatus() {
+    this.paymentStatus = this.paymentStatusForm.get('status')!.value;
   }
 
   goBack(): void {
@@ -48,7 +49,7 @@ export class TaskUpdateStatusComponent implements OnInit {
   }
 
   save(): void {
-    this.taskService.updateStatus(this.task.id!, this.status)
+    this.taskService.updateStatus(this.task.id!, this.paymentStatus)
       .subscribe(() => this.goBack());
   }
 }

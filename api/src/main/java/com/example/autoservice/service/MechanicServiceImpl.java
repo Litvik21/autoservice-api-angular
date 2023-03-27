@@ -1,15 +1,17 @@
 package com.example.autoservice.service;
 
-import java.math.BigDecimal;
-import java.util.List;
-import com.example.autoservice.model.Task;
 import com.example.autoservice.model.Mechanic;
 import com.example.autoservice.model.Order;
+import com.example.autoservice.model.Task;
 import com.example.autoservice.repository.MechanicRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 @Service
 public class MechanicServiceImpl implements MechanicService {
+    private static final String PAID_STATUS = "paid";
     private final MechanicRepository mechanicRepository;
     private final TaskService taskService;
 
@@ -59,7 +61,7 @@ public class MechanicServiceImpl implements MechanicService {
 
     private void updateStatusOfJobMaster(List<Task> tasks) {
         for (Task task : tasks) {
-            taskService.updateStatus(task.getId(), Task.PaymentStatus.PAID);
+            taskService.updateStatus(task.getId(), PAID_STATUS);
         }
     }
 }

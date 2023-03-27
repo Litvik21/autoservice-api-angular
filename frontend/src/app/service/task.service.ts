@@ -26,7 +26,7 @@ export class TaskService {
   }
 
   getTask(id: number): Observable<Task> {
-    const url = `${this.taskUrl}/${id}`;
+    const url = `${this.taskUrl}/get/${id}`;
     return this.http.get<Task>(url).pipe(
       catchError(this.handleError<Task>(`getTask id=${id}`))
     );

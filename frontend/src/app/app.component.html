@@ -1,13 +1,22 @@
 <h1>Categories</h1>
-<nav>
-  <a routerLink="/orders">Orders</a>
-  <a routerLink="/car-owners">Car Owners</a>
-  <a routerLink="/cars">Cars</a>
-  <a routerLink="/mechanics">Mechanics</a>
-  <a routerLink="/tasks">Tasks</a>
-  <a routerLink="/products">Products</a>
-  <a routerLink="/orders-info">Orders-Info</a>
-  <a routerLink="/car-info">Cars-Info</a>
-  <a routerLink="/car-owner-info">Owners-Info</a>
-</nav>
+<header>
+  <nav class="menu">
+    <tr>
+      <a routerLink="/orders">Orders</a>
+      <a routerLink="/car-owners">Car Owners</a>
+      <a routerLink="/cars">Cars</a>
+      <a routerLink="/mechanics">Mechanics</a>
+      <a routerLink="/tasks">Tasks</a>
+      <a routerLink="/products">Products</a>
+    </tr>
+    <tr>
+      <a routerLink="/orders-info">Orders-Info</a>
+      <a routerLink="/car-owner-info">Owners-Info</a>
+      <a routerLink="/car-info">Cars-Info</a>
+      <a routerLink="/mechanic-info">Mechanics-Info</a>
+      <a routerLink="/task-info">Tasks-Info</a>
+      <a routerLink="/product-info">Products-Info</a>
+    </tr>
+  </nav>
+</header>
 <router-outlet></router-outlet>

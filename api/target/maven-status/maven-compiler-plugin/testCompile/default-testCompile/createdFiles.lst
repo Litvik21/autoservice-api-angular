@@ -1,8 +1,0 @@
-com/example/autoservice/controller/TaskControllerTest.class
-com/example/autoservice/controller/OrderControllerTest.class
-com/example/autoservice/controller/CarControllerTest.class
-com/example/autoservice/controller/CarOwnerControllerTest.class
-com/example/autoservice/controller/ProductControllerTest.class
-com/example/autoservice/service/MechanicServiceImplTest.class
-com/example/autoservice/controller/MechanicControllerTest.class
-com/example/autoservice/service/OrderServiceImplTest.class

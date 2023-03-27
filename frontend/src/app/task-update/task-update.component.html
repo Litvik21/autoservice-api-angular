@@ -1,26 +1,70 @@
 <div *ngIf="task">
-  <h2>Task Details</h2>
-  <div><span>id: </span>{{task.id}}</div>
-  <div>
-    <label>Task type:
-      <input [(ngModel)]="task.typeOfTask" placeholder="type"/>
-    </label>
-  </div>
-  <div>
-    <label>Order's id:
-      <input [(ngModel)]="task.order" placeholder="orderId"/>
-    </label>
-  </div>
-  <div>
-    <label>Mechanic's id:
-      <input [(ngModel)]="task.mechanic" placeholder="mechanicId"/>
-    </label>
-  </div>
-  <div>
-    <label>Price:
-      <input [(ngModel)]="task.price" placeholder="price"/>
-    </label>
-  </div>
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
+  <form (ngSubmit)="submitTypeOfTask()" [formGroup]="typeOfTaskForm">
+
+    <p>
+      <label>Select type of task:</label>
+      <select formControlName="type">
+        <option [ngValue]="null" disabled>Select Type</option>
+        <option *ngFor="let type of types"
+                [value]="type">
+          {{typeOfTaskMapping[type]}}
+        </option>
+      </select>
+
+      <button style="margin-top: 5px" type="submit">Submit</button>
+    </p>
+
+  </form>
+
+  <form (ngSubmit)="submitOrder()" [formGroup]="orderForm">
+
+    <p>
+      <label>Select Order</label>
+      <label> By Description:</label>
+      <select formControlName="order">
+        <option [ngValue]="null" disabled>Select Order</option>
+        <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
+      </select>
+
+      <button style="margin-top: 5px" type="submit">Submit</button>
+    </p>
+
+  </form>
+  <form (ngSubmit)="submitMechanic()" [formGroup]="mechanicForm">
+
+    <p>
+      <label>Select Mechanic</label>
+      <label> By Name:</label>
+      <select formControlName="mechanic">
+        <option [ngValue]="null" disabled>Select Mechanic</option>
+        <option *ngFor="let mechanic of mechanics" [ngValue]="mechanic.id">{{mechanic.name}}</option>
+      </select>
+
+      <button style="margin-top: 5px" type="submit">Submit</button>
+    </p>
+
+  </form>
+  <p>
+    <label>Price:</label>
+    <input [(ngModel)]="price">
+  </p>
+  <form (ngSubmit)="submitPaymentStatus()" [formGroup]="paymentStatusForm">
+
+    <p>
+      <label>Select payment status:</label>
+      <select formControlName="status">
+        <option [ngValue]="null" disabled>Select Status</option>
+        <option *ngFor="let status of statuses"
+                [value]="status">
+          {{paymentStatusMapping[status]}}
+        </option>
+      </select>
+
+      <button style="margin-top: 5px" type="submit">Submit</button>
+    </p>
+
+  </form>
+
+  <button (click)="goBack()" style="margin-top: 5px">Go Back</button>
+  <button (click)="save()" style="margin-top: 5px">Save</button>
 </div>

@@ -70,7 +70,8 @@ public class OrderServiceImpl implements OrderService {
 
     private void checkTypeOfTaskOnDiagnostic(Order order) {
         List<Task> tasks = order.getTasks();
-        Optional<Task> taskByTypeDiagnostic = taskService.findTaskByType(Task.TypeOfTask.DIAGNOSTICS);
+        Optional<Task> taskByTypeDiagnostic = taskService
+                .findTaskByType(Task.TypeOfTask.DIAGNOSTICS);
         if (tasks.size() == 1
                 && taskByTypeDiagnostic.isPresent()) {
             tasks.get(0).setPrice(BigDecimal.valueOf(500));
@@ -105,7 +106,8 @@ public class OrderServiceImpl implements OrderService {
         int countOfProducts = order.getProducts().size();
         int countOfJobs = order.getTasks().size();
         double totalPriceWithOutSale = totalPriceJobs + totalPriceProducts;
-        double sale = (totalPriceJobs + totalPriceProducts) * (countOfProducts + countOfJobs * 2) / 100;
+        double sale = (totalPriceJobs + totalPriceProducts)
+                * (countOfProducts + countOfJobs * 2) / 100;
         return BigDecimal.valueOf(totalPriceWithOutSale - sale);
     }
 }

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.29">
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/order/OrderRequestDto.java">
+<error line="8" severity="error" message="Extra separation in import group before &apos;java.time.LocalDate&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="8" severity="error" message="Wrong lexicographical order for &apos;java.time.LocalDate&apos; import. Should be before &apos;lombok.Setter&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="9" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;lombok.Setter&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/order/OrderResponseDto.java">
+<error line="8" severity="error" message="Extra separation in import group before &apos;java.math.BigDecimal&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="8" severity="error" message="Wrong lexicographical order for &apos;java.math.BigDecimal&apos; import. Should be before &apos;lombok.Setter&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="9" severity="error" message="Wrong lexicographical order for &apos;java.time.LocalDate&apos; import. Should be before &apos;lombok.Setter&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="10" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;lombok.Setter&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/car/CarRequestDto.java">
+<error line="5" severity="error" message="Wrong lexicographical order for &apos;lombok.AllArgsConstructor&apos; import. Should be before &apos;lombok.NoArgsConstructor&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/car/CarResponseDto.java">
+<error line="5" severity="error" message="Wrong lexicographical order for &apos;lombok.AllArgsConstructor&apos; import. Should be before &apos;lombok.NoArgsConstructor&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/owner/CarOwnerRequestDto.java">
+<error line="8" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="8" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;lombok.Setter&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/owner/CarOwnerResponseDto.java">
+<error line="8" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="8" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;lombok.Setter&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/mechanic/MechanicResponseDto.java">
+<error line="6" severity="error" message="Wrong lexicographical order for &apos;lombok.AllArgsConstructor&apos; import. Should be before &apos;lombok.NoArgsConstructor&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/mechanic/MechanicRequestDto.java">
+<error line="6" severity="error" message="Wrong lexicographical order for &apos;lombok.AllArgsConstructor&apos; import. Should be before &apos;lombok.NoArgsConstructor&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/mapper/CarMapper.java">
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/mapper/OrderMapper.java">
+<error line="13" severity="error" message="Extra separation in import group before &apos;java.math.BigDecimal&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="13" severity="error" message="Wrong lexicographical order for &apos;java.math.BigDecimal&apos; import. Should be before &apos;org.springframework.stereotype.Component&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="14" severity="error" message="Wrong lexicographical order for &apos;java.time.LocalDate&apos; import. Should be before &apos;org.springframework.stereotype.Component&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="15" severity="error" message="Wrong lexicographical order for &apos;java.util.stream.Collectors&apos; import. Should be before &apos;org.springframework.stereotype.Component&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/mapper/TaskMapperDto.java">
+<error line="46" severity="error" message="Line is longer than 100 characters (found 103)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/mapper/CarOwnerMapper.java">
+<error line="12" severity="error" message="Extra separation in import group before &apos;java.util.stream.Collectors&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="12" severity="error" message="Wrong lexicographical order for &apos;java.util.stream.Collectors&apos; import. Should be before &apos;org.springframework.stereotype.Component&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/mapper/ProductMapper.java">
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/mapper/MechanicMapper.java">
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/product/ProductResponseDto.java">
+<error line="6" severity="error" message="Wrong lexicographical order for &apos;lombok.AllArgsConstructor&apos; import. Should be before &apos;lombok.NoArgsConstructor&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/product/ProductRequestDto.java">
+<error line="6" severity="error" message="Wrong lexicographical order for &apos;lombok.AllArgsConstructor&apos; import. Should be before &apos;lombok.NoArgsConstructor&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/task/TaskResponseDto.java">
+<error line="4" severity="error" message="Wrong lexicographical order for &apos;com.example.autoservice.model.Task&apos; import. Should be before &apos;java.math.BigDecimal&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="7" severity="error" message="Wrong lexicographical order for &apos;lombok.AllArgsConstructor&apos; import. Should be before &apos;lombok.NoArgsConstructor&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/task/TaskRequestDto.java">
+<error line="8" severity="error" message="Extra separation in import group before &apos;java.math.BigDecimal&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="8" severity="error" message="Wrong lexicographical order for &apos;java.math.BigDecimal&apos; import. Should be before &apos;lombok.Setter&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/repository/OrderRepository.java">
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/repository/CarRepository.java">
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/repository/ProductRepository.java">
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/repository/MechanicRepository.java">
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/repository/CarOwnerRepository.java">
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/repository/TaskRepository.java">
+<error line="6" severity="error" message="Extra separation in import group before &apos;com.example.autoservice.model.Task&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="6" severity="error" message="Wrong lexicographical order for &apos;com.example.autoservice.model.Task&apos; import. Should be before &apos;java.util.Optional&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/AutoserviceApplication.java">
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/config/WebConfig.java">
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/controller/ProductController.java">
+<error line="10" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - org.springframework.web.bind.annotation.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="12" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="12" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;org.springframework.web.bind.annotation.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/controller/MechanicController.java">
+<error line="12" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - org.springframework.web.bind.annotation.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="14" severity="error" message="Extra separation in import group before &apos;java.math.BigDecimal&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="14" severity="error" message="Wrong lexicographical order for &apos;java.math.BigDecimal&apos; import. Should be before &apos;org.springframework.web.bind.annotation.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="15" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;org.springframework.web.bind.annotation.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="24" severity="error" message="Line is longer than 100 characters (found 112)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/controller/OrderController.java">
+<error line="11" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - org.springframework.web.bind.annotation.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="13" severity="error" message="Extra separation in import group before &apos;java.math.BigDecimal&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="13" severity="error" message="Wrong lexicographical order for &apos;java.math.BigDecimal&apos; import. Should be before &apos;org.springframework.web.bind.annotation.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="14" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;org.springframework.web.bind.annotation.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/controller/CarController.java">
+<error line="10" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - org.springframework.web.bind.annotation.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="12" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="12" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;org.springframework.web.bind.annotation.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/controller/TaskController.java">
+<error line="10" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - org.springframework.web.bind.annotation.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="12" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="12" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;org.springframework.web.bind.annotation.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/controller/CarOwnerController.java">
+<error line="12" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - org.springframework.web.bind.annotation.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="14" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="14" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;org.springframework.web.bind.annotation.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="15" severity="error" message="Wrong lexicographical order for &apos;java.util.stream.Collectors&apos; import. Should be before &apos;org.springframework.web.bind.annotation.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/controller/TestController.java">
+<error line="3" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - com.example.autoservice.model.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="4" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - com.example.autoservice.service.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="9" severity="error" message="Extra separation in import group before &apos;java.math.BigDecimal&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="9" severity="error" message="Wrong lexicographical order for &apos;java.math.BigDecimal&apos; import. Should be before &apos;org.springframework.web.bind.annotation.RestController&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="10" severity="error" message="Wrong lexicographical order for &apos;java.time.LocalDate&apos; import. Should be before &apos;org.springframework.web.bind.annotation.RestController&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="11" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;org.springframework.web.bind.annotation.RestController&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/model/Mechanic.java">
+<error line="13" severity="error" message="Extra separation in import group before &apos;lombok.*&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="13" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - lombok.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/model/Order.java">
+<error line="4" severity="error" message="&apos;import&apos; has more than 1 empty lines before." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
+<error line="4" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - lombok.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="6" severity="error" message="Extra separation in import group before &apos;javax.persistence.*&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="6" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - javax.persistence.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="6" severity="error" message="Wrong lexicographical order for &apos;javax.persistence.*&apos; import. Should be before &apos;lombok.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="7" severity="error" message="Wrong lexicographical order for &apos;java.math.BigDecimal&apos; import. Should be before &apos;lombok.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="8" severity="error" message="Wrong lexicographical order for &apos;java.time.LocalDate&apos; import. Should be before &apos;lombok.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="9" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;lombok.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="44" severity="error" message="&apos;ENUM_DEF&apos; has more than 1 empty lines before." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/model/Product.java">
+<error line="9" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - lombok.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/model/CarOwner.java">
+<error line="3" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - lombok.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="5" severity="error" message="Extra separation in import group before &apos;javax.persistence.*&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="5" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - javax.persistence.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="5" severity="error" message="Wrong lexicographical order for &apos;javax.persistence.*&apos; import. Should be before &apos;lombok.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="6" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;lombok.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/model/Task.java">
+<error line="3" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - lombok.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="5" severity="error" message="Extra separation in import group before &apos;javax.persistence.*&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="5" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - javax.persistence.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="5" severity="error" message="Wrong lexicographical order for &apos;javax.persistence.*&apos; import. Should be before &apos;lombok.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="6" severity="error" message="Wrong lexicographical order for &apos;java.math.BigDecimal&apos; import. Should be before &apos;lombok.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/model/Car.java">
+<error line="11" severity="error" message="Extra separation in import group before &apos;lombok.*&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="11" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - lombok.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/CarServiceImpl.java">
+<error line="7" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="7" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;org.springframework.stereotype.Service&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="24" severity="error" message="&apos;METHOD_DEF&apos; has more than 1 empty lines before." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/CarOwnerServiceImpl.java">
+<error line="9" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="9" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;org.springframework.stereotype.Service&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/OrderServiceImpl.java">
+<error line="9" severity="error" message="Extra separation in import group before &apos;java.math.BigDecimal&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="9" severity="error" message="Wrong lexicographical order for &apos;java.math.BigDecimal&apos; import. Should be before &apos;org.springframework.stereotype.Service&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="10" severity="error" message="Wrong lexicographical order for &apos;java.time.LocalDate&apos; import. Should be before &apos;org.springframework.stereotype.Service&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="11" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;org.springframework.stereotype.Service&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="12" severity="error" message="Wrong lexicographical order for &apos;java.util.Optional&apos; import. Should be before &apos;org.springframework.stereotype.Service&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/ProductService.java">
+<error line="5" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/OrderService.java">
+<error line="1" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
+<error line="6" severity="error" message="Extra separation in import group before &apos;java.math.BigDecimal&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/CarOwnerService.java">
+<error line="7" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/CarService.java">
+<error line="5" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/TaskService.java">
+<error line="5" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/ProductServiceImpl.java">
+<error line="7" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="7" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;org.springframework.stereotype.Service&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/MechanicServiceImpl.java">
+<error line="9" severity="error" message="Extra separation in import group before &apos;java.math.BigDecimal&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="9" severity="error" message="Wrong lexicographical order for &apos;java.math.BigDecimal&apos; import. Should be before &apos;org.springframework.stereotype.Service&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="10" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;org.springframework.stereotype.Service&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/TaskServiceImpl.java">
+<error line="7" severity="error" message="Extra separation in import group before &apos;java.util.List&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="7" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;org.springframework.stereotype.Service&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="8" severity="error" message="Wrong lexicographical order for &apos;java.util.Optional&apos; import. Should be before &apos;org.springframework.stereotype.Service&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/MechanicService.java">
+<error line="6" severity="error" message="Extra separation in import group before &apos;java.math.BigDecimal&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/resources/application.properties">
+</file>
+</checkstyle>

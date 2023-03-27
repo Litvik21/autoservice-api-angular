@@ -32,6 +32,9 @@ import { APP_DATE_FORMATS, AppDateAdapter } from './adapter/date.adapter';
 import { OrderInfoComponent } from './order-info/order-info.component';
 import { CarInfoComponent } from './car-info/car-info.component';
 import { CarOwnerInfoComponent } from './car-owner-info/car-owner-info.component';
+import { MechanicInfoComponent } from './mechanic-info/mechanic-info.component';
+import { ProductInfoComponent } from './product-info/product-info.component';
+import { TaskInfoComponent } from './task-info/task-info.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,10 @@ import { CarOwnerInfoComponent } from './car-owner-info/car-owner-info.component
     TaskUpdateStatusComponent,
     OrderInfoComponent,
     CarInfoComponent,
-    CarOwnerInfoComponent
+    CarOwnerInfoComponent,
+    MechanicInfoComponent,
+    ProductInfoComponent,
+    TaskInfoComponent
   ],
   imports: [
     BrowserModule,

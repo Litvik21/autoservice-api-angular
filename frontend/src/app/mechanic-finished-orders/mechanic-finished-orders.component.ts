@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Order } from '../model/order';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { Mechanic } from '../model/mechanic';
 import { MechanicService } from '../service/mechanic.service';
 
 @Component({
@@ -11,8 +10,7 @@ import { MechanicService } from '../service/mechanic.service';
   styleUrls: ['./mechanic-finished-orders.component.scss']
 })
 export class MechanicFinishedOrdersComponent implements OnInit {
-
-  mechanic!: Mechanic;
+  mechanic: any;
   orders: Order[] = [];
 
   constructor(

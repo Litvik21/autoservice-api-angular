@@ -1,16 +1,16 @@
 package com.example.autoservice.service;
 
+import com.example.autoservice.model.Task;
+
 import java.util.List;
 import java.util.Optional;
-
-import com.example.autoservice.model.Task;
 
 public interface TaskService {
     Task save(Task task);
 
     Task update(Task task);
 
-    Task updateStatus(Long taskId, Task.PaymentStatus statusPaid);
+    Task updateStatus(Long taskId, String statusPaid);
 
     Task getById(Long id);
 

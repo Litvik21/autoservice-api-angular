@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Mechanic } from '../model/mechanic';
 import { ActivatedRoute } from '@angular/router';
 import { MechanicService } from '../service/mechanic.service';
 import { Location } from '@angular/common';
@@ -10,8 +9,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./mechanic-salary.component.scss']
 })
 export class MechanicSalaryComponent implements OnInit {
-
-  mechanic!: Mechanic;
+  mechanic: any;
   salary!: Number;
 
   constructor(

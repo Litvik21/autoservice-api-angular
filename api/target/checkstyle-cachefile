@@ -1,0 +1,13 @@
+#Tue Mar 28 01:01:12 EEST 2023
+/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/AutoserviceApplication.java=1667468901966
+/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/config/WebConfig.java=1670835226789
+/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/mapper/CarMapper.java=1672351856080
+/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/mapper/MechanicMapper.java=1672351272721
+/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/mapper/ProductMapper.java=1667672115047
+/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/repository/CarOwnerRepository.java=1667936495233
+/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/repository/CarRepository.java=1667657186347
+/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/repository/MechanicRepository.java=1667936495274
+/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/repository/OrderRepository.java=1667657186330
+/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/repository/ProductRepository.java=1667657186343
+/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/resources/application.properties=1679954229988
+configuration*?=1685752D73458A44F130197C005B8AAB698B52BB

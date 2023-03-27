@@ -58,6 +58,9 @@ export class CarUpdateComponent implements OnInit {
         this.carYear = car.year;
         this.carBrand = car.brand;
         this.carNumber = car.number;
+        this.contactForm = this.fb.group({
+          owner: [this.car.ownerId]
+        });
       });
   }
 

@@ -25,7 +25,7 @@ export class MechanicService {
   }
 
   getMechanic(id: number): Observable<Mechanic> {
-    const url = `${this.mechanicsUrl}/${id}`;
+    const url = `${this.mechanicsUrl}/get/${id}`;
     return this.http.get<Mechanic>(url).pipe(
       catchError(this.handleError<Mechanic>(`getMechanic id=${id}`))
     );
@@ -39,7 +39,7 @@ export class MechanicService {
   }
 
   getSalary(id: number): Observable<Number> {
-    const url = `${this.mechanicsUrl}/${id}`;
+    const url = `${this.mechanicsUrl}/salary/${id}`;
     return this.http.get<Number>(url).pipe(
       catchError(this.handleError<Number>(`getMechanic id=${id}`))
     );

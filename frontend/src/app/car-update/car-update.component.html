@@ -19,7 +19,7 @@
 
   <form (ngSubmit)="submit()" [formGroup]="contactForm">
     <p>
-      <label>Select Owner ID: (Optional)</label>
+      <label>Select Owner ID:</label>
       <select formControlName="owner">
         <option [ngValue]="null" disabled>Select Owner</option>
         <option *ngFor="let owner of owners" [ngValue]="owner.id">{{owner.name}}</option>

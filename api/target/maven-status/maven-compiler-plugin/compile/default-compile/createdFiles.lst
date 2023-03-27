@@ -1,3 +1,4 @@
+com/example/autoservice/controller/TestController.class
 com/example/autoservice/service/ProductServiceImpl.class
 com/example/autoservice/model/Car.class
 com/example/autoservice/repository/CarOwnerRepository.class
@@ -23,6 +24,7 @@ com/example/autoservice/repository/CarRepository.class
 com/example/autoservice/dto/mapper/CarMapper.class
 com/example/autoservice/controller/CarController.class
 com/example/autoservice/dto/owner/CarOwnerRequestDto.class
+com/example/autoservice/config/WebConfig.class
 com/example/autoservice/dto/mapper/TaskMapperDto.class
 com/example/autoservice/dto/mapper/CarOwnerMapper.class
 com/example/autoservice/dto/order/OrderRequestDto.class

@@ -57,6 +57,15 @@ public class MechanicController {
                 .toList();
     }
 
+    @GetMapping("/get/{id}")
+    @ApiOperation(value = "Get mechanic by id")
+    public MechanicResponseDto getMechanic(
+            @PathVariable @ApiParam(value = "id of mechanic that you want to get")
+            Long id) {
+
+        return mapper.toDto(mechanicService.getById(id));
+    }
+
     @GetMapping("/salary/{id}")
     @ApiOperation(value = "Get salary for mechanic by id")
     public BigDecimal getSalary(

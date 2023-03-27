@@ -1,9 +1,10 @@
 package com.example.autoservice.service;
 
-import java.math.BigDecimal;
-import java.util.List;
 import com.example.autoservice.model.Mechanic;
 import com.example.autoservice.model.Order;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 public interface MechanicService {
     Mechanic save(Mechanic master);

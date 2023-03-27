@@ -8,7 +8,7 @@
   <form (ngSubmit)="submitCar()" [formGroup]="carForm">
 
     <p>
-      <label>Select Car VIN number: (Optional)</label>
+      <label>Select Car VIN number:</label>
       <select formControlName="car">
         <option [ngValue]="null" disabled>Select Car</option>
         <option *ngFor="let car of cars" [ngValue]="car.id">{{car.number}}</option>
@@ -22,7 +22,7 @@
   <form (ngSubmit)="submitOrder()" [formGroup]="orderForm">
 
     <p>
-      <label>Select Order description: (Optional)</label>
+      <label>Select Order description:</label>
       <select formControlName="order">
         <option [ngValue]="null" disabled>Select Order</option>
         <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>

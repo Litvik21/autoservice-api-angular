@@ -54,14 +54,8 @@ export class OrderUpdateComponent implements OnInit {
     this.taskForm = this.fb.group({
       task: [null]
     });
-    this.carForm = this.fb.group({
-      car: [null]
-    });
     this.productForm = this.fb.group({
       product: [null]
-    });
-    this.statusForm = this.fb.group({
-      status: [null]
     });
   }
 
@@ -121,6 +115,13 @@ export class OrderUpdateComponent implements OnInit {
     this.orderService.getOrder(id)
       .subscribe(order => {
         this.order = order;
+        this.description = order.description;
+        this.carForm = this.fb.group({
+          car: [this.order.carId]
+        });
+        this.statusForm = this.fb.group({
+          status: [this.order.status]
+        });
       });
   }
 

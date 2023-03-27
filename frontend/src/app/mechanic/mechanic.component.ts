@@ -12,11 +12,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class MechanicComponent implements OnInit {
   orderForm!: FormGroup;
-
+  newOrders: Order[] = [];
   mechanics: Mechanic[] = [];
   orders: Order[] = [];
-  newOrders: Order[] = [];
-
   mechanicName = "";
 
   constructor(private mechanicService: MechanicService,

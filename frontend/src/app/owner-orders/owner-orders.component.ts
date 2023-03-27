@@ -38,7 +38,6 @@ export class OwnerOrdersComponent implements OnInit {
     this.ownerService.getOrdersOfOwner(this.owner.id)
       .subscribe(orders => {
         this.orders = orders;
-        console.log(this.orders);
       });
   }
 }

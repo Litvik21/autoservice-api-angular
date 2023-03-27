@@ -22,6 +22,9 @@ import { TaskUpdateStatusComponent } from './task-update-status/task-update-stat
 import { OrderInfoComponent } from './order-info/order-info.component';
 import { CarInfoComponent } from './car-info/car-info.component';
 import { CarOwnerInfoComponent } from './car-owner-info/car-owner-info.component';
+import { ProductInfoComponent } from './product-info/product-info.component';
+import { TaskInfoComponent } from './task-info/task-info.component';
+import { MechanicInfoComponent } from './mechanic-info/mechanic-info.component';
 
 const routes: Routes = [
   {path: 'cars/:id', component: CarUpdateComponent},
@@ -33,14 +36,16 @@ const routes: Routes = [
   {path: 'car-owners', component: CarOwnerComponent},
   {path: 'car-owner-info', component: CarOwnerInfoComponent},
 
+  {path: 'mechanics/salary/:id', component: MechanicSalaryComponent},
   {path: 'mechanics/:id/finished-orders', component: MechanicFinishedOrdersComponent},
-  {path: 'mechanics/salary:id', component: MechanicSalaryComponent},
   {path: 'mechanics/:id', component: MechanicUpdateComponent},
   {path: 'mechanics', component: MechanicComponent},
+  {path: 'mechanic-info', component: MechanicInfoComponent},
 
   {path: 'tasks/update-status/:id', component: TaskUpdateStatusComponent},
   {path: 'tasks/:id', component: TaskUpdateComponent},
   {path: 'tasks', component: TaskComponent},
+  {path: 'task-info', component: TaskInfoComponent},
 
   {path: 'orders/add-product/:id', component: OrderAddProductComponent},
   {path: 'orders/update-status/:id', component: OrderUpdateStatusComponent},
@@ -50,7 +55,8 @@ const routes: Routes = [
   {path: 'orders-info', component: OrderInfoComponent},
 
   {path: 'products/:id', component: ProductUpdateComponent},
-  {path: 'products', component: ProductComponent}
+  {path: 'products', component: ProductComponent},
+  {path: 'product-info', component: ProductInfoComponent}
 ];
 
 @NgModule({

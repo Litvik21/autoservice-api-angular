@@ -54,7 +54,6 @@ export class OrderInfoComponent implements OnInit {
     this.orderService.getOrders()
       .subscribe(orders => {
         this.orders = orders
-        console.log(this.orders)
       });
   }
 
@@ -73,5 +72,4 @@ export class OrderInfoComponent implements OnInit {
   getPrice(orderId: any) {
     this.router.navigate(['/orders/price', orderId]);
   }
-
 }

@@ -41,6 +41,15 @@ public class ProductController {
         return mapper.toDto(productService.update(product));
     }
 
+    @GetMapping("/get/{id}")
+    @ApiOperation(value = "Get product by id")
+    public ProductResponseDto getProduct(
+            @PathVariable @ApiParam(value = "id of product that you want to get")
+            Long id) {
+
+        return mapper.toDto(productService.getById(id));
+    }
+
     @GetMapping
     @ApiOperation(value = "Get list of products")
     public List<ProductResponseDto> getAll() {

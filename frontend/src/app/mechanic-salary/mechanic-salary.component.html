@@ -1,8 +1,21 @@
 <div *ngIf="mechanic">
-  <h2>Mechanic {{mechanic.name}} Details</h2>
-  <div><span>id: </span>{{mechanic.id}}</div>
-
-  <button (click)="goBack()">Go back</button>
-  <button (click)="getSalary()">Get Salary</button>
-  <h3>Salary of  {{mechanic.name}}: {{salary}} </h3>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Salary</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <td>{{ mechanic.id }}</td>
+    <td>{{ mechanic.name }}</td>
+    <td>{{ salary }}</td>
+    <td>
+      <button (click)="getSalary()" style="margin-top: 5px">Get Salary</button>
+    </td>
+    </tbody>
+  </table>
+  <button (click)="goBack()" style="margin-top: 5px">Go back</button>
 </div>

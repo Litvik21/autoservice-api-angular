@@ -1,14 +1,15 @@
 package com.example.autoservice.controller;
 
-import java.util.List;
+import com.example.autoservice.dto.mapper.TaskMapperDto;
 import com.example.autoservice.dto.task.TaskRequestDto;
 import com.example.autoservice.dto.task.TaskResponseDto;
-import com.example.autoservice.dto.mapper.TaskMapperDto;
 import com.example.autoservice.model.Task;
 import com.example.autoservice.service.TaskService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/tasks")
@@ -48,8 +49,16 @@ public class TaskController {
             @RequestBody @ApiParam(value = "Updated status for task")
             String status) {
 
-        return mapper.toDto(taskService.updateStatus(id,
-                Task.PaymentStatus.valueOf(status)));
+        return mapper.toDto(taskService.updateStatus(id, status));
+    }
+
+    @GetMapping("/get/{id}")
+    @ApiOperation(value = "Get task by id")
+    public TaskResponseDto getTask(
+            @PathVariable @ApiParam(value = "id of task that you want to get")
+            Long id) {
+
+        return mapper.toDto(taskService.getById(id));
     }
 
     @GetMapping
