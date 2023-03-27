@@ -52,10 +52,16 @@ export class OrderAddProductComponent implements OnInit {
   }
 
   submitProduct() {
-    this.newProduct = this.products.find(p => p.id == this.productForm.value)!
+    if (this.productForm.valid) {
+      const productID = this.productForm.get('product')!.value;
+      if (productID !== null) {
+        this.newProduct = this.products.find(p => p.id === productID)!;
+      }
+    }
   }
 
   save(): void {
+    console.log(this.newProduct);
     this.orderService.addProductToOrder(this.order.id!, this.newProduct)
       .subscribe(() => this.goBack());
   }

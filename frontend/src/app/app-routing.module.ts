@@ -19,32 +19,38 @@ import { OrderUpdateStatusComponent } from './order-update-status/order-update-s
 import { OrderTotalPriceComponent } from './order-total-price/order-total-price.component';
 import { OrderAddProductComponent } from './order-add-product/order-add-product.component';
 import { TaskUpdateStatusComponent } from './task-update-status/task-update-status.component';
+import { OrderInfoComponent } from './order-info/order-info.component';
+import { CarInfoComponent } from './car-info/car-info.component';
+import { CarOwnerInfoComponent } from './car-owner-info/car-owner-info.component';
 
 const routes: Routes = [
-  {path: 'cars', component: CarComponent},
   {path: 'cars/:id', component: CarUpdateComponent},
+  {path: 'cars', component: CarComponent},
+  {path: 'car-info', component: CarInfoComponent},
 
-  {path: 'car-owners', component: CarOwnerComponent},
-  {path: 'car-owners/:id', component: CarOwnerUpdateComponent},
   {path: 'car-owners/orders/:id', component: OwnerOrdersComponent},
+  {path: 'car-owners/:id', component: CarOwnerUpdateComponent},
+  {path: 'car-owners', component: CarOwnerComponent},
+  {path: 'car-owner-info', component: CarOwnerInfoComponent},
 
-  {path: 'mechanics', component: MechanicComponent},
-  {path: 'mechanics/:id', component: MechanicUpdateComponent},
   {path: 'mechanics/:id/finished-orders', component: MechanicFinishedOrdersComponent},
-  {path: 'mechanics/:id', component: MechanicSalaryComponent},
+  {path: 'mechanics/salary:id', component: MechanicSalaryComponent},
+  {path: 'mechanics/:id', component: MechanicUpdateComponent},
+  {path: 'mechanics', component: MechanicComponent},
 
-  {path: 'tasks', component: TaskComponent},
-  {path: 'tasks/:id', component: TaskUpdateComponent},
   {path: 'tasks/update-status/:id', component: TaskUpdateStatusComponent},
+  {path: 'tasks/:id', component: TaskUpdateComponent},
+  {path: 'tasks', component: TaskComponent},
 
-  {path: 'orders', component: OrderComponent},
-  {path: 'orders/:id', component: OrderUpdateComponent},
   {path: 'orders/add-product/:id', component: OrderAddProductComponent},
   {path: 'orders/update-status/:id', component: OrderUpdateStatusComponent},
   {path: 'orders/price/:id', component: OrderTotalPriceComponent},
+  {path: 'orders/:id', component: OrderUpdateComponent},
+  {path: 'orders', component: OrderComponent},
+  {path: 'orders-info', component: OrderInfoComponent},
 
-  {path: 'products', component: ProductComponent},
-  {path: 'products/:id', component: ProductUpdateComponent}
+  {path: 'products/:id', component: ProductUpdateComponent},
+  {path: 'products', component: ProductComponent}
 ];
 
 @NgModule({

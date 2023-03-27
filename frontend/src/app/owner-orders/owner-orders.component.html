@@ -1,7 +1,29 @@
 <div *ngIf="owner">
-  <h2>Owner Details</h2>
-  <div><span>id: </span>{{owner.id}}</div>
-
-  <button (click)="goBack()">Go back</button>
-  <button (click)="getOrders()">Get Orders</button>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Date Received</th>
+      <th>Date Finished</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.id }}</td>
+      <td>{{ order.description }}</td>
+      <td>{{ order.status }}</td>
+      <td>{{ order.dateReceived }}</td>
+      <td>{{ order.dateFinished }}</td>
+    </tr>
+    <tr *ngIf="!orders || orders.length === 0">
+      <td colspan="4">No orders found.</td>
+    </tr>
+    </tbody>
+  </table>
+  <td>
+    <button (click)="getOrders()" style="margin-top: 5px">Get Orders</button>
+    <button (click)="goBack()" style="margin-top: 5px">Go back</button>
+  </td>
 </div>

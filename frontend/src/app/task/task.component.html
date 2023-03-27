@@ -4,7 +4,8 @@
 
   <p>
     <label>Select type of task</label>
-    <select>
+    <select formControlName="type">
+      <option [ngValue]="null" disabled>Select Type</option>
       <option *ngFor="let type of types"
               [value]="type">
         {{TypeOfTaskMapping[type]}}
@@ -52,7 +53,8 @@
 
   <p>
     <label>Select payment status</label>
-    <select>
+    <select formControlName="status">
+      <option [ngValue]="null" disabled>Select Status</option>
       <option *ngFor="let status of statuses"
               [value]="status">
         {{PaymentStatusMapping[status]}}

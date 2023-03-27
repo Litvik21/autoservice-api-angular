@@ -25,7 +25,7 @@ export class CarOwnerService {
   }
 
   getCarOwner(id: number): Observable<CarOwner> {
-    const url = `${this.ownersUrl}/${id}`;
+    const url = `${this.ownersUrl}/get/${id}`;
     return this.http.get<CarOwner>(url).pipe();
   }
 
@@ -34,16 +34,21 @@ export class CarOwnerService {
     return this.http.get<Order[]>(url).pipe();
   }
 
-  updateCarOwner(owner: CarOwner): Observable<any> {
-    const url = `${this.ownersUrl}/${owner.id}`
+  updateCarOwner(owner: any): Observable<any> {
+    const url = `${this.ownersUrl}/${owner.id}`;
     return this.http.put(url, owner, this.httpOptions).pipe(
       catchError(this.handleError<any>('updateCarOwner'))
     );
   }
 
-  addCarOwner(owner: CarOwner): Observable<CarOwner> {
-    return this.http.post<CarOwner>(this.ownersUrl, owner, this.httpOptions).pipe(
-      catchError(this.handleError<CarOwner>('addCarOwner'))
+  addCarOwner(owner: CarOwner): Observable<any> {
+    const ownerToSent = {
+      name: owner.name,
+      carsId: owner.cars.map(car => car.id),
+      ordersId: owner.orders.map(order => order.id)
+    };
+    return this.http.post<any>(this.ownersUrl, ownerToSent, this.httpOptions).pipe(
+      catchError(this.handleError<any>('addCarOwner'))
     );
   }
 

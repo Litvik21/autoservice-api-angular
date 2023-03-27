@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../model/order';
-import { Task } from '../model/task';
-import { Product } from '../model/product';
 import { ActivatedRoute } from '@angular/router';
 import { OrderService } from '../service/order.service';
 import { CarService } from '../service/car.service';
@@ -13,10 +11,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./order-total-price.component.scss']
 })
 export class OrderTotalPriceComponent implements OnInit {
-
   order!: Order;
-  tasks: Task[] = [];
-  products: Product[] = [];
   totalPrice!: Number;
 
   constructor(
@@ -28,16 +23,6 @@ export class OrderTotalPriceComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOrder();
-    this.getProducts();
-    this.getTasks();
-  }
-
-  getProducts(): void {
-    this.products = this.order.products;
-  }
-
-  getTasks(): void {
-    this.tasks = this.order.tasks;
   }
 
   getOrder(): void {

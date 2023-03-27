@@ -1,14 +1,15 @@
 package com.example.autoservice.service;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
 import com.example.autoservice.model.Order;
 import com.example.autoservice.model.Product;
 import com.example.autoservice.model.Task;
 import com.example.autoservice.repository.OrderRepository;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -22,6 +23,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order save(Order order) {
+        order.setDateReceived(LocalDate.now());
         return orderRepository.save(order);
     }
 
@@ -36,13 +38,13 @@ public class OrderServiceImpl implements OrderService {
         List<Product> products = order.getProducts();
         products.add(product);
         order.setProducts(products);
-        return order;
+        return save(order);
     }
 
     @Override
-    public Order updateStatus(Long orderId, Order.Status status) {
+    public Order updateStatus(Long orderId, String status) {
         Order order = getById(orderId);
-        order.setStatus(status);
+        order.setStatus(Order.Status.valueOf(status.toUpperCase()));
         checkStatus(order);
         return orderRepository.save(order);
     }

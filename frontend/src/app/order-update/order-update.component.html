@@ -1,31 +1,80 @@
 <div *ngIf="order">
   <h2>Order Details</h2>
-  <div><span>id: </span>{{order.id}}</div>
-  <div>
-    <label>Car:
-      <input [(ngModel)]="order.car" placeholder="car"/>
-    </label>
-  </div>
-  <div>
-    <label>Description:
-      <input [(ngModel)]="order.description" placeholder="description"/>
-    </label>
-  </div>
-  <div>
-    <label>Tasks:
-      <input [(ngModel)]="order.tasks" placeholder="tasks"/>
-    </label>
-  </div>
-  <div>
-    <label>Products:
-      <input [(ngModel)]="order.products" placeholder="products"/>
-    </label>
-  </div>
-  <div>
-    <label>Date Finished:
-      <input [(ngModel)]="order.dateFinished" placeholder="dateFinished"/>
-    </label>
-  </div>
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
+  <form (ngSubmit)="submitCar()" [formGroup]="carForm">
+
+    <p>
+      <label>Select Car</label>
+      <label> By VIN number:</label>
+      <select formControlName="car">
+        <option [ngValue]="null" disabled>Select Car</option>
+        <option *ngFor="let car of cars" [ngValue]="car.id">{{car.number}}</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </p>
+
+  </form>
+
+  <p>
+    <label>Description:</label>
+    <input [(ngModel)]="description">
+  </p>
+
+  <form (ngSubmit)="submitTask()" [formGroup]="taskForm">
+
+    <p>
+      <label>Select Task</label>
+      <label> By Type ID:</label>
+      <select formControlName="task">
+        <option [ngValue]="null" disabled>Select Task</option>
+        <option *ngFor="let task of tasks" [ngValue]="task.id">{{task.id}}</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </p>
+
+  </form>
+
+
+  <form (ngSubmit)="submitProduct()" [formGroup]="productForm">
+    <p>
+      <label>Select Product</label>
+      <label> By Title:</label>
+      <select formControlName="product">
+        <option [ngValue]="null" disabled>Select Product</option>
+        <option *ngFor="let product of products" [ngValue]="product.id">{{product.title}}</option>
+      </select>
+      <button type="submit">Submit</button>
+    </p>
+  </form>
+
+  <p>
+    <label>Date Finished: </label>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input [(ngModel)]="selectedDate" [matDatepicker]="picker" matInput>
+      <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </p>
+
+  <form (ngSubmit)="submitStatus()" [formGroup]="statusForm">
+
+    <p>
+      <label>Select status</label>
+      <select formControlName="status">
+        <option [ngValue]="null" disabled>Select Status</option>
+        <option *ngFor="let status of statuses"
+                [value]="status">
+          {{statusMapping[status]}}
+        </option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </p>
+
+  </form>
+  <button (click)="goBack()">Go Back</button>
+
+  <button (click)="updateOrder()" style="margin-top: 5px">Update</button>
 </div>

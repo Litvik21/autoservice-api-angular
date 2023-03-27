@@ -21,7 +21,6 @@ export class CarOwnerComponent implements OnInit {
   orders: Order[] = [];
   newCars: Car[] = [];
   newOrders: Order[] = [];
-
   name = '';
 
   constructor(private ownerService: CarOwnerService,
@@ -58,11 +57,21 @@ export class CarOwnerComponent implements OnInit {
   }
 
   submitCar() {
-    this.newCars.push(this.cars.find(c => c.id == this.carForm.value)!)
+    if (this.carForm.valid) {
+      const carId = this.carForm.get('car')!.value;
+      if (carId !== null) {
+        this.newCars.push(this.cars.find(c => c.id === carId)!);
+      }
+    }
   }
 
   submitOrder() {
-    this.newOrders.push(this.orders.find(o => o.id == this.orderForm.value)!)
+    if (this.orderForm.valid) {
+      const orderId = this.orderForm.get('order')!.value;
+      if (orderId !== null) {
+        this.newOrders.push(this.orders.find(o => o.id === orderId)!);
+      }
+    }
   }
 
   add(): void {
@@ -75,5 +84,7 @@ export class CarOwnerComponent implements OnInit {
       });
 
     this.name = '';
+    this.orderForm.reset();
+    this.carForm.reset();
   }
 }

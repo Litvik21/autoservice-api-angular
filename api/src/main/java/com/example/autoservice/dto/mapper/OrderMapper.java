@@ -39,7 +39,7 @@ public class OrderMapper {
         dto.setProductsIds(order.getProducts().stream()
                 .map(Product::getId)
                 .collect(Collectors.toList()));
-        dto.setStatus(order.getStatus());
+        dto.setStatus(order.getStatus().name());
         dto.setTotalPrice(order.getTotalPrice());
         dto.setDateFinished(order.getDateFinished());
 
@@ -57,7 +57,7 @@ public class OrderMapper {
         order.setProducts(requestDto.getProductsIds().stream()
                 .map(productService::getById)
                 .toList());
-        order.setStatus(Order.Status.RECEIVED);
+        order.setStatus(Order.Status.valueOf(requestDto.getStatus().toUpperCase()));
         order.setTotalPrice(BigDecimal.valueOf(0));
         order.setDateFinished(requestDto.getDateFinished());
 

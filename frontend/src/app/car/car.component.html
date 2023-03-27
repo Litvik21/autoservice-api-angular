@@ -17,17 +17,14 @@
 </p>
 
 <form (ngSubmit)="submit()" [formGroup]="contactForm">
-
   <p>
     <label>Select Owner ID: (Optional)</label>
     <select formControlName="owner">
       <option [ngValue]="null" disabled>Select Owner</option>
       <option *ngFor="let owner of owners" [ngValue]="owner.id">{{owner.name}}</option>
     </select>
-
     <button type="submit">Submit</button>
   </p>
-
 </form>
 
 <button (click)="add()">Add</button>

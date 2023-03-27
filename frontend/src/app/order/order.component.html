@@ -1,6 +1,6 @@
 <h2>Add order</h2>
 
-<form [formGroup]="carForm" (ngSubmit)="submitCar()">
+<form (ngSubmit)="submitCar()" [formGroup]="carForm">
 
   <p>
     <label>Select Car</label>
@@ -20,11 +20,11 @@
   <input [(ngModel)]="description">
 </p>
 
-<form [formGroup]="taskForm" (ngSubmit)="submitTask()">
+<form (ngSubmit)="submitTask()" [formGroup]="taskForm">
 
   <p>
     <label>Select Task</label>
-    <label> By Task ID:</label>
+    <label> By Type ID:</label>
     <select formControlName="task">
       <option [ngValue]="null" disabled>Select Task</option>
       <option *ngFor="let task of tasks" [ngValue]="task.id">{{task.id}}</option>
@@ -34,27 +34,42 @@
   </p>
 
 </form>
-<form [formGroup]="productForm" (ngSubmit)="submitProduct()">
-
+<form (ngSubmit)="submitProduct()" [formGroup]="productForm">
   <p>
     <label>Select Product</label>
     <label> By Title:</label>
-    <select formControlName="title">
+    <select formControlName="product">
       <option [ngValue]="null" disabled>Select Product</option>
       <option *ngFor="let product of products" [ngValue]="product.id">{{product.title}}</option>
+    </select>
+    <button type="submit">Submit</button>
+  </p>
+</form>
+<p>
+  <label>Date Finished: </label>
+  <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input [matDatepicker]="picker" matInput>
+    <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</p>
+
+<form (ngSubmit)="submitStatus()" [formGroup]="statusForm">
+
+  <p>
+    <label>Select status</label>
+    <select formControlName="status">
+      <option [ngValue]="null" disabled>Select Status</option>
+      <option *ngFor="let status of statuses"
+              [value]="status">
+        {{statusMapping[status]}}
+      </option>
     </select>
 
     <button type="submit">Submit</button>
   </p>
 
 </form>
-<p>
-  <label>Date Finished: </label>
-  <mat-form-field appearance="fill">
-    <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-</p>
+
 <button (click)="add()">Add</button>

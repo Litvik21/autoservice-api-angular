@@ -1,17 +1,9 @@
 package com.example.autoservice.model;
 
-import java.math.BigDecimal;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Enumerated;
-import javax.persistence.EnumType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import lombok.*;
+
+import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -39,11 +31,12 @@ public class Task {
 
     public enum TypeOfTask {
         DIAGNOSTICS("Diagnostics"),
-        OIL_CHANGE("OilChange"),
-        ENGINE_REPAIR("EnginRepair"),
-        GRM_CHANGE("GRMChange");
+        OIL_CHANGE("Oil_Change"),
+        ENGINE_REPAIR("Engine_Repair"),
+        GRM_CHANGE("GRM_Change");
 
         private String value;
+
         TypeOfTask(String value) {
             this.value = value;
         }
@@ -51,7 +44,7 @@ public class Task {
 
     public enum PaymentStatus {
         PAID("Paid"),
-        NOT_PAID("NotPaid");
+        NOT_PAID("Not_Paid");
         private String value;
 
         PaymentStatus(String value) {

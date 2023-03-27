@@ -1,23 +1,18 @@
 package com.example.autoservice.controller;
 
-import java.math.BigDecimal;
-import java.util.List;
+import com.example.autoservice.dto.mapper.MechanicMapper;
+import com.example.autoservice.dto.mapper.OrderMapper;
 import com.example.autoservice.dto.mechanic.MechanicRequestDto;
 import com.example.autoservice.dto.mechanic.MechanicResponseDto;
 import com.example.autoservice.dto.order.OrderResponseDto;
-import com.example.autoservice.dto.mapper.MechanicMapper;
-import com.example.autoservice.dto.mapper.OrderMapper;
 import com.example.autoservice.model.Mechanic;
 import com.example.autoservice.service.MechanicService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/mechanics")
@@ -62,7 +57,7 @@ public class MechanicController {
                 .toList();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/salary/{id}")
     @ApiOperation(value = "Get salary for mechanic by id")
     public BigDecimal getSalary(
             @PathVariable @ApiParam(value = "id of mechanic that you want to get salary")

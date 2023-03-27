@@ -1,15 +1,14 @@
 <div *ngIf="order">
   <h2>Order Details</h2>
-  <div><span>id: </span>{{order.id}}</div>
-
-  <form [formGroup]="statusForm" (ngSubmit)="submitStatus()">
+  <form (ngSubmit)="submitStatus()" [formGroup]="statusForm">
 
     <p>
       <label>Select status</label>
-      <select>
+      <select formControlName="status">
+        <option [ngValue]="null" disabled>Select Status</option>
         <option *ngFor="let status of statuses"
                 [value]="status">
-          {{StatusMapping[status]}}
+          {{statusMapping[status]}}
         </option>
       </select>
 
@@ -18,7 +17,7 @@
 
   </form>
 
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
+  <button (click)="goBack()">Go Back</button>
+  <button (click)="save()" style="margin-top: 5px">Save</button>
 </div>
 

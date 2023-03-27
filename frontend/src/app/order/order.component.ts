@@ -8,6 +8,7 @@ import { CarService } from '../service/car.service';
 import { ProductService } from '../service/product.service';
 import { TaskService } from '../service/task.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Status, StatusMapping } from '../model/status';
 
 @Component({
   selector: 'app-order',
@@ -18,6 +19,7 @@ export class OrderComponent implements OnInit {
   productForm!: FormGroup;
   carForm!: FormGroup;
   taskForm!: FormGroup;
+  statusForm!: FormGroup;
 
   orders: Order[] = [];
   cars: Car[] = [];
@@ -26,8 +28,10 @@ export class OrderComponent implements OnInit {
   newCar!: Car;
   newTasks: Task[] = [];
   newProducts: Product[] = [];
-
-  description = "";
+  status!: Status;
+  statuses = Object.values(Status);
+  statusMapping = StatusMapping;
+  description = '';
   picker = new Date;
 
 
@@ -35,7 +39,8 @@ export class OrderComponent implements OnInit {
               private carService: CarService,
               private productService: ProductService,
               private taskService: TaskService,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.getOrders();
@@ -43,14 +48,17 @@ export class OrderComponent implements OnInit {
     this.getProducts();
     this.getTasks();
     this.productForm = this.fb.group({
-      title: [null]
-    })
+      product: [null]
+    });
     this.taskForm = this.fb.group({
       task: [null]
-    })
+    });
     this.carForm = this.fb.group({
       car: [null]
-    })
+    });
+    this.statusForm = this.fb.group({
+      status: [null]
+    });
   }
 
   getTasks(): void {
@@ -74,26 +82,54 @@ export class OrderComponent implements OnInit {
   }
 
   submitProduct() {
-    this.newProducts.push(this.products.find(p => p.id == this.productForm.value)!)
+    if (this.productForm.valid) {
+      const productID = this.productForm.get('product')!.value;
+      if (productID !== null) {
+        this.newProducts.push(this.products.find(p => p.id === productID)!);
+      }
+    }
   }
 
   submitTask() {
-    this.newTasks.push(this.tasks.find(t => t.id == this.taskForm.value)!)
+    if (this.taskForm.valid) {
+      const taskId = this.taskForm.get('task')!.value;
+      if (taskId !== null) {
+        this.newTasks.push(this.tasks.find(t => t.id === taskId)!);
+      }
+    }
   }
 
   submitCar() {
-    this.newCar = this.cars.find(c => c.id == this.carForm.value)!
+    if (this.carForm.valid) {
+      const carId = this.carForm.get('car')!.value;
+      if (carId !== null) {
+        this.newCar = this.cars.find(c => c.id === carId)!;
+      }
+    }
+  }
+
+  submitStatus() {
+    this.status = this.statusForm.get('status')!.value;
   }
 
   add(): void {
-    let id = Math.max.apply(Math, this.orders.map(function (o) {return o.id!;} ));
+    let id = Math.max.apply(Math, this.orders.map(function (o) {
+      return o.id!;
+    }));
 
     this.orderService.addOrder({
       id: id + 1, car: this.newCar, dateFinished: this.picker,
-      description: this.description, tasks: this.newTasks, products: this.newProducts
+      description: this.description, tasks: this.newTasks,
+      products: this.newProducts, status: this.status
     } as Order)
-      .subscribe(order => {this.orders.push(order)});
+      .subscribe(order => {
+        this.orders.push(order);
+      });
 
-    this.description = "";
+    this.description = '';
+    this.productForm.reset();
+    this.carForm.reset();
+    this.taskForm.reset();
+    this.statusForm.reset();
   }
 }

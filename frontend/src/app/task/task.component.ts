@@ -44,10 +44,10 @@ export class TaskComponent implements OnInit {
     this.getMechanics();
     this.getTasks();
     this.paymentStatusForm = this.fb.group({
-      paymentStatus: [null]
+      status: [null]
     })
     this.typeOfTaskForm = this.fb.group({
-      typeOfTask: [null]
+      type: [null]
     })
     this.mechanicForm = this.fb.group({
       mechanic: [null]
@@ -73,28 +73,48 @@ export class TaskComponent implements OnInit {
   }
 
   submitPaymentStatus() {
-    this.paymentStatus = this.paymentStatusForm.value;
+    this.paymentStatus = this.paymentStatusForm.get('status')!.value;
   }
 
   submitTypeOfTask() {
-    this.type = this.typeOfTaskForm.value;
+    this.type = this.typeOfTaskForm.get('type')!.value;
   }
 
   submitMechanic() {
-    this.newMechanic = this.mechanics.find(m => m.id == this.mechanicForm.value)!
+    if (this.mechanicForm.valid) {
+      const mechanicId = this.mechanicForm.get('mechanic')!.value;
+      if (mechanicId !== null) {
+        this.newMechanic = this.mechanics.find(m => m.id === mechanicId)!;
+      }
+    }
   }
 
   submitOrder() {
-    this.newOrder = this.orders.find(o => o.id == this.orderForm.value)!
+    if (this.orderForm.valid) {
+      const orderId = this.orderForm.get('order')!.value;
+      if (orderId !== null) {
+        this.newOrder = this.orders.find(o => o.id === orderId)!;
+      }
+    }
   }
 
   add(): void {
-    let id = Math.max.apply(Math, this.tasks.map(function (o) {return o.id!;} ));
+    let id = Math.max.apply(Math, this.tasks.map(function (o) {
+      return o.id!;
+    }));
 
-    this.taskService.addTask({id: id + 1, typeOfTask: this.type, price: this.price,
-      order: this.newOrder, mechanic: this.newMechanic, paymentStatus: this.paymentStatus} as Task)
-      .subscribe(task => {this.tasks.push(task)});
+    this.taskService.addTask({
+      id: id + 1, typeOfTask: this.type, price: this.price,
+      order: this.newOrder, mechanic: this.newMechanic, paymentStatus: this.paymentStatus
+    } as Task)
+      .subscribe(task => {
+        this.tasks.push(task);
+      });
 
     this.price = 0;
+    this.orderForm.reset();
+    this.mechanicForm.reset();
+    this.paymentStatusForm.reset();
+    this.typeOfTaskForm.reset();
   }
 }

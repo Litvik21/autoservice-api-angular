@@ -2,7 +2,6 @@ package com.example.autoservice.service;
 
 import com.example.autoservice.model.Mechanic;
 import com.example.autoservice.model.Task;
-import com.example.autoservice.repository.MechanicRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,14 +13,12 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 
+
 class MechanicServiceImplTest {
     @InjectMocks
     private MechanicServiceImpl mechanicService;
     @Mock
     private TaskServiceImpl taskService;
-
-    @Mock
-    private MechanicRepository mechanicRepository;
 
     private List<Task> tasks;
 

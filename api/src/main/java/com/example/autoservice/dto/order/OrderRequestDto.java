@@ -1,11 +1,12 @@
 package com.example.autoservice.dto.order;
 
-import java.time.LocalDate;
-import java.util.List;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,4 +18,5 @@ public class OrderRequestDto {
     private List<Long> taskIds;
     private List<Long> productsIds;
     private LocalDate dateFinished;
+    private String status;
 }

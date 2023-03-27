@@ -13,7 +13,7 @@ public interface OrderService {
 
     Order addProduct(Long orderId, Product product);
 
-    Order updateStatus(Long orderId, Order.Status status);
+    Order updateStatus(Long orderId, String status);
 
     BigDecimal getPrice(Long id);
 

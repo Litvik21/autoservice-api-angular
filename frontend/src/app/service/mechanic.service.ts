@@ -46,15 +46,19 @@ export class MechanicService {
   }
 
   updateMechanic(mechanic: Mechanic): Observable<any> {
-    const url = `${this.mechanicsUrl}/${mechanic.id}`
+    const url = `${this.mechanicsUrl}/${mechanic.id}`;
     return this.http.put(url, mechanic, this.httpOptions).pipe(
       catchError(this.handleError<any>('updateMechanic'))
     );
   }
 
-  addMechanic(mechanic: Mechanic): Observable<Mechanic> {
-    return this.http.post<Mechanic>(this.mechanicsUrl, mechanic, this.httpOptions).pipe(
-      catchError(this.handleError<Mechanic>('addMechanic'))
+  addMechanic(mechanic: Mechanic): Observable<any> {
+    const mechanicToSent = {
+      name: mechanic.name,
+      finishedOrdersId: mechanic.finishedOrders ? mechanic.finishedOrders.map(order => order.id) : null
+    };
+    return this.http.post<any>(this.mechanicsUrl, mechanicToSent, this.httpOptions).pipe(
+      catchError(this.handleError<any>('addMechanic'))
     );
   }
 

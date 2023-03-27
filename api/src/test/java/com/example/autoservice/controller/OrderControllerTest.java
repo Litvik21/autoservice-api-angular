@@ -1,7 +1,5 @@
 package com.example.autoservice.controller;
 
-import java.math.BigDecimal;
-import java.util.Collections;
 import com.example.autoservice.dto.order.OrderRequestDto;
 import com.example.autoservice.model.Car;
 import com.example.autoservice.model.Order;
@@ -20,6 +18,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.math.BigDecimal;
+import java.util.Collections;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
@@ -53,7 +54,7 @@ class OrderControllerTest {
         RestAssuredMockMvc.given()
                 .contentType(ContentType.JSON)
                 .body(new OrderRequestDto(22L, order.getDescription(),
-                        Collections.emptyList(), Collections.emptyList(), null))
+                        Collections.emptyList(), Collections.emptyList(), null, "RECEIVED"))
                 .when()
                 .post("/orders")
                 .then()

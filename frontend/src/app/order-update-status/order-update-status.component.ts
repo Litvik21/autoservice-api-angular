@@ -17,7 +17,7 @@ export class OrderUpdateStatusComponent implements OnInit {
   order!: Order;
   status!: Status;
   statuses = Object.values(Status);
-  StatusMapping = StatusMapping;
+  statusMapping = StatusMapping;
 
   constructor(
     private route: ActivatedRoute,
@@ -40,7 +40,7 @@ export class OrderUpdateStatusComponent implements OnInit {
   }
 
   submitStatus() {
-    this.status = this.statusForm.value
+    this.status = this.statusForm.get('status')!.value;
   }
 
   goBack(): void {
@@ -48,6 +48,7 @@ export class OrderUpdateStatusComponent implements OnInit {
   }
 
   save(): void {
+    console.log(this.status);
     this.orderService.updateStatus(this.order.id!, this.status)
       .subscribe(() => this.goBack());
   }

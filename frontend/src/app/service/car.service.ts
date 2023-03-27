@@ -24,22 +24,30 @@ export class CarService {
   }
 
   getCar(id: number): Observable<Car> {
-    const url = `${this.carsUrl}/${id}`;
+    const url = `${this.carsUrl}/get/${id}`;
     return this.http.get<Car>(url).pipe(
       catchError(this.handleError<Car>(`getCar id=${id}`))
     );
   }
 
-  updateCar(car: Car): Observable<any> {
-    const url = `${this.carsUrl}/${car.id}`
+  updateCar(car: any): Observable<any> {
+    const url = `${this.carsUrl}/${car.id}`;
     return this.http.put(url, car, this.httpOptions).pipe(
       catchError(this.handleError<any>('updateCar'))
     );
   }
 
-  addCar(car: Car): Observable<Car> {
-    return this.http.post<Car>(this.carsUrl, car, this.httpOptions).pipe(
-      catchError(this.handleError<Car>('addCar'))
+  addCar(car: Car): Observable<any> {
+    const carToSend = {
+      id: car.id,
+      brand: car.brand,
+      model: car.model,
+      year: car.year,
+      number: car.number,
+      ownerId: car.carOwner.id
+    };
+    return this.http.post<any>(this.carsUrl, carToSend, this.httpOptions).pipe(
+      catchError(this.handleError<any>('addCar'))
     );
   }
 

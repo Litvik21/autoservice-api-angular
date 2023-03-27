@@ -1,16 +1,17 @@
 package com.example.autoservice.controller;
 
-import java.math.BigDecimal;
-import java.util.List;
+import com.example.autoservice.dto.mapper.OrderMapper;
 import com.example.autoservice.dto.order.OrderRequestDto;
 import com.example.autoservice.dto.order.OrderResponseDto;
-import com.example.autoservice.dto.mapper.OrderMapper;
 import com.example.autoservice.model.Order;
 import com.example.autoservice.model.Product;
 import com.example.autoservice.service.OrderService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/orders")
@@ -55,9 +56,9 @@ public class OrderController {
     public OrderResponseDto updateStatus(
             @PathVariable @ApiParam(value = "id of order that you want to update status")
             Long id,
-            @RequestParam @ApiParam(value = "new status for order") String status) {
+            @RequestBody @ApiParam(value = "new status for order") String status) {
 
-        return mapper.toDto(orderService.updateStatus(id, Order.Status.valueOf(status)));
+        return mapper.toDto(orderService.updateStatus(id, status));
     }
 
     @GetMapping("/price/{id}")
@@ -67,6 +68,15 @@ public class OrderController {
             Long id) {
 
         return orderService.getPrice(id);
+    }
+
+    @GetMapping("/get/{id}")
+    @ApiOperation(value = "Get order by id")
+    public OrderResponseDto getOrder(
+            @PathVariable @ApiParam(value = "id of order that you want to get")
+            Long id) {
+
+        return mapper.toDto(orderService.getById(id));
     }
 
     @GetMapping

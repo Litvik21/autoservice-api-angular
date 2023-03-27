@@ -1,13 +1,13 @@
 package com.example.autoservice.dto.order;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-import com.example.autoservice.model.Order;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-import lombok.Setter;
 
 @Getter
 @Setter
@@ -20,7 +20,7 @@ public class OrderResponseDto {
     private LocalDate dateReceived;
     private List<Long> taskIds;
     private List<Long> productsIds;
-    private Order.Status status;
+    private String status;
     private BigDecimal totalPrice;
     private LocalDate dateFinished;
 }

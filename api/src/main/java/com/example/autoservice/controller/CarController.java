@@ -41,6 +41,15 @@ public class CarController {
         return mapper.toDto(carService.update(car));
     }
 
+    @GetMapping("/get/{id}")
+    @ApiOperation(value = "Get car by id")
+    public CarResponseDto gerCar(
+            @PathVariable @ApiParam(value = "id of car that you want to get")
+            Long id) {
+        Car car = carService.getById(id);
+        return mapper.toDto(car);
+    }
+
     @GetMapping
     @ApiOperation(value = "Get list of cars")
     public List<CarResponseDto> getAll() {

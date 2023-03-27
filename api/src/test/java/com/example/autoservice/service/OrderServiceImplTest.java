@@ -1,11 +1,5 @@
 package com.example.autoservice.service;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.Optional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
 import com.example.autoservice.model.Order;
 import com.example.autoservice.model.Product;
 import com.example.autoservice.model.Task;
@@ -19,14 +13,18 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
 @ExtendWith(MockitoExtension.class)
 class OrderServiceImplTest {
-    @InjectMocks
-    private OrderServiceImpl orderService;
-
     @Mock
     TaskServiceImpl taskService;
-
+    @InjectMocks
+    private OrderServiceImpl orderService;
     @Mock
     private OrderRepository orderRepository;
 
@@ -42,14 +40,11 @@ class OrderServiceImplTest {
         Product product1 = new Product(1L, "title", BigDecimal.valueOf(300));
         Product product2 = new Product(1L, "title", BigDecimal.valueOf(134));
         Product product3 = new Product(1L, "title", BigDecimal.valueOf(443));
-        products = new ArrayList<>();
-        products.add(product1);
-        products.add(product2);
-        products.add(product3);
+        products = List.of(product1, product2, product3);
         order = new Order(1L, null, "description", LocalDate.now(),
                 Collections.emptyList(),
                 products,
-                Order.Status.PROCESSING,
+                Order.Status.PROCESS,
                 BigDecimal.valueOf(887),
                 LocalDate.now());
     }

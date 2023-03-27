@@ -12,5 +12,5 @@ export interface Order {
   products: Product[];
   status?: Status;
   totalPrice?: number;
-  dateFinished: Date;
+  dateFinished?: Date;
 }

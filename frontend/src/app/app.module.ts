@@ -29,6 +29,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { APP_DATE_FORMATS, AppDateAdapter } from './adapter/date.adapter';
+import { OrderInfoComponent } from './order-info/order-info.component';
+import { CarInfoComponent } from './car-info/car-info.component';
+import { CarOwnerInfoComponent } from './car-owner-info/car-owner-info.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { APP_DATE_FORMATS, AppDateAdapter } from './adapter/date.adapter';
     OrderAddProductComponent,
     OrderUpdateStatusComponent,
     OrderTotalPriceComponent,
-    TaskUpdateStatusComponent
+    TaskUpdateStatusComponent,
+    OrderInfoComponent,
+    CarInfoComponent,
+    CarOwnerInfoComponent
   ],
   imports: [
     BrowserModule,

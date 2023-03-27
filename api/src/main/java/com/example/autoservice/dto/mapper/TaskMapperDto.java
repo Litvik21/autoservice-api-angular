@@ -35,7 +35,7 @@ public class TaskMapperDto {
 
     public Task toModel(TaskRequestDto requestDto) {
         Task task = new Task();
-        task.setType(requestDto.getType());
+        task.setType(Task.TypeOfTask.valueOf(requestDto.getType().toUpperCase()));
         if (requestDto.getOrderId() != null) {
             task.setOrder(orderService.getById(requestDto.getOrderId()));
         }
@@ -43,7 +43,7 @@ public class TaskMapperDto {
             task.setMechanic(mechanicService.getById(requestDto.getMechanicId()));
         }
         task.setPrice(requestDto.getPrice());
-        task.setPaymentStatus(requestDto.getPaymentStatus());
+        task.setPaymentStatus(Task.PaymentStatus.valueOf(requestDto.getPaymentStatus().toUpperCase()));
 
         return task;
     }

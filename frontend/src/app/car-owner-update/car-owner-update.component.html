@@ -1,22 +1,38 @@
 <div *ngIf="owner">
   <h2>Owner Details</h2>
-  <div><span>id: </span>{{owner.id}}</div>
-  <div>
-    <label>Name:
-      <input [(ngModel)]="owner.name" placeholder="name"/>
-    </label>
-  </div>
-  <div>
-    <label>Cars:
-      <input [(ngModel)]="owner.cars" placeholder="cars"/>
-    </label>
-  </div>
-  <div>
-    <label>Orders:
-      <input [(ngModel)]="owner.orders" placeholder="orders"/>
-    </label>
-  </div>
+  <p>
+    <label>Name:</label>
+    <input [(ngModel)]="name">
+  </p>
 
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
+  <form (ngSubmit)="submitCar()" [formGroup]="carForm">
+
+    <p>
+      <label>Select Car VIN number: (Optional)</label>
+      <select formControlName="car">
+        <option [ngValue]="null" disabled>Select Car</option>
+        <option *ngFor="let car of cars" [ngValue]="car.id">{{car.number}}</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </p>
+
+  </form>
+
+  <form (ngSubmit)="submitOrder()" [formGroup]="orderForm">
+
+    <p>
+      <label>Select Order description: (Optional)</label>
+      <select formControlName="order">
+        <option [ngValue]="null" disabled>Select Order</option>
+        <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </p>
+
+  </form>
+
+  <button (click)="goBack()" style="margin-top: 5px">Go Back</button>
+  <button (click)="save()" style="margin-top: 5px">Save</button>
 </div>

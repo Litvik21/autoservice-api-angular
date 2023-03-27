@@ -4,6 +4,8 @@ import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Task } from '../model/task';
 import { environment } from '../../environments/environment';
+import { TypeOfTaskMapping } from '../model/typeOfTask';
+import { PaymentStatusMapping } from '../model/paymentStatus';
 
 @Injectable({providedIn: 'root'})
 export class TaskService {
@@ -38,15 +40,26 @@ export class TaskService {
   }
 
   updateStatus(id: number, status: String): Observable<any> {
-    const url = `${this.taskUrl}/update-status/${id}`
+    const url = `${this.taskUrl}/update-status/${id}`;
     return this.http.put(url, status, this.httpOptions).pipe(
       catchError(this.handleError<any>('updateStatus'))
     );
   }
 
-  addTask(task: Task): Observable<Task> {
-    return this.http.post<Task>(this.taskUrl, task, this.httpOptions).pipe(
-      catchError(this.handleError<Task>('addTask'))
+  addTask(task: Task): Observable<any> {
+    if (task.typeOfTask === undefined || task.paymentStatus === undefined) {
+      throw new Error('Task type is undefined');
+    }
+    const taskToSent = {
+      type: TypeOfTaskMapping[task.typeOfTask],
+      orderId: task.order?.id,
+      mechanicId: task.mechanic?.id,
+      price: task.price,
+      paymentStatus: PaymentStatusMapping[task.paymentStatus]
+    };
+    console.log(taskToSent);
+    return this.http.post<any>(this.taskUrl, taskToSent, this.httpOptions).pipe(
+      catchError(this.handleError<any>('addTask'))
     );
   }
 

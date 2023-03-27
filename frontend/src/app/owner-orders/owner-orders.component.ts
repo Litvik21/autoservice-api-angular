@@ -11,7 +11,6 @@ import { Order } from '../model/order';
   styleUrls: ['./owner-orders.component.scss']
 })
 export class OwnerOrdersComponent implements OnInit {
-
   owner!: CarOwner;
   orders: Order[] = [];
 
@@ -37,6 +36,9 @@ export class OwnerOrdersComponent implements OnInit {
 
   getOrders(): void {
     this.ownerService.getOrdersOfOwner(this.owner.id)
-      .subscribe(orders => this.orders = orders);
+      .subscribe(orders => {
+        this.orders = orders;
+        console.log(this.orders);
+      });
   }
 }

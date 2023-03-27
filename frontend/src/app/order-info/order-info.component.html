@@ -1,0 +1,30 @@
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Date Received</th>
+    <th>Date Finished</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let order of orders">
+    <td>{{ order.id }}</td>
+    <td>{{ order.description }}</td>
+    <td>{{ order.status }}</td>
+    <td>{{ order.dateReceived }}</td>
+    <td>{{ order.dateFinished }}</td>
+    <td>
+      <button (click)="updateStatus(order.id)" >Update Status</button>
+      <button (click)="update(order.id)" style="margin-top: 5px" >Update</button>
+      <button (click)="addProduct(order.id)" style="margin-top: 5px" >Add Product</button>
+      <button (click)="getPrice(order.id)" style="margin-top: 5px" >Calculate Sum</button>
+    </td>
+  </tr>
+  <tr *ngIf="!orders || orders.length === 0">
+    <td colspan="4">No orders found.</td>
+  </tr>
+  </tbody>
+</table>

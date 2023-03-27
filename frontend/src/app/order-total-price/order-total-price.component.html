@@ -1,9 +1,27 @@
 <div *ngIf="order">
-  <h2>Order Details</h2>
-  <div><span>id: </span>{{order.id}}</div>
-
-  <button (click)="goBack()">Go back</button>
-  <button (click)="getTotalPrice()">Get Total Price</button>
-
-  <h3>Total price: {{totalPrice}}</h3>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Date Received</th>
+      <th>Date Finished</th>
+      <th>Total Price</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <td>{{ order.id }}</td>
+    <td>{{ order.description }}</td>
+    <td>{{ order.status }}</td>
+    <td>{{ order.dateReceived }}</td>
+    <td>{{ order.dateFinished }}</td>
+    <td>{{ totalPrice }}</td>
+    <td>
+      <button (click)="getTotalPrice()" style="margin-top: 5px">Get Total Price</button>
+    </td>
+    </tbody>
+  </table>
+  <button (click)="goBack()" style="margin-top: 5px">Go back</button>
 </div>

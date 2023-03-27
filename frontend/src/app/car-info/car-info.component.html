@@ -1,0 +1,27 @@
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Year</th>
+    <th>VIN Number</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let car of cars">
+    <td>{{ car.id }}</td>
+    <td>{{ car.brand }}</td>
+    <td>{{ car.model }}</td>
+    <td>{{ car.year }}</td>
+    <td>{{ car.number }}</td>
+    <td>
+      <button (click)="update(car.id)" style="margin-top: 5px" >Update</button>
+    </td>
+  </tr>
+  <tr *ngIf="!cars || cars.length === 0">
+    <td colspan="4">No orders found.</td>
+  </tr>
+  </tbody>
+</table>

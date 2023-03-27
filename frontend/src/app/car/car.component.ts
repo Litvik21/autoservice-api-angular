@@ -3,7 +3,7 @@ import { Car } from '../model/car';
 import { CarService } from '../service/car.service';
 import { CarOwner } from '../model/carOwner';
 import { CarOwnerService } from '../service/carOwner.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-car',
@@ -11,20 +11,23 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./car.component.scss']
 })
 export class CarComponent implements OnInit {
-  contactForm!: FormGroup;
+  contactForm = new FormGroup({
+    owner: new FormControl()
+  });
 
   cars: Car[] = [];
   owners: CarOwner[] = [];
-  owner!: CarOwner;
-  carBrand = "";
-  carModel = "";
-  carYear = "";
-  carNumber = "";
+  owner: CarOwner | undefined;
+  carBrand = '';
+  carModel = '';
+  carYear = '';
+  carNumber = '';
 
 
   constructor(private carService: CarService,
               private ownerService: CarOwnerService,
-              private fb:FormBuilder) { }
+              private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.getCars();
@@ -45,18 +48,31 @@ export class CarComponent implements OnInit {
   }
 
   submit() {
-    this.owner = this.owners.find(o => o.id == this.contactForm.value)!
+    if (this.contactForm.valid) {
+      const ownerId = this.contactForm.get('owner')!.value;
+      if (ownerId !== null) {
+        this.owner = this.owners.find(o => o.id === ownerId)!;
+      }
+    }
   }
 
   add(): void {
-    let id = Math.max.apply(Math, this.cars.map(function (o) {return o.id;}));
+    let id = Math.max.apply(Math, this.cars.map(function (o) {
+      return o.id;
+    }));
 
-    this.carService.addCar({id: id + 1, brand: this.carBrand, model: this.carModel, year: this.carYear,
-      number: this.carNumber, carOwner: this.owner} as Car).subscribe(car => {this.cars.push(car)});
+    this.carService.addCar({
+      id: id + 1, brand: this.carBrand, model: this.carModel,
+      year: this.carYear, number: this.carNumber, carOwner: this.owner
+    } as Car)
+      .subscribe(car => {
+        this.cars.push(car);
+      });
 
-    this.carBrand = "";
-    this.carModel = "";
-    this.carYear = "";
-    this.carNumber = "";
+    this.carBrand = '';
+    this.carModel = '';
+    this.carYear = '';
+    this.carNumber = '';
+    this.contactForm.reset();
   }
 }

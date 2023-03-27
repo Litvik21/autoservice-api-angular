@@ -1,0 +1,22 @@
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let owner of owners">
+    <td>{{ owner.id }}</td>
+    <td>{{ owner.name }}</td>
+    <td>
+      <button (click)="update(owner.id)" style="margin-top: 5px" >Update</button>
+      <button (click)="getOrdersOfOwner(owner.id)" style="margin-top: 5px" >Get Orders</button>
+    </td>
+  </tr>
+  <tr *ngIf="!owners || owners.length === 0">
+    <td colspan="4">No orders found.</td>
+  </tr>
+  </tbody>
+</table>
