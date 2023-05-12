@@ -61,6 +61,7 @@ class CarOwnerControllerTest {
         order.setCar(new Car());
         order.setProducts(Collections.emptyList());
         order.setTasks(Collections.emptyList());
+        order.setStatus(Order.Status.PROCESS);
         Mockito.when(ownerService.findAllOrdersById(3L))
                 .thenReturn(List.of(order));
 

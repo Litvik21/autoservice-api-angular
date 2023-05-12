@@ -61,7 +61,8 @@ export class OrderAddProductComponent implements OnInit {
   }
 
   save(): void {
-    console.log(this.newProduct);
+    this.submitProduct();
+
     this.orderService.addProductToOrder(this.order.id!, this.newProduct)
       .subscribe(() => this.goBack());
   }

@@ -102,6 +102,11 @@ export class TaskComponent implements OnInit {
       return o.id!;
     }));
 
+    this.submitTypeOfTask();
+    this.submitMechanic();
+    this.submitOrder();
+    this.submitPaymentStatus();
+
     this.taskService.addTask({
       id: id + 1, typeOfTask: this.type, price: this.price,
       order: this.newOrder, mechanic: this.newMechanic, paymentStatus: this.paymentStatus

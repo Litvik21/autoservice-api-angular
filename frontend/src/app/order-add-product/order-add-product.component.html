@@ -6,7 +6,7 @@
     {{item.title}} -- {{item.price}}
   </div>
 
-  <form (ngSubmit)="submitProduct()" [formGroup]="productForm">
+  <form [formGroup]="productForm">
 
     <p>
       <label>Select Product</label>
@@ -15,8 +15,6 @@
         <option [ngValue]="null" disabled>Select Product</option>
         <option *ngFor="let product of products" [ngValue]="product.id">{{product.title}}</option>
       </select>
-
-      <button type="submit">Submit</button>
     </p>
 
   </form>

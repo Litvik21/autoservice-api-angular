@@ -4,7 +4,7 @@
   <input [(ngModel)]="mechanicName">
 </p>
 
-<form (ngSubmit)="submitOrder()" [formGroup]="orderForm">
+<form [formGroup]="orderForm">
 
   <p>
     <label>Select Finished Order</label>
@@ -13,8 +13,6 @@
       <option [ngValue]="null" disabled>Select Order</option>
       <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
     </select>
-
-    <button type="submit">Submit</button>
   </p>
 
 </form>

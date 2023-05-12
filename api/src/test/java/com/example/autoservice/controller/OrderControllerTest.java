@@ -45,11 +45,12 @@ class OrderControllerTest {
         Order order = new Order();
         order.setDescription("oil change");
         order.setTotalPrice(BigDecimal.valueOf(5123));
+        order.setStatus(Order.Status.RECEIVED);
         Mockito.when(carService.getById(22L)).thenReturn(new Car());
         Mockito.when(orderService.save(order))
                 .thenReturn(new Order(3L, new Car(), order.getDescription(),
                         null, Collections.emptyList(), Collections.emptyList(),
-                        null, null, null));
+                        Order.Status.RECEIVED, null, null));
 
         RestAssuredMockMvc.given()
                 .contentType(ContentType.JSON)

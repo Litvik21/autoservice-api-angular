@@ -61,6 +61,8 @@ export class CarComponent implements OnInit {
       return o.id;
     }));
 
+    this.submit();
+
     this.carService.addCar({
       id: id + 1, brand: this.carBrand, model: this.carModel,
       year: this.carYear, number: this.carNumber, carOwner: this.owner

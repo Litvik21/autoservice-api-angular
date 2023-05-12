@@ -1,5 +1,5 @@
 <div *ngIf="task">
-  <form (ngSubmit)="submitTypeOfTask()" [formGroup]="typeOfTaskForm">
+  <form [formGroup]="typeOfTaskForm">
 
     <p>
       <label>Select type of task:</label>
@@ -10,13 +10,11 @@
           {{typeOfTaskMapping[type]}}
         </option>
       </select>
-
-      <button style="margin-top: 5px" type="submit">Submit</button>
     </p>
 
   </form>
 
-  <form (ngSubmit)="submitOrder()" [formGroup]="orderForm">
+  <form [formGroup]="orderForm">
 
     <p>
       <label>Select Order</label>
@@ -25,12 +23,10 @@
         <option [ngValue]="null" disabled>Select Order</option>
         <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
       </select>
-
-      <button style="margin-top: 5px" type="submit">Submit</button>
     </p>
 
   </form>
-  <form (ngSubmit)="submitMechanic()" [formGroup]="mechanicForm">
+  <form [formGroup]="mechanicForm">
 
     <p>
       <label>Select Mechanic</label>
@@ -39,8 +35,6 @@
         <option [ngValue]="null" disabled>Select Mechanic</option>
         <option *ngFor="let mechanic of mechanics" [ngValue]="mechanic.id">{{mechanic.name}}</option>
       </select>
-
-      <button style="margin-top: 5px" type="submit">Submit</button>
     </p>
 
   </form>
@@ -48,7 +42,7 @@
     <label>Price:</label>
     <input [(ngModel)]="price">
   </p>
-  <form (ngSubmit)="submitPaymentStatus()" [formGroup]="paymentStatusForm">
+  <form [formGroup]="paymentStatusForm">
 
     <p>
       <label>Select payment status:</label>
@@ -59,8 +53,6 @@
           {{paymentStatusMapping[status]}}
         </option>
       </select>
-
-      <button style="margin-top: 5px" type="submit">Submit</button>
     </p>
 
   </form>

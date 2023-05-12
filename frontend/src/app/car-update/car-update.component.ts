@@ -78,6 +78,8 @@ export class CarUpdateComponent implements OnInit {
   }
 
   save(): void {
+    this.submit();
+
     this.car = {
       id: this.car.id,
       brand: this.carBrand != '' ? this.carBrand : this.car.brand,

@@ -1,6 +1,6 @@
 <h2>Add task</h2>
 
-<form (ngSubmit)="submitTypeOfTask()" [formGroup]="typeOfTaskForm">
+<form [formGroup]="typeOfTaskForm">
 
   <p>
     <label>Select type of task</label>
@@ -11,13 +11,11 @@
         {{TypeOfTaskMapping[type]}}
       </option>
     </select>
-
-    <button type="submit">Submit</button>
   </p>
 
 </form>
 
-<form (ngSubmit)="submitOrder()" [formGroup]="orderForm">
+<form [formGroup]="orderForm">
 
   <p>
     <label>Select Order</label>
@@ -27,11 +25,10 @@
       <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
     </select>
 
-    <button type="submit">Submit</button>
   </p>
 
 </form>
-<form (ngSubmit)="submitMechanic()" [formGroup]="mechanicForm">
+<form [formGroup]="mechanicForm">
 
   <p>
     <label>Select Mechanic</label>
@@ -40,8 +37,6 @@
       <option [ngValue]="null" disabled>Select Mechanic</option>
       <option *ngFor="let mechanic of mechanics" [ngValue]="mechanic.id">{{mechanic.name}}</option>
     </select>
-
-    <button type="submit">Submit</button>
   </p>
 
 </form>
@@ -49,7 +44,7 @@
   <label>Price:</label>
   <input [(ngModel)]="price">
 </p>
-<form (ngSubmit)="submitPaymentStatus()" [formGroup]="paymentStatusForm">
+<form [formGroup]="paymentStatusForm">
 
   <p>
     <label>Select payment status</label>
@@ -60,8 +55,6 @@
         {{PaymentStatusMapping[status]}}
       </option>
     </select>
-
-    <button type="submit">Submit</button>
   </p>
 
 </form>

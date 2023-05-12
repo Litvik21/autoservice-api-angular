@@ -111,6 +111,11 @@ export class TaskUpdateComponent implements OnInit {
   }
 
   save(): void {
+    this.submitTypeOfTask();
+    this.submitOrder();
+    this.submitMechanic();
+    this.submitPaymentStatus();
+
     this.task = {
       id: this.task.id,
       type: this.type ?? this.task.type,

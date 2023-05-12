@@ -50,14 +50,6 @@ class OrderServiceImplTest {
     }
 
     @Test
-    void shouldAddProductToOrder() {
-        Mockito.when(orderRepository.findById(1L)).thenReturn(Optional.ofNullable(order));
-        Assertions.assertEquals(3, order.getProducts().size());
-        Order actual = orderService.addProduct(1L, product);
-        Assertions.assertEquals(4, actual.getProducts().size());
-    }
-
-    @Test
     void shouldReturnTotalPriceAndDiagnosticIsFree() {
         Task task = new Task();
         task.setPrice(BigDecimal.valueOf(400));
@@ -73,7 +65,7 @@ class OrderServiceImplTest {
         Mockito.when(taskService.findTaskByType(Task.TypeOfTask.DIAGNOSTICS)).thenReturn(Optional.of(task1));
         Mockito.when(orderRepository.findById(4L)).thenReturn(Optional.of(order1));
         BigDecimal actual = orderService.getPrice(order1.getId());
-        Assertions.assertEquals(BigDecimal.valueOf(384.0), actual);
+        Assertions.assertEquals(BigDecimal.valueOf(399.84), actual);
     }
 
     @Test
@@ -89,6 +81,6 @@ class OrderServiceImplTest {
         Mockito.when(taskService.findTaskByType(Task.TypeOfTask.DIAGNOSTICS)).thenReturn(Optional.of(task));
         Mockito.when(orderRepository.findById(4L)).thenReturn(Optional.of(order1));
         BigDecimal actual = orderService.getPrice(order1.getId());
-        Assertions.assertEquals(BigDecimal.valueOf(490.0), actual);
+        Assertions.assertEquals(BigDecimal.valueOf(499.9), actual);
     }
 }

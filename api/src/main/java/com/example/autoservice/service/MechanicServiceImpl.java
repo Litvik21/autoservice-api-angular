@@ -11,7 +11,8 @@ import java.util.List;
 
 @Service
 public class MechanicServiceImpl implements MechanicService {
-    private static final String PAID_STATUS = "paid";
+    private static final String PAID_STATUS = "Paid";
+    private static final double PERCENT_SALARY = 0.4;
     private final MechanicRepository mechanicRepository;
     private final TaskService taskService;
 
@@ -37,12 +38,15 @@ public class MechanicServiceImpl implements MechanicService {
 
     @Override
     public BigDecimal getSalary(Long mechanicId) {
-        List<Task> tasksByMechanicId = taskService.findTasksByMechanicId(mechanicId);
+        List<Task> tasksByMechanicId = taskService.findTasksByMechanicId(mechanicId)
+                .stream()
+                .filter(t -> t.getPaymentStatus() == Task.PaymentStatus.NOT_PAID)
+                .toList();
         double totalPriceForJob = tasksByMechanicId.stream()
                 .map(Task::getPrice)
                 .mapToDouble(BigDecimal::doubleValue)
                 .sum();
-        double masterSalary = totalPriceForJob * 0.4;
+        double masterSalary = totalPriceForJob * PERCENT_SALARY;
 
         updateStatusOfJobMaster(tasksByMechanicId);
         return BigDecimal.valueOf(masterSalary);

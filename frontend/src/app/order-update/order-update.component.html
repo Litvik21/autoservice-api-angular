@@ -1,6 +1,6 @@
 <div *ngIf="order">
   <h2>Order Details</h2>
-  <form (ngSubmit)="submitCar()" [formGroup]="carForm">
+  <form [formGroup]="carForm">
 
     <p>
       <label>Select Car</label>
@@ -9,8 +9,6 @@
         <option [ngValue]="null" disabled>Select Car</option>
         <option *ngFor="let car of cars" [ngValue]="car.id">{{car.number}}</option>
       </select>
-
-      <button type="submit">Submit</button>
     </p>
 
   </form>
@@ -20,7 +18,7 @@
     <input [(ngModel)]="description">
   </p>
 
-  <form (ngSubmit)="submitTask()" [formGroup]="taskForm">
+  <form [formGroup]="taskForm">
 
     <p>
       <label>Select Task</label>
@@ -29,14 +27,12 @@
         <option [ngValue]="null" disabled>Select Task</option>
         <option *ngFor="let task of tasks" [ngValue]="task.id">{{task.id}}</option>
       </select>
-
-      <button type="submit">Submit</button>
     </p>
 
   </form>
 
 
-  <form (ngSubmit)="submitProduct()" [formGroup]="productForm">
+  <form [formGroup]="productForm">
     <p>
       <label>Select Product</label>
       <label> By Title:</label>
@@ -44,7 +40,6 @@
         <option [ngValue]="null" disabled>Select Product</option>
         <option *ngFor="let product of products" [ngValue]="product.id">{{product.title}}</option>
       </select>
-      <button type="submit">Submit</button>
     </p>
   </form>
 
@@ -58,7 +53,7 @@
     </mat-form-field>
   </p>
 
-  <form (ngSubmit)="submitStatus()" [formGroup]="statusForm">
+  <form [formGroup]="statusForm">
 
     <p>
       <label>Select status</label>
@@ -69,8 +64,6 @@
           {{statusMapping[status]}}
         </option>
       </select>
-
-      <button type="submit">Submit</button>
     </p>
 
   </form>

@@ -5,7 +5,7 @@
   <input [(ngModel)]="name">
 </p>
 
-<form (ngSubmit)="submitCar()" [formGroup]="carForm">
+<form [formGroup]="carForm">
 
   <p>
     <label>Select Car VIN number: (Optional)</label>
@@ -13,13 +13,11 @@
       <option [ngValue]="null" disabled>Select Car</option>
       <option *ngFor="let car of cars" [ngValue]="car.id">{{car.number}}</option>
     </select>
-
-    <button type="submit">Submit</button>
   </p>
 
 </form>
 
-<form (ngSubmit)="submitOrder()" [formGroup]="orderForm">
+<form [formGroup]="orderForm">
 
   <p>
     <label>Select Order description: (Optional)</label>
@@ -27,8 +25,6 @@
       <option [ngValue]="null" disabled>Select Order</option>
       <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
     </select>
-
-    <button type="submit">Submit</button>
   </p>
 
 </form>

@@ -1,10 +1,11 @@
 package com.example.autoservice.controller;
 
 import com.example.autoservice.dto.mapper.OrderMapper;
+import com.example.autoservice.dto.mapper.ProductMapper;
 import com.example.autoservice.dto.order.OrderRequestDto;
 import com.example.autoservice.dto.order.OrderResponseDto;
+import com.example.autoservice.dto.product.ProductRequestDto;
 import com.example.autoservice.model.Order;
-import com.example.autoservice.model.Product;
 import com.example.autoservice.service.OrderService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -18,10 +19,13 @@ import java.util.List;
 public class OrderController {
     private final OrderService orderService;
     private final OrderMapper mapper;
+    private final ProductMapper productMapper;
 
-    public OrderController(OrderService orderService, OrderMapper mapper) {
+    public OrderController(OrderService orderService, OrderMapper mapper,
+                           ProductMapper productMapper) {
         this.orderService = orderService;
         this.mapper = mapper;
+        this.productMapper = productMapper;
     }
 
     @PostMapping
@@ -34,8 +38,8 @@ public class OrderController {
     @PostMapping("/add-product/{id}")
     @ApiOperation(value = "add product to order by order id")
     public OrderResponseDto addProductToOrder(@PathVariable Long id,
-                                              @RequestBody Product product) {
-        Order order = orderService.addProduct(id, product);
+                                              @RequestBody ProductRequestDto product) {
+        Order order = orderService.addProduct(id, productMapper.toModel(product));
         return mapper.toDto(order);
     }
 

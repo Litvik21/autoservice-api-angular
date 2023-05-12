@@ -1,5 +1,5 @@
 <div *ngIf="task">
-  <form (ngSubmit)="submitPaymentStatus()" [formGroup]="paymentStatusForm">
+  <form [formGroup]="paymentStatusForm">
 
     <p>
       <label>Select payment status:</label>
@@ -10,8 +10,6 @@
           {{paymentStatusMapping[status]}}
         </option>
       </select>
-
-      <button style="margin-top: 5px" type="submit">Submit</button>
     </p>
 
   </form>

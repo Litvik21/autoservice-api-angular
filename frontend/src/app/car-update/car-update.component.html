@@ -17,14 +17,13 @@
     <input [(ngModel)]="carNumber">
   </p>
 
-  <form (ngSubmit)="submit()" [formGroup]="contactForm">
+  <form [formGroup]="contactForm">
     <p>
       <label>Select Owner ID:</label>
       <select formControlName="owner">
         <option [ngValue]="null" disabled>Select Owner</option>
         <option *ngFor="let owner of owners" [ngValue]="owner.id">{{owner.name}}</option>
       </select>
-      <button type="submit">Submit</button>
     </p>
   </form>
   <button (click)="goBack()">Go Back</button>

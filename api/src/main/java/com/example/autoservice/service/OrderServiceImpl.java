@@ -13,6 +13,8 @@ import java.util.Optional;
 
 @Service
 public class OrderServiceImpl implements OrderService {
+    private static final double PERCENT_FOR_PRODUCTS = 0.01;
+    private static final double PERCENT_FOR_TASKS = 0.02;
     private final OrderRepository orderRepository;
     private final TaskService taskService;
 
@@ -103,11 +105,11 @@ public class OrderServiceImpl implements OrderService {
 
     private BigDecimal getTotalPriceWithSale(Order order, double totalPriceProducts,
                            double totalPriceJobs) {
-        int countOfProducts = order.getProducts().size();
-        int countOfJobs = order.getTasks().size();
+        double saleOfProducts = order.getProducts().size() * PERCENT_FOR_PRODUCTS;
+        double saleOfTasks = order.getTasks().size() * PERCENT_FOR_TASKS;
         double totalPriceWithOutSale = totalPriceJobs + totalPriceProducts;
         double sale = (totalPriceJobs + totalPriceProducts)
-                * (countOfProducts + countOfJobs * 2) / 100;
+                * (saleOfProducts + saleOfTasks) / 100;
         return BigDecimal.valueOf(totalPriceWithOutSale - sale);
     }
 }

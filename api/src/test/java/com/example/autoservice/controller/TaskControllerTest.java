@@ -1,6 +1,5 @@
 package com.example.autoservice.controller;
 
-import java.math.BigDecimal;
 import com.example.autoservice.dto.task.TaskRequestDto;
 import com.example.autoservice.model.Mechanic;
 import com.example.autoservice.model.Order;
@@ -21,6 +20,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.math.BigDecimal;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
@@ -50,11 +51,11 @@ class TaskControllerTest {
         Mockito.when(mechanicService.getById(52L)).thenReturn(new Mechanic());
         Mockito.when(orderService.getById(15L)).thenReturn(new Order());
         Mockito.when(taskService.save(task))
-                .thenReturn(new Task(4L,null, new Order(), new Mechanic(), task.getPrice(), null));
+                .thenReturn(new Task(4L, Task.TypeOfTask.OIL_CHANGE, new Order(), new Mechanic(), task.getPrice(), Task.PaymentStatus.NOT_PAID));
 
         RestAssuredMockMvc.given()
                 .contentType(ContentType.JSON)
-                .body(new TaskRequestDto(null, 15L, 52L, task.getPrice(), null))
+                .body(new TaskRequestDto("Oil_Change", 15L, 52L, task.getPrice(), "Not_Paid"))
                 .when()
                 .post("tasks")
                 .then()

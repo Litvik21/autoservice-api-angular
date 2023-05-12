@@ -48,6 +48,8 @@ export class OrderUpdateStatusComponent implements OnInit {
   }
 
   save(): void {
+    this.submitStatus();
+
     this.orderService.updateStatus(this.order.id!, this.status)
       .subscribe(() => this.goBack());
   }

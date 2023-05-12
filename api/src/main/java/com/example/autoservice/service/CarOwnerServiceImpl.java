@@ -1,6 +1,5 @@
 package com.example.autoservice.service;
 
-import com.example.autoservice.model.Car;
 import com.example.autoservice.model.CarOwner;
 import com.example.autoservice.model.Order;
 import com.example.autoservice.repository.CarOwnerRepository;
@@ -35,11 +34,6 @@ public class CarOwnerServiceImpl implements CarOwnerService {
     @Override
     public List<Order> findAllOrdersById(Long id) {
         return getById(id).getOrders();
-    }
-
-    @Override
-    public List<Car> findAllCarsById(Long id) {
-        return getById(id).getCars();
     }
 
     @Override

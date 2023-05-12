@@ -49,6 +49,8 @@ export class TaskUpdateStatusComponent implements OnInit {
   }
 
   save(): void {
+    this.submitPaymentStatus();
+
     this.taskService.updateStatus(this.task.id!, this.paymentStatus)
       .subscribe(() => this.goBack());
   }

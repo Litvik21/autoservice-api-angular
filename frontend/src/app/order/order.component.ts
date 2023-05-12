@@ -117,6 +117,11 @@ export class OrderComponent implements OnInit {
       return o.id!;
     }));
 
+    this.submitCar();
+    this.submitProduct();
+    this.submitTask();
+    this.submitStatus();
+
     this.orderService.addOrder({
       id: id + 1, car: this.newCar, dateFinished: this.picker,
       description: this.description, tasks: this.newTasks,

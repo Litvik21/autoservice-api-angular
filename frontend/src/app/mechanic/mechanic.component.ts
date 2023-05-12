@@ -46,6 +46,8 @@ export class MechanicComponent implements OnInit {
   add(): void {
     let id = Math.max.apply(Math, this.mechanics.map(function (o) {return o.id;}));
 
+    this.submitOrder();
+
     this.mechanicService.addMechanic({id: id + 1, name: this.mechanicName, finishedOrders: this.newOrders} as Mechanic)
       .subscribe(mechanic => {this.mechanics.push(mechanic)});
 

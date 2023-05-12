@@ -63,7 +63,8 @@ export class MechanicUpdateComponent implements OnInit {
   }
 
   save(): void {
-    console.log(this.newOrders);
+    this.submitOrder();
+
     this.mechanic = {
       id: this.mechanic.id,
       name: this.name != '' ? this.name : this.mechanic.name,

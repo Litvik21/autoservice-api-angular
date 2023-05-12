@@ -87,6 +87,9 @@ export class CarOwnerUpdateComponent implements OnInit {
   }
 
   save(): void {
+    this.submitCar();
+    this.submitOrder();
+
     this.owner = {
       id: this.owner.id,
       name: this.name != '' ? this.name : this.owner.name,

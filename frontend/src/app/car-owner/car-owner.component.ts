@@ -78,6 +78,10 @@ export class CarOwnerComponent implements OnInit {
     let id = Math.max.apply(Math, this.owners.map(function (o) {
       return o.id;
     }));
+
+    this.submitCar();
+    this.submitOrder();
+
     this.ownerService.addCarOwner({id: id + 1, name: this.name, cars: this.newCars, orders: this.newOrders} as CarOwner)
       .subscribe(owner => {
         this.owners.push(owner);

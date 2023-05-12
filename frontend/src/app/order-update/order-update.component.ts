@@ -126,6 +126,11 @@ export class OrderUpdateComponent implements OnInit {
   }
 
   updateOrder(): void {
+    this.submitCar();
+    this.submitTask();
+    this.submitProduct();
+    this.submitStatus();
+
     this.order = {
       id: this.order.id,
       carId: this.newCar?.id ?? this.order.carId,

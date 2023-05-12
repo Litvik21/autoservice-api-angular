@@ -1,6 +1,6 @@
 package com.example.autoservice.controller;
 
-import com.example.autoservice.dto.mapper.TaskMapperDto;
+import com.example.autoservice.dto.mapper.TaskMapper;
 import com.example.autoservice.dto.task.TaskRequestDto;
 import com.example.autoservice.dto.task.TaskResponseDto;
 import com.example.autoservice.model.Task;
@@ -14,10 +14,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
-    private final TaskMapperDto mapper;
+    private final TaskMapper mapper;
     private final TaskService taskService;
 
-    public TaskController(TaskMapperDto mapper, TaskService taskService) {
+    public TaskController(TaskMapper mapper, TaskService taskService) {
         this.mapper = mapper;
         this.taskService = taskService;
     }

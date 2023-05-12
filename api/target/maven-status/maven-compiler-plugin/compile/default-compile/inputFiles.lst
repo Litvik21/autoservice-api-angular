@@ -26,7 +26,6 @@
 /Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/controller/ProductController.java
 /Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/model/Task.java
 /Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/ProductService.java
-/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/mapper/TaskMapperDto.java
 /Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/model/Car.java
 /Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/CarOwnerService.java
 /Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/MechanicService.java
@@ -49,3 +48,4 @@
 /Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/model/CarOwner.java
 /Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/OrderServiceImpl.java
 /Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/service/OrderService.java
+/Users/litvik/IdeaProjects/autoservice-api-angular/api/src/main/java/com/example/autoservice/dto/mapper/TaskMapper.java

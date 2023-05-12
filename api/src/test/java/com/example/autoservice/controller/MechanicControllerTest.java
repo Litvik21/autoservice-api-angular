@@ -1,8 +1,5 @@
 package com.example.autoservice.controller;
 
-import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.List;
 import com.example.autoservice.dto.mechanic.MechanicRequestDto;
 import com.example.autoservice.model.Car;
 import com.example.autoservice.model.Mechanic;
@@ -10,6 +7,7 @@ import com.example.autoservice.model.Order;
 import com.example.autoservice.service.MechanicService;
 import io.restassured.http.ContentType;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,7 +18,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.hamcrest.Matchers;
+
+import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
@@ -62,11 +63,13 @@ class MechanicControllerTest {
         order.setCar(new Car());
         order.setProducts(Collections.emptyList());
         order.setTasks(Collections.emptyList());
+        order.setStatus(Order.Status.PROCESS);
         Order order1 = new Order();
         order1.setId(5L);
         order1.setCar(new Car());
         order1.setProducts(Collections.emptyList());
         order1.setTasks(Collections.emptyList());
+        order1.setStatus(Order.Status.RECEIVED);
         Mockito.when(mechanicService.getOrders(13L))
                 .thenReturn(List.of(order, order1));
 
@@ -86,7 +89,7 @@ class MechanicControllerTest {
 
         RestAssuredMockMvc.given()
                 .when()
-                .get("/mechanics/33")
+                .get("/mechanics/salary/33")
                 .then()
                 .statusCode(200)
                 .body(Matchers.equalTo("12145.96"));

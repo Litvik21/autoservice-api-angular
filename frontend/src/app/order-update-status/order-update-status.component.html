@@ -1,6 +1,6 @@
 <div *ngIf="order">
   <h2>Order Details</h2>
-  <form (ngSubmit)="submitStatus()" [formGroup]="statusForm">
+  <form [formGroup]="statusForm">
 
     <p>
       <label>Select status</label>
@@ -11,8 +11,6 @@
           {{statusMapping[status]}}
         </option>
       </select>
-
-      <button type="submit">Submit</button>
     </p>
 
   </form>
