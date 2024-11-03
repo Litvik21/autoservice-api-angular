@@ -1,7 +1,6 @@
 package com.example.autoservice.model;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.List;
 
