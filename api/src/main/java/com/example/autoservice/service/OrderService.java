@@ -13,6 +13,8 @@ public interface OrderService {
 
     Order addProduct(Long orderId, Product product);
 
+    Order removeProduct(Long orderId, Long productId);
+
     Order updateStatus(Long orderId, String status);
 
     BigDecimal getPrice(Long id);
@@ -20,4 +22,10 @@ public interface OrderService {
     Order getById(Long id);
 
     List<Order> getAll();
+
+    List<Product> getAllProducts(Long id);
+
+    List<Order> getByUser(Long userId);
+
+    List<Order> getFinishedByMechanicId(Long userId);
 }

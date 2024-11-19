@@ -23,6 +23,9 @@ export class CarOwnerUpdateComponent implements OnInit {
   newOrders: Order[] = [];
   name = '';
 
+  lastName = '';
+  phone = '';
+
   constructor(
     private route: ActivatedRoute,
     private carService: CarService,
@@ -61,6 +64,15 @@ export class CarOwnerUpdateComponent implements OnInit {
       .subscribe(owner => {
         this.owner = owner;
         this.name = owner.name;
+        this.lastName = owner.lastName;
+        this.phone = owner.phoneNumber;
+        this.carForm = this.fb.group({
+          car: [this.owner.carId]
+        });
+        this.orderForm = this.fb.group({
+          order: [this.owner.orderId]
+        });
+        console.log(owner);
       });
   }
 

@@ -13,5 +13,6 @@ import lombok.Setter;
 public class MechanicResponseDto {
     private Long id;
     private String name;
-    private List<Long> finishedOrdersId;
+    private String lastName;
+    private String status;
 }

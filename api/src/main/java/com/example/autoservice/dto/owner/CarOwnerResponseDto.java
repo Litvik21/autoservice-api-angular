@@ -14,6 +14,8 @@ import java.util.List;
 public class CarOwnerResponseDto {
     private Long id;
     private String name;
-    private List<Long> carsId;
-    private List<Long> ordersId;
+    private String lastName;
+    private String phoneNumber;
+//    private List<Long> carsId;
+//    private List<Long> ordersId;
 }

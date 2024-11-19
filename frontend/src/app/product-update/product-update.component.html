@@ -7,6 +7,17 @@
     <label>Price:</label>
     <input [(ngModel)]="price">
   </p>
-  <button (click)="goBack()">Go Back</button>
-  <button (click)="save()" style="margin-top: 5px">Save</button>
+
+  <div class="button-container">
+    <button (click)="goBack()">PREV</button>
+    <button
+      (click)="save()"
+      [disabled]="
+      !title ||
+      !price
+    "
+    >
+      SAVE
+    </button>
+  </div>
 </div>

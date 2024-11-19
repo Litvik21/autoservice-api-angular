@@ -1,8 +1,6 @@
 package com.example.autoservice.service;
 
-import com.example.autoservice.model.Order;
-import com.example.autoservice.model.Product;
-import com.example.autoservice.model.Task;
+import com.example.autoservice.model.*;
 import com.example.autoservice.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -17,16 +16,32 @@ public class OrderServiceImpl implements OrderService {
     private static final double PERCENT_FOR_TASKS = 0.02;
     private final OrderRepository orderRepository;
     private final TaskService taskService;
+    private final MechanicService mechanicService;
+    private final ProductService productService;
 
-    public OrderServiceImpl(OrderRepository orderRepository, TaskService taskService) {
+    public OrderServiceImpl(OrderRepository orderRepository, TaskService taskService, MechanicService mechanicService, ProductService productService) {
         this.orderRepository = orderRepository;
         this.taskService = taskService;
+        this.mechanicService = mechanicService;
+        this.productService = productService;
     }
 
     @Override
     public Order save(Order order) {
         order.setDateReceived(LocalDate.now());
-        return orderRepository.save(order);
+        order.setProducts(order.getProducts().stream().distinct().collect(Collectors.toList()));
+        try {
+            Order saved = orderRepository.save(order);
+            order.getTasks().stream().forEach(task -> {
+                task.setPaymentStatus(Task.PaymentStatus.NOT_PAID);
+                taskService.save(task);
+            });
+            return saved;
+        } catch (Exception e) {
+            System.out.println("ERROR: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return order;
     }
 
     @Override
@@ -38,9 +53,23 @@ public class OrderServiceImpl implements OrderService {
     public Order addProduct(Long orderId, Product product) {
         Order order = getById(orderId);
         List<Product> products = order.getProducts();
+        System.out.println(productService.getById(product.getId()));
         products.add(product);
         order.setProducts(products);
-        return save(order);
+        orderRepository.save(order);
+
+        return order;
+    }
+
+    @Override
+    public Order removeProduct(Long orderId, Long productId) {
+        Order order = getById(orderId);
+        List<Product> products = order.getProducts();
+        products.remove(productService.getById(productId));
+        order.setProducts(products);
+        orderRepository.save(order);
+
+        return order;
     }
 
     @Override
@@ -61,6 +90,29 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getAll() {
         return orderRepository.findAll();
     }
+
+    @Override
+    public List<Product> getAllProducts(Long id) {
+        return getById(id).getProducts();
+    }
+
+    @Override
+    public List<Order> getByUser(Long userId) {
+        return getAll().stream()
+                .filter(order -> order.getCar().getOwner().getId().equals(userId))
+                .toList();
+    }
+
+    @Override
+    public List<Order> getFinishedByMechanicId(Long userId) {
+        return getAll().stream()
+                .filter(order -> order.getStatus().equals(Order.Status.SUCCESSFULLY_COMPLETED) ||
+                        order.getStatus().equals(Order.Status.NOT_SUCCESSFULLY_COMPLETED))
+                .filter(order -> order.getTasks().stream()
+                        .anyMatch(task -> task.getMechanic().getId().equals(userId)))
+                .toList();
+    }
+
 
     @Override
     public BigDecimal getPrice(Long id) {
@@ -84,9 +136,26 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private void checkStatus(Order order) {
+        if (order.getStatus() == Order.Status.PAID) {
+            order.setStatus(Order.Status.SUCCESSFULLY_COMPLETED);
+        }
+
         if (order.getStatus() == Order.Status.SUCCESSFULLY_COMPLETED
                 || order.getStatus() == Order.Status.NOT_SUCCESSFULLY_COMPLETED) {
             order.setDateFinished(LocalDate.now());
+            List<Task> tasks = order.getTasks();
+
+            for (Task task : tasks) {
+                Mechanic mechanic = task.getMechanic();
+                if (order.getStatus() != Order.Status.PAID ||
+                        order.getStatus() != Order.Status.PROCESS ||
+                        order.getStatus() != Order.Status.RECEIVED ) {
+                    mechanic.setStatus(Mechanic.Status.FREE);
+                    mechanicService.save(mechanic);
+                }
+                task.setPaymentStatus(Task.PaymentStatus.PAID);
+                taskService.update(task);
+            }
         }
     }
 

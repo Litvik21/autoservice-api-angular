@@ -5,10 +5,20 @@
     <input [(ngModel)]="name">
   </p>
 
+  <p>
+    <label>Surname:</label>
+    <input [(ngModel)]="lastName" name="lastName" placeholder="Enter surname">
+  </p>
+
+  <p>
+    <label>Phone:</label>
+    <input [(ngModel)]="phone" name="phone" placeholder="Enter phone">
+  </p>
+
   <form [formGroup]="carForm">
 
     <p>
-      <label>Select Car VIN number:</label>
+      <label>Select Car:</label>
       <select formControlName="car">
         <option [ngValue]="null" disabled>Select Car</option>
         <option *ngFor="let car of cars" [ngValue]="car.id">{{car.number}}</option>
@@ -20,7 +30,7 @@
   <form [formGroup]="orderForm">
 
     <p>
-      <label>Select Order description:</label>
+      <label>Select Order:</label>
       <select formControlName="order">
         <option [ngValue]="null" disabled>Select Order</option>
         <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
@@ -30,6 +40,8 @@
 
   </form>
 
-  <button (click)="goBack()" style="margin-top: 5px">Go Back</button>
-  <button (click)="save()" style="margin-top: 5px">Save</button>
+  <div class="button-container">
+    <button (click)="goBack()">PREV</button>
+    <button (click)="save()" [disabled]="!name || !lastName || !phone">NEXT</button>
+  </div>
 </div>

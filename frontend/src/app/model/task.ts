@@ -5,6 +5,7 @@ import { Order } from './order';
 
 export interface Task {
   id?: number;
+  title?: string;
   typeOfTask?: TypeOfTask;
   order?: Order;
   mechanic?: Mechanic;

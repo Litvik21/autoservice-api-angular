@@ -1,5 +1,6 @@
 package com.example.autoservice.dto.mapper;
 
+import com.example.autoservice.dto.task.TaskCreateDto;
 import com.example.autoservice.dto.task.TaskRequestDto;
 import com.example.autoservice.dto.task.TaskResponseDto;
 import com.example.autoservice.model.Task;
@@ -17,13 +18,27 @@ public class TaskMapper {
         this.mechanicService = mechanicService;
     }
 
+    public Task toModel(TaskCreateDto requestDto) {
+        Task task = new Task();
+        task.setTitle(requestDto.getTitle());
+        task.setType(Task.TypeOfTask.valueOf(requestDto.getType().toUpperCase()));
+        if (requestDto.getMechanicId() != null) {
+            task.setMechanic(mechanicService.getById(requestDto.getMechanicId()));
+        }
+        task.setPrice(requestDto.getPrice());
+        task.setPaymentStatus(Task.PaymentStatus.WAITING);
+
+        return task;
+    }
+
     public TaskResponseDto toDto(Task task) {
         TaskResponseDto dto = new TaskResponseDto();
         dto.setId(task.getId());
+        dto.setTitle(task.getTitle());
         dto.setType(task.getType());
-        if (task.getOrder() != null) {
-            dto.setOrderId(task.getOrder().getId());
-        }
+//        if (task.getOrder() != null) {
+//            dto.setOrderId(task.getOrder().getId());
+//        }
         if (task.getMechanic() != null) {
             dto.setMechanicId(task.getMechanic().getId());
         }
@@ -35,10 +50,11 @@ public class TaskMapper {
 
     public Task toModel(TaskRequestDto requestDto) {
         Task task = new Task();
+        task.setTitle(requestDto.getTitle());
         task.setType(Task.TypeOfTask.valueOf(requestDto.getType().toUpperCase()));
-        if (requestDto.getOrderId() != null) {
-            task.setOrder(orderService.getById(requestDto.getOrderId()));
-        }
+//        if (requestDto.getOrderId() != null) {
+//            task.setOrder(orderService.getById(requestDto.getOrderId()));
+//        }
         if (requestDto.getMechanicId() != null) {
             task.setMechanic(mechanicService.getById(requestDto.getMechanicId()));
         }

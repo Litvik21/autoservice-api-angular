@@ -11,11 +11,11 @@ public interface MechanicService {
 
     Mechanic update(Mechanic master);
 
-    List<Order> getOrders(Long masterId);
-
     BigDecimal getSalary(Long masterId);
 
     Mechanic getById(Long id);
 
     List<Mechanic> getAll();
+
+    List<Mechanic> getAllFree();
 }

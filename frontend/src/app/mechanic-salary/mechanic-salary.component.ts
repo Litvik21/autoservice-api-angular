@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
 })
 export class MechanicSalaryComponent implements OnInit {
   mechanic: any;
-  salary!: Number;
+  salary: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,14 +26,14 @@ export class MechanicSalaryComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id')!;
     this.mechanicService.getMechanic(id)
       .subscribe(mechanic => this.mechanic = mechanic);
+
+    this.mechanicService.getSalary(id)
+      .subscribe(salary => {
+        console.log(salary);
+        this.salary = salary});
   }
 
   goBack(): void {
     this.location.back();
-  }
-
-  getSalary(): void {
-    this.mechanicService.getSalary(this.mechanic.id)
-      .subscribe(salary => this.salary = salary);
   }
 }

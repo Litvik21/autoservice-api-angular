@@ -13,6 +13,16 @@
     </p>
 
   </form>
-  <button (click)="goBack()">Go back</button>
-  <button (click)="save()" style="margin-top: 5px">Save</button>
+
+  <div class="button-container">
+    <button (click)="goBack()">PREV</button>
+    <button
+      (click)="save()"
+      [disabled]="
+      !paymentStatusForm.get('status')?.value
+    "
+    >
+      SAVE
+    </button>
+  </div>
 </div>

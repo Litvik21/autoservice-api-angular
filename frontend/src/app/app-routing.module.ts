@@ -25,8 +25,13 @@ import { CarOwnerInfoComponent } from './car-owner-info/car-owner-info.component
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { TaskInfoComponent } from './task-info/task-info.component';
 import { MechanicInfoComponent } from './mechanic-info/mechanic-info.component';
+import { MainComponent } from './main/main.component';
+import { ProductsOfOrderComponent } from './products-of-order/products-of-order.component';
 
 const routes: Routes = [
+  { path: "", pathMatch: "full", redirectTo: "main" },
+  { path: 'main', component: MainComponent },
+
   {path: 'cars/:id', component: CarUpdateComponent},
   {path: 'cars', component: CarComponent},
   {path: 'car-info', component: CarInfoComponent},
@@ -56,7 +61,8 @@ const routes: Routes = [
 
   {path: 'products/:id', component: ProductUpdateComponent},
   {path: 'products', component: ProductComponent},
-  {path: 'product-info', component: ProductInfoComponent}
+  {path: 'product-info', component: ProductInfoComponent},
+  {path: 'product-of-orders/:id', component: ProductsOfOrderComponent}
 ];
 
 @NgModule({

@@ -5,6 +5,7 @@ import com.example.autoservice.dto.order.OrderResponseDto;
 import com.example.autoservice.model.Order;
 import com.example.autoservice.model.Product;
 import com.example.autoservice.model.Task;
+import com.example.autoservice.service.CarOwnerService;
 import com.example.autoservice.service.CarService;
 import com.example.autoservice.service.ProductService;
 import com.example.autoservice.service.TaskService;
@@ -19,12 +20,14 @@ public class OrderMapper {
     private final CarService carService;
     private final ProductService productService;
     private final TaskService taskService;
+    private final CarOwnerService carOwnerService;
 
     public OrderMapper(CarService carService,
-                       ProductService productService, TaskService taskService) {
+                       ProductService productService, TaskService taskService, CarOwnerService carOwnerService) {
         this.carService = carService;
         this.productService = productService;
         this.taskService = taskService;
+        this.carOwnerService = carOwnerService;
     }
 
     public OrderResponseDto toDto(Order order) {

@@ -4,6 +4,8 @@ import com.example.autoservice.dto.car.CarRequestDto;
 import com.example.autoservice.dto.car.CarResponseDto;
 import com.example.autoservice.dto.mapper.CarMapper;
 import com.example.autoservice.model.Car;
+import com.example.autoservice.model.CarOwner;
+import com.example.autoservice.service.CarOwnerService;
 import com.example.autoservice.service.CarService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

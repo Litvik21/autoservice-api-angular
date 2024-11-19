@@ -6,6 +6,7 @@ import { Order } from '../model/order';
 import { CarService } from '../service/car.service';
 import { OrderService } from '../service/order.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-car-owner',
@@ -22,11 +23,14 @@ export class CarOwnerComponent implements OnInit {
   newCars: Car[] = [];
   newOrders: Order[] = [];
   name = '';
+  lastName = '';
+  phone = '';
 
   constructor(private ownerService: CarOwnerService,
               private carService: CarService,
               private orderService: OrderService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -82,7 +86,7 @@ export class CarOwnerComponent implements OnInit {
     this.submitCar();
     this.submitOrder();
 
-    this.ownerService.addCarOwner({id: id + 1, name: this.name, cars: this.newCars, orders: this.newOrders} as CarOwner)
+    this.ownerService.addCarOwner({id: id + 1, name: this.name, lastName: this.lastName, phoneNumber: this.phone} as CarOwner)
       .subscribe(owner => {
         this.owners.push(owner);
       });
@@ -90,5 +94,10 @@ export class CarOwnerComponent implements OnInit {
     this.name = '';
     this.orderForm.reset();
     this.carForm.reset();
+    this.router.navigate(['cars']).then(() => window.location.reload());
+  }
+
+  skip(): void {
+    this.router.navigate(['cars']).then(() => window.location.reload());
   }
 }

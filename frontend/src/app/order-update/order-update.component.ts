@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Car } from '../model/car';
 import { Task } from '../model/task';
 import { Product } from '../model/product';
-import { Status, StatusMapping } from '../model/status';
+import { mapStringToStatus, Status, StatusMapping } from '../model/status';
 import { CarService } from '../service/car.service';
 import { ProductService } from '../service/product.service';
 import { TaskService } from '../service/task.service';
@@ -34,7 +34,7 @@ export class OrderUpdateComponent implements OnInit {
   statuses = Object.values(Status);
   statusMapping = StatusMapping;
   description = '';
-  selectedDate!: Date;
+  selectedDate: Date | null = null;
 
   constructor(private fb: FormBuilder,
               private orderService: OrderService,
@@ -119,8 +119,20 @@ export class OrderUpdateComponent implements OnInit {
         this.carForm = this.fb.group({
           car: [this.order.carId]
         });
+        this.productForm = this.fb.group({
+          product: [this.order.productsIds[0]]
+        });
+        const dateArray = this.order.dateFinished;
+        if (Array.isArray(dateArray) && dateArray.length === 3) {
+          this.selectedDate = new Date(dateArray[0], dateArray[1] - 1, dateArray[2]);
+        } else {
+          this.selectedDate = this.order.dateFinished;
+        }
+        this.taskForm = this.fb.group({
+          task: [this.order.taskIds[0]]
+        });
         this.statusForm = this.fb.group({
-          status: [this.order.status]
+          status: [mapStringToStatus(this.order.status!)]
         });
       });
   }

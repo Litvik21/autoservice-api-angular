@@ -7,4 +7,16 @@
   <label>Price:</label>
   <input [(ngModel)]="price">
 </p>
-<button (click)="add()">Add</button>
+
+<div class="button-container">
+  <button (click)="prev()">PREV</button>
+  <button
+    (click)="add()"
+    [disabled]="
+      !title ||
+      !price
+    "
+  >
+    NEXT
+  </button>
+</div>

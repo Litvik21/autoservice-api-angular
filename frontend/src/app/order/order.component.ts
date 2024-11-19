@@ -9,6 +9,10 @@ import { ProductService } from '../service/product.service';
 import { TaskService } from '../service/task.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Status, StatusMapping } from '../model/status';
+import { Router } from '@angular/router';
+import { TypeOfTaskMapping } from '../model/typeOfTask';
+import { CarOwner } from '../model/carOwner';
+import { CarOwnerService } from '../service/carOwner.service';
 
 @Component({
   selector: 'app-order',
@@ -30,6 +34,7 @@ export class OrderComponent implements OnInit {
   newProducts: Product[] = [];
   status!: Status;
   statuses = Object.values(Status);
+  typeMapping = TypeOfTaskMapping;
   statusMapping = StatusMapping;
   description = '';
   picker = new Date;
@@ -39,7 +44,8 @@ export class OrderComponent implements OnInit {
               private carService: CarService,
               private productService: ProductService,
               private taskService: TaskService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -63,7 +69,10 @@ export class OrderComponent implements OnInit {
 
   getTasks(): void {
     this.taskService.getTasks()
-      .subscribe(tasks => this.tasks = tasks);
+      .subscribe(tasks => {
+
+        this.tasks = tasks
+      });
   }
 
   getProducts(): void {
@@ -112,6 +121,14 @@ export class OrderComponent implements OnInit {
     this.status = this.statusForm.get('status')!.value;
   }
 
+  prev(): void {
+    this.router.navigate(['tasks']).then(() => window.location.reload());
+  }
+
+  product(): void {
+    this.router.navigate(['products']).then(() => window.location.reload());
+  }
+
   add(): void {
     let id = Math.max.apply(Math, this.orders.map(function (o) {
       return o.id!;
@@ -123,9 +140,13 @@ export class OrderComponent implements OnInit {
     this.submitStatus();
 
     this.orderService.addOrder({
-      id: id + 1, car: this.newCar, dateFinished: this.picker,
-      description: this.description, tasks: this.newTasks,
-      products: this.newProducts, status: this.status
+      id: id + 1,
+      car: this.newCar,
+      dateFinished: this.picker,
+      description: this.description,
+      tasks: this.newTasks,
+      products: this.newProducts,
+      status: this.status
     } as Order)
       .subscribe(order => {
         this.orders.push(order);
@@ -136,5 +157,7 @@ export class OrderComponent implements OnInit {
     this.carForm.reset();
     this.taskForm.reset();
     this.statusForm.reset();
+
+    this.router.navigate(['main']).then(() => window.location.reload());
   }
 }

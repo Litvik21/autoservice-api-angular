@@ -19,13 +19,16 @@
 
   <form [formGroup]="contactForm">
     <p>
-      <label>Select Owner ID:</label>
+      <label>Select Owner:</label>
       <select formControlName="owner">
         <option [ngValue]="null" disabled>Select Owner</option>
-        <option *ngFor="let owner of owners" [ngValue]="owner.id">{{owner.name}}</option>
+        <option *ngFor="let owner of owners" [ngValue]="owner.id">{{owner.name + " " + owner.lastName}}</option>
       </select>
     </p>
   </form>
-  <button (click)="goBack()">Go Back</button>
-  <button (click)="save()" style="margin-top: 5px">Save</button>
+
+  <div class="button-container">
+    <button (click)="goBack()">PREV</button>
+    <button (click)="save()" [disabled]="!carBrand || !carModel || !carYear || !carNumber || !contactForm.get('owner')?.value">SAVE</button>
+  </div>
 </div>

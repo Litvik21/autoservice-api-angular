@@ -1,5 +1,6 @@
 package com.example.autoservice.dto.mapper;
 
+import com.example.autoservice.dto.product.ProductForOrderReqDto;
 import com.example.autoservice.dto.product.ProductRequestDto;
 import com.example.autoservice.dto.product.ProductResponseDto;
 import com.example.autoservice.model.Product;
@@ -18,6 +19,15 @@ public class ProductMapper {
 
     public Product toModel(ProductRequestDto requestDto) {
         Product product = new Product();
+        product.setTitle(requestDto.getTitle());
+        product.setPrice(requestDto.getPrice());
+
+        return product;
+    }
+
+    public Product toModelForOrder(ProductForOrderReqDto requestDto) {
+        Product product = new Product();
+        product.setId(requestDto.getId());
         product.setTitle(requestDto.getTitle());
         product.setPrice(requestDto.getPrice());
 

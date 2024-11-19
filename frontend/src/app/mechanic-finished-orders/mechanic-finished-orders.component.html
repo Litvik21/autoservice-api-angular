@@ -1,29 +1,27 @@
-<div *ngIf="mechanic">
-  <table>
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Date Received</th>
-      <th>Date Finished</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let order of orders">
-      <td>{{ order.id }}</td>
-      <td>{{ order.description }}</td>
-      <td>{{ order.status }}</td>
-      <td>{{ order.dateReceived }}</td>
-      <td>{{ order.dateFinished }}</td>
-    </tr>
-    <tr *ngIf="!orders || orders.length === 0">
-      <td colspan="4">No orders found.</td>
-    </tr>
-    </tbody>
-  </table>
-  <td>
-    <button (click)="getOrders()" style="margin-top: 5px">Get Orders</button>
-    <button (click)="goBack()" style="margin-top: 5px">Go back</button>
-  </td>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Date Received</th>
+    <th>Date Finished</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let order of orders">
+    <td>{{ order.id }}</td>
+    <td>{{ order.description }}</td>
+    <td>{{ order.status }}</td>
+    <td>{{ order.dateReceived }}</td>
+    <td>{{ order.dateFinished }}</td>
+  </tr>
+  <tr *ngIf="!orders || orders.length === 0">
+    <td colspan="4">No orders found.</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="button-container">
+  <button (click)="goBack()" >PREV</button>
 </div>

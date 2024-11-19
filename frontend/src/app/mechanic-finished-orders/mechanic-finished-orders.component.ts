@@ -10,7 +10,6 @@ import { MechanicService } from '../service/mechanic.service';
   styleUrls: ['./mechanic-finished-orders.component.scss']
 })
 export class MechanicFinishedOrdersComponent implements OnInit {
-  mechanic: any;
   orders: Order[] = [];
 
   constructor(
@@ -25,16 +24,11 @@ export class MechanicFinishedOrdersComponent implements OnInit {
 
   getMechanic(): void {
     const id = +this.route.snapshot.paramMap.get('id')!;
-    this.mechanicService.getMechanic(id)
-      .subscribe(mechanic => this.mechanic = mechanic);
+    this.mechanicService.getFinishedOrders(id)
+      .subscribe(orders => this.orders = orders);
   }
 
   goBack(): void {
     this.location.back();
-  }
-
-  getOrders(): void {
-    this.mechanicService.getFinishedOrders(this.mechanic.id)
-      .subscribe(orders => this.orders = orders);
   }
 }

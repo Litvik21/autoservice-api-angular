@@ -12,8 +12,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TaskRequestDto {
+    private String title;
     private String type;
-    private Long orderId;
     private Long mechanicId;
     private BigDecimal price;
     private String paymentStatus;

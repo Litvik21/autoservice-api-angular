@@ -1,69 +1,81 @@
+/* Основные стили */
+body {
+  background-color: #121212;
+  color: #E0E0E0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Заголовок */
 h2 {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
-  color: #1a1a1a;
+  color: #E9B157;
   font-size: 2em;
   letter-spacing: 1px;
   text-transform: uppercase;
+  margin-top: 20px;
 }
 
-p {
+/* Таблица */
+table {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-collapse: collapse;
+  font-family: 'Montserrat', sans-serif;
+  color: #E0E0E0;
+  background-color: #1E1E1E;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 15px;
   text-align: center;
-  font-size: 1.2em;
-  line-height: 1.5em;
-  color: #555555;
+  border-bottom: 1px solid #333333;
 }
 
+th {
+  background-color: #333333;
+  color: #E9B157;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #2C2C2C;
+}
+
+tr:nth-child(odd) {
+  background-color: #1E1E1E;
+}
+
+/* Кнопки */
 button {
-  background-color: #FFC107;
-  color: #1a1a1a;
+  background-color: #E9B157;
+  color: #121212;
   font-size: 1em;
   border: none;
-  padding: 15px 40px;
-  border-radius: 50px;
+  padding: 10px 20px;
+  border-radius: 8px;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  margin: 0 auto;
-  display: block;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 5px;
 }
 
 button:hover {
-  background-color: #1a1a1a;
-  color: #FFC107;
+  background-color: #121212;
+  color: #E9B157;
+  border: 1px solid #E9B157;
 }
-
-table {
-  border-collapse: collapse;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  margin: 0 auto;
-  margin-top: 50px;
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;  /* Расстояние между кнопками */
+  margin-top: 20px;
 }
-th {
-  padding: 20px;
-  background-color: #1a1a1a;
-  color: #FFFFFF;
-  font-size: 0.9em;
-  text-align: left;
-}
-th:last-child {
-  border-right: none;
-}
-td {
-  vertical-align: middle;
-  padding: 15px;
-  font-size: 1em;
+form, .container {
   text-align: center;
-  border-top: 2px solid #CCCCCC;
-  border-bottom: 2px solid #CCCCCC;
-  border-right: 2px solid #CCCCCC;
-}
-td:first-child {
-  border-left: 2px solid #CCCCCC;
-}
-
-td:nth-child(2) {
-  text-align: left;
-  color: #555555;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
 }

@@ -78,9 +78,24 @@ export class OrderService {
   }
 
   addProductToOrder(id: number, product: Product): Observable<Order> {
+    console.log(product)
     return this.http.post<Order>(`${this.ordersUrl}/add-product/${id}`, product, this.httpOptions).pipe(
       catchError(this.handleError<Order>('addOrder'))
     );
+  }
+
+  removeProductFromOrder(orderId: number, productId: number): Observable<Order> {
+      return this.http.get<Order>(`${this.ordersUrl}/product/delete/${orderId}/${productId}`, this.httpOptions).pipe(
+        catchError(this.handleError<Order>('addOrder'))
+      );
+  }
+
+  getProducts(orderId: number): Observable<Product[]> {
+    const url = `${this.ordersUrl}/get-products/${orderId}`;
+    return this.http.get<Product[]>(url)
+      .pipe(
+        catchError(this.handleError<Product[]>('getProducts', []))
+      );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

@@ -41,7 +41,9 @@ class CarControllerTest {
 
     @Test
     void shouldSaveCar() {
-        CarOwner owner = new CarOwner(2L, "", Collections.emptyList(), Collections.emptyList());
+        CarOwner owner = new CarOwner(2L, "", "", ""
+//                Collections.emptyList(), Collections.emptyList()
+        );
         Car car = new Car(null, "audi", "a7",
                 "2018", "12312", owner);
         Mockito.when(ownerService.getById(2L)).thenReturn(owner);

@@ -44,7 +44,9 @@ export class OrderAddProductComponent implements OnInit {
   getOrder(): void {
     const id = +this.route.snapshot.paramMap.get('id')!;
     this.orderService.getOrder(id)
-      .subscribe(order => this.order = order);
+      .subscribe(order => {
+        this.order = order
+      });
   }
 
   goBack(): void {

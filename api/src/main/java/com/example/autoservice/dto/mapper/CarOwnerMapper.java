@@ -27,16 +27,18 @@ public class CarOwnerMapper {
         CarOwnerResponseDto dto = new CarOwnerResponseDto();
         dto.setId(owner.getId());
         dto.setName(owner.getName());
-        if (owner.getOrders() != null) {
-            dto.setOrdersId(owner.getOrders().stream()
-                    .map(Order::getId)
-                    .collect(Collectors.toList()));
-        }
-        if (owner.getCars() != null) {
-            dto.setCarsId(owner.getCars().stream()
-                    .map(Car::getId)
-                    .collect(Collectors.toList()));
-        }
+        dto.setLastName(owner.getLastName());
+        dto.setPhoneNumber(owner.getPhoneNumber());
+//        if (owner.getOrders() != null) {
+//            dto.setOrdersId(owner.getOrders().stream()
+//                    .map(Order::getId)
+//                    .collect(Collectors.toList()));
+//        }
+//        if (owner.getCars() != null) {
+//            dto.setCarsId(owner.getCars().stream()
+//                    .map(Car::getId)
+//                    .collect(Collectors.toList()));
+//        }
 
         return dto;
     }
@@ -44,16 +46,18 @@ public class CarOwnerMapper {
     public CarOwner toModel(CarOwnerRequestDto requestDto) {
         CarOwner owner = new CarOwner();
         owner.setName(requestDto.getName());
-        if (requestDto.getCarsId() != null) {
-            owner.setCars(requestDto.getCarsId().stream()
-                    .map(carService::getById)
-                    .toList());
-        }
-        if (requestDto.getOrdersId() != null) {
-            owner.setOrders(requestDto.getOrdersId().stream()
-                    .map(orderService::getById)
-                    .toList());
-        }
+        owner.setLastName(requestDto.getLastName());
+        owner.setPhoneNumber(requestDto.getPhoneNumber());
+//        if (requestDto.getCarsId() != null) {
+//            owner.setCars(requestDto.getCarsId().stream()
+//                    .map(carService::getById)
+//                    .toList());
+//        }
+//        if (requestDto.getOrdersId() != null) {
+//            owner.setOrders(requestDto.getOrdersId().stream()
+//                    .map(orderService::getById)
+//                    .toList());
+//        }
 
         return owner;
     }

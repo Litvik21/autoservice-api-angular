@@ -29,6 +29,7 @@ export class MechanicInfoComponent implements OnInit {
   }
 
   getFinishedOrders(mechanicId: any): void {
+    console.log(mechanicId)
     this.router.navigate(['/mechanics', mechanicId,'finished-orders']);
   }
 

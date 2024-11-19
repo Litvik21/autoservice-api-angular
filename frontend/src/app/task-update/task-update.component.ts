@@ -32,6 +32,7 @@ export class TaskUpdateComponent implements OnInit {
   types = Object.values(TypeOfTask);
   typeOfTaskMapping = TypeOfTaskMapping;
   price = 0;
+  title = '';
 
   constructor(
     private orderService: OrderService,
@@ -54,6 +55,7 @@ export class TaskUpdateComponent implements OnInit {
     this.taskService.getTask(id)
       .subscribe(task => {
         this.task = task;
+        this.title = task.title!;
         this.price = task.price!;
         this.typeOfTaskForm = this.fb.group({
           type: [this.task.type]

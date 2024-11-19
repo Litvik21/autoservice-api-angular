@@ -3,6 +3,8 @@
   <tr>
     <th>ID</th>
     <th>Name</th>
+    <th>Surname</th>
+    <th>Status</th>
     <th>Action</th>
   </tr>
   </thead>
@@ -10,14 +12,16 @@
   <tr *ngFor="let mechanic of mechanics">
     <td>{{ mechanic.id }}</td>
     <td>{{ mechanic.name }}</td>
+    <td>{{ mechanic.lastName }}</td>
+    <td>{{ mechanic.status }}</td>
     <td>
-      <button (click)="update(mechanic.id)" style="margin-top: 5px" >Update</button>
-      <button (click)="getSalary(mechanic.id)" style="margin-top: 5px" >Get Salary</button>
-      <button (click)="getFinishedOrders(mechanic.id)" style="margin-top: 5px" >Get Finished Orders</button>
+      <button (click)="update(mechanic.id)">Update</button>
+      <button (click)="getSalary(mechanic.id)">Get Salary</button>
+      <button (click)="getFinishedOrders(mechanic.id)">Get Finished Orders</button>
     </td>
   </tr>
-  <tr *ngIf="!mechanics || mechanics.length === 0">
-    <td colspan="4">No orders found.</td>
+  <tr *ngIf="!mechanics">
+    <td colspan="4">No mechanics found.</td>
   </tr>
   </tbody>
 </table>

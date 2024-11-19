@@ -4,6 +4,7 @@ import { MechanicService } from '../service/mechanic.service';
 import { Order } from '../model/order';
 import { OrderService } from '../service/order.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mechanic',
@@ -11,22 +12,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./mechanic.component.scss']
 })
 export class MechanicComponent implements OnInit {
-  orderForm!: FormGroup;
-  newOrders: Order[] = [];
   mechanics: Mechanic[] = [];
-  orders: Order[] = [];
   mechanicName = "";
+  lastName = "";
 
   constructor(private mechanicService: MechanicService,
-              private orderService: OrderService,
-              private fb: FormBuilder) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.getMechanics();
-    this.getOrders();
-    this.orderForm = this.fb.group({
-      order: [null]
-    })
   }
 
   getMechanics(): void {
@@ -34,24 +28,17 @@ export class MechanicComponent implements OnInit {
       .subscribe(mechanics => this.mechanics = mechanics);
   }
 
-  getOrders(): void {
-    this.orderService.getOrders()
-      .subscribe(orders => this.orders = orders);
-  }
-
-  submitOrder() {
-    this.newOrders.push(this.orders.find(o => o.id == this.orderForm.value)!)
+  prev(): void {
+    this.router.navigate(['tasks']).then(() => window.location.reload());
   }
 
   add(): void {
     let id = Math.max.apply(Math, this.mechanics.map(function (o) {return o.id;}));
 
-    this.submitOrder();
-
-    this.mechanicService.addMechanic({id: id + 1, name: this.mechanicName, finishedOrders: this.newOrders} as Mechanic)
+    this.mechanicService.addMechanic({id: id + 1, name: this.mechanicName, lastName: this.lastName} as Mechanic)
       .subscribe(mechanic => {this.mechanics.push(mechanic)});
 
     this.mechanicName = '';
-    this.orderForm.reset();
+    this.router.navigate(['tasks']).then(() => window.location.reload());
   }
 }

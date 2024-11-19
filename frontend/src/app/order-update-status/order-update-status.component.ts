@@ -3,7 +3,7 @@ import { Order } from '../model/order';
 import { ActivatedRoute } from '@angular/router';
 import { OrderService } from '../service/order.service';
 import { Location } from '@angular/common';
-import { Status, StatusMapping } from '../model/status';
+import { mapStringToStatus, Status, StatusMapping } from '../model/status';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -28,15 +28,17 @@ export class OrderUpdateStatusComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOrder();
-    this.statusForm = this.fb.group({
-      status: [null]
-    })
   }
 
   getOrder(): void {
     const id = +this.route.snapshot.paramMap.get('id')!;
     this.orderService.getOrder(id)
-      .subscribe(order => this.order = order);
+      .subscribe(order => {
+        this.order = order
+        this.statusForm = this.fb.group({
+          status: [mapStringToStatus(this.order.status!)]
+        });
+      });
   }
 
   submitStatus() {

@@ -1,69 +1,103 @@
+/* Основные стили */
+body {
+  background-color: #121212;
+  color: #E0E0E0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Заголовок */
 h2 {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
-  color: #1a1a1a;
+  color: #E9B157;
   font-size: 2em;
   letter-spacing: 1px;
   text-transform: uppercase;
+  margin-top: 20px;
 }
 
+/* Стили для полей ввода и меток */
 p {
   text-align: center;
   font-size: 1.2em;
   line-height: 1.5em;
-  color: #555555;
+  color: #E0E0E0;
+  margin: 15px 0;
+}
+
+label {
+  color: #E9B157;
+  font-weight: bold;
+  display: inline-block;
+  width: 120px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+input, select {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  padding: 10px;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  background-color: #1E1E1E;
+  color: #E0E0E0;
+  width: 60%;
+  max-width: 300px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #E9B157;
+  outline: none;
+}
+
+select {
+  width: 63%;
+}
+
+/* Кнопки в одной линии */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;  /* Расстояние между кнопками */
+  margin-top: 20px;
 }
 
 button {
-  background-color: #FFC107;
-  color: #1a1a1a;
+  background-color: #E9B157;
+  color: #121212;
   font-size: 1em;
   border: none;
   padding: 15px 40px;
   border-radius: 50px;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
-  margin: 0 auto;
-  display: block;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-button:hover {
-  background-color: #1a1a1a;
-  color: #FFC107;
+button:hover, button:disabled {
+  background-color: #121212;
+  color: #E9B157;
+  border: 1px solid #E9B157;
 }
 
-table {
-  border-collapse: collapse;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  margin: 0 auto;
-  margin-top: 50px;
-}
-th {
-  padding: 20px;
-  background-color: #1a1a1a;
-  color: #FFFFFF;
-  font-size: 0.9em;
-  text-align: left;
-}
-th:last-child {
-  border-right: none;
-}
-td {
-  vertical-align: middle;
-  padding: 15px;
-  font-size: 1em;
+/* Центрирование формы */
+form, .container {
   text-align: center;
-  border-top: 2px solid #CCCCCC;
-  border-bottom: 2px solid #CCCCCC;
-  border-right: 2px solid #CCCCCC;
-}
-td:first-child {
-  border-left: 2px solid #CCCCCC;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
 }
 
-td:nth-child(2) {
-  text-align: left;
-  color: #555555;
+.skip-btn {
+  background-color: #607D8B;
+  color: #000000;
+  border: 1px solid #607D8B;
+}
+
+.skip-btn:hover {
+  background-color: transparent;
+  color: #607D8B;
+  border: 1px solid #607D8B;
 }

@@ -4,18 +4,18 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th>Surname</th>
       <th>Salary</th>
-      <th>Action</th>
     </tr>
     </thead>
     <tbody>
     <td>{{ mechanic.id }}</td>
     <td>{{ mechanic.name }}</td>
+    <td>{{ mechanic.lastName }}</td>
     <td>{{ salary }}</td>
-    <td>
-      <button (click)="getSalary()" style="margin-top: 5px">Get Salary</button>
-    </td>
     </tbody>
   </table>
-  <button (click)="goBack()" style="margin-top: 5px">Go back</button>
+  <div class="button-container">
+    <button (click)="goBack()" >PREV</button>
+  </div>
 </div>

@@ -7,6 +7,7 @@ import com.example.autoservice.dto.owner.CarOwnerRequestDto;
 import com.example.autoservice.dto.owner.CarOwnerResponseDto;
 import com.example.autoservice.model.CarOwner;
 import com.example.autoservice.service.CarOwnerService;
+import com.example.autoservice.service.OrderService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +21,14 @@ public class CarOwnerController {
     private final CarOwnerService ownerService;
     private final CarOwnerMapper mapper;
     private final OrderMapper orderMapper;
+    private final OrderService orderService;
 
     public CarOwnerController(CarOwnerService ownerService, CarOwnerMapper mapper,
-                              OrderMapper orderMapper) {
+                              OrderMapper orderMapper, OrderService orderService) {
         this.ownerService = ownerService;
         this.mapper = mapper;
         this.orderMapper = orderMapper;
+        this.orderService = orderService;
     }
 
     @PostMapping
@@ -53,7 +56,7 @@ public class CarOwnerController {
             @PathVariable @ApiParam(value = "id of car owner that you want to get all orders")
             Long id) {
 
-        return ownerService.findAllOrdersById(id).stream()
+        return orderService.getByUser(id).stream()
                 .map(orderMapper::toDto)
                 .collect(Collectors.toList());
     }

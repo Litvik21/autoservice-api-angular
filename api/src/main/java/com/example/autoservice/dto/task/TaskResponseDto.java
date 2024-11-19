@@ -13,8 +13,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class TaskResponseDto {
     private Long id;
+    private String title;
     private Task.TypeOfTask type;
-    private Long orderId;
     private Long mechanicId;
     private BigDecimal price;
     private Task.PaymentStatus paymentStatus;

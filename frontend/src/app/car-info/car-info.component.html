@@ -17,7 +17,7 @@
     <td>{{ car.year }}</td>
     <td>{{ car.number }}</td>
     <td>
-      <button (click)="update(car.id)" style="margin-top: 5px" >Update</button>
+      <button (click)="update(car.id)">Update</button>
     </td>
   </tr>
   <tr *ngIf="!cars || cars.length === 0">

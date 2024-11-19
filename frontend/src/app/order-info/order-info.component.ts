@@ -8,6 +8,7 @@ import { ProductService } from '../service/product.service';
 import { TaskService } from '../service/task.service';
 import { Router } from '@angular/router';
 import { Order } from '../model/order';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-order-info',
@@ -65,8 +66,8 @@ export class OrderInfoComponent implements OnInit {
     this.router.navigate(['/orders/update-status', orderId]);
   }
 
-  addProduct(orderId: any) {
-    this.router.navigate(['/orders/add-product', orderId]);
+  seeProducts(orderId: any) {
+      this.router.navigate(['/product-of-orders', orderId]);
   }
 
   getPrice(orderId: any) {

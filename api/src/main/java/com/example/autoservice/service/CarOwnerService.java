@@ -1,5 +1,6 @@
 package com.example.autoservice.service;
 
+import com.example.autoservice.model.Car;
 import com.example.autoservice.model.CarOwner;
 import com.example.autoservice.model.Order;
 

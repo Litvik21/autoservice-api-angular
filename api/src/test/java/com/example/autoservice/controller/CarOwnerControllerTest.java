@@ -41,11 +41,19 @@ class CarOwnerControllerTest {
     void shouldSaveCarOwner() {
         CarOwner owner = new CarOwner();
         Mockito.when(ownerService.save(owner))
-                .thenReturn(new CarOwner(3L, "Nazar", Collections.emptyList(), Collections.emptyList()));
+                .thenReturn(new CarOwner(3L,
+                        "Nazar",
+                        "",
+                        ""
+//                        Collections.emptyList(),
+//                        Collections.emptyList()
+                ));
 
         RestAssuredMockMvc.given()
                 .contentType(ContentType.JSON)
-                .body(new CarOwnerRequestDto("Nazar", Collections.emptyList(), Collections.emptyList()))
+                .body(new CarOwnerRequestDto("Nazar", "", ""
+//                        Collections.emptyList(), Collections.emptyList()
+                ))
                 .when()
                 .post("/car-owners")
                 .then()

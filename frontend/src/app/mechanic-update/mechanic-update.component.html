@@ -1,14 +1,18 @@
 <div *ngIf="mechanic">
-  <p style="margin-top: 10px">
+  <p>
     <label>Name:</label>
     <input [(ngModel)]="name">
+  </p>
+
+  <p>
+    <label>Surname:</label>
+    <input [(ngModel)]="lastName">
   </p>
 
   <form [formGroup]="orderForm">
 
     <p>
       <label>Select Finished Order</label>
-      <label> By Description: </label>
       <select formControlName="order">
         <option [ngValue]="null" disabled>Select Order</option>
         <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
@@ -17,6 +21,16 @@
 
   </form>
 
-  <button (click)="goBack()">Go back</button>
-  <button (click)="save()" style="margin-top: 5px">Save</button>
+  <div class="button-container">
+    <button (click)="goBack()">PREV</button>
+    <button
+      (click)="save()"
+      [disabled]="
+      !name ||
+      !lastName
+    "
+    >
+      SAVE
+    </button>
+  </div>
 </div>

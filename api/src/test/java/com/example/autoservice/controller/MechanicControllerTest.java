@@ -43,11 +43,11 @@ class MechanicControllerTest {
         Mechanic mechanic = new Mechanic();
         mechanic.setName("Arnold");
         Mockito.when(mechanicService.save(mechanic))
-                .thenReturn(new Mechanic(4L, mechanic.getName(), Collections.emptyList()));
+                .thenReturn(new Mechanic(4L, mechanic.getName(), "", Mechanic.Status.FREE));
 
         RestAssuredMockMvc.given()
                 .contentType(ContentType.JSON)
-                .body(new MechanicRequestDto(mechanic.getName(), Collections.emptyList()))
+                .body(new MechanicRequestDto(mechanic.getName(),""))
                 .when()
                 .post("/mechanics")
                 .then()
@@ -56,31 +56,31 @@ class MechanicControllerTest {
                 .body("name", Matchers.equalTo("Arnold"));
     }
 
-    @Test
-    void shouldGetFinishedOrders() {
-        Order order = new Order();
-        order.setId(47L);
-        order.setCar(new Car());
-        order.setProducts(Collections.emptyList());
-        order.setTasks(Collections.emptyList());
-        order.setStatus(Order.Status.PROCESS);
-        Order order1 = new Order();
-        order1.setId(5L);
-        order1.setCar(new Car());
-        order1.setProducts(Collections.emptyList());
-        order1.setTasks(Collections.emptyList());
-        order1.setStatus(Order.Status.RECEIVED);
-        Mockito.when(mechanicService.getOrders(13L))
-                .thenReturn(List.of(order, order1));
-
-        RestAssuredMockMvc.given()
-                .when()
-                .get("/mechanics/13/finished-orders")
-                .then()
-                .body("size()", Matchers.equalTo(2))
-                .body("[0].id", Matchers.equalTo(47))
-                .body("[1].id", Matchers.equalTo(5));
-    }
+//    @Test
+//    void shouldGetFinishedOrders() {
+//        Order order = new Order();
+//        order.setId(47L);
+//        order.setCar(new Car());
+//        order.setProducts(Collections.emptyList());
+//        order.setTasks(Collections.emptyList());
+//        order.setStatus(Order.Status.PROCESS);
+//        Order order1 = new Order();
+//        order1.setId(5L);
+//        order1.setCar(new Car());
+//        order1.setProducts(Collections.emptyList());
+//        order1.setTasks(Collections.emptyList());
+//        order1.setStatus(Order.Status.RECEIVED);
+//        Mockito.when(mechanicService.getOrders(13L))
+//                .thenReturn(List.of(order, order1));
+//
+//        RestAssuredMockMvc.given()
+//                .when()
+//                .get("/mechanics/13/finished-orders")
+//                .then()
+//                .body("size()", Matchers.equalTo(2))
+//                .body("[0].id", Matchers.equalTo(47))
+//                .body("[1].id", Matchers.equalTo(5));
+//    }
 
     @Test
     void shouldGetSalaryOfMechanic() {

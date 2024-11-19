@@ -42,10 +42,11 @@ export class CarOwnerService {
   }
 
   addCarOwner(owner: CarOwner): Observable<any> {
+
     const ownerToSent = {
       name: owner.name,
-      carsId: owner.cars.map(car => car.id),
-      ordersId: owner.orders.map(order => order.id)
+      lastName: owner.lastName,
+      phoneNumber: owner.phoneNumber
     };
     return this.http.post<any>(this.ownersUrl, ownerToSent, this.httpOptions).pipe(
       catchError(this.handleError<any>('addCarOwner'))

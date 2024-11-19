@@ -4,6 +4,7 @@ import { CarService } from '../service/car.service';
 import { CarOwner } from '../model/carOwner';
 import { CarOwnerService } from '../service/carOwner.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-car',
@@ -26,7 +27,8 @@ export class CarComponent implements OnInit {
 
   constructor(private carService: CarService,
               private ownerService: CarOwnerService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -56,7 +58,16 @@ export class CarComponent implements OnInit {
     }
   }
 
+  prev(): void {
+    this.router.navigate(['car-owners']).then(() => window.location.reload());
+  }
+
+  skip(): void {
+    this.router.navigate(['tasks']).then(() => window.location.reload());
+  }
+
   add(): void {
+    console.log("add");
     let id = Math.max.apply(Math, this.cars.map(function (o) {
       return o.id;
     }));
@@ -76,5 +87,7 @@ export class CarComponent implements OnInit {
     this.carYear = '';
     this.carNumber = '';
     this.contactForm.reset();
+
+    this.router.navigate(['tasks']).then(() => window.location.reload());
   }
 }

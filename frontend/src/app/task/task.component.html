@@ -1,5 +1,10 @@
 <h2>Add task</h2>
 
+<p>
+  <label>Title:</label>
+  <input [(ngModel)]="title">
+</p>
+
 <form [formGroup]="typeOfTaskForm">
 
   <p>
@@ -15,48 +20,64 @@
 
 </form>
 
-<form [formGroup]="orderForm">
+<!--<form [formGroup]="orderForm">-->
 
-  <p>
-    <label>Select Order</label>
-    <label> By Description: (Optional)</label>
-    <select formControlName="order">
-      <option [ngValue]="null" disabled>Select Order</option>
-      <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
-    </select>
+<!--  <p>-->
+<!--    <label>Select Order</label>-->
+<!--    <label> By Description: (Optional)</label>-->
+<!--    <select formControlName="order">-->
+<!--      <option [ngValue]="null" disabled>Select Order</option>-->
+<!--      <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>-->
+<!--    </select>-->
 
-  </p>
+<!--  </p>-->
 
-</form>
+<!--</form>-->
 <form [formGroup]="mechanicForm">
 
   <p>
     <label>Select Mechanic</label>
-    <label> By Name: (Optional)</label>
     <select formControlName="mechanic">
       <option [ngValue]="null" disabled>Select Mechanic</option>
-      <option *ngFor="let mechanic of mechanics" [ngValue]="mechanic.id">{{mechanic.name}}</option>
+      <option *ngFor="let mechanic of mechanics" [ngValue]="mechanic.id">{{mechanic.name + " " + mechanic.lastName}}</option>
     </select>
   </p>
 
 </form>
+
 <p>
   <label>Price:</label>
-  <input [(ngModel)]="price">
+  <input [(ngModel)]="price" placeholder="0$">
 </p>
-<form [formGroup]="paymentStatusForm">
 
-  <p>
-    <label>Select payment status</label>
-    <select formControlName="status">
-      <option [ngValue]="null" disabled>Select Status</option>
-      <option *ngFor="let status of statuses"
-              [value]="status">
-        {{PaymentStatusMapping[status]}}
-      </option>
-    </select>
-  </p>
+<!--<form [formGroup]="paymentStatusForm">-->
 
-</form>
+<!--  <p>-->
+<!--    <label>Select payment status</label>-->
+<!--    <select formControlName="status">-->
+<!--      <option [ngValue]="null" disabled>Select Status</option>-->
+<!--      <option *ngFor="let status of statuses"-->
+<!--              [value]="status">-->
+<!--        {{PaymentStatusMapping[status]}}-->
+<!--      </option>-->
+<!--    </select>-->
+<!--  </p>-->
 
-<button (click)="add()">Add</button>
+<!--</form>-->
+
+<div class="button-container">
+  <button (click)="prev()">PREV</button>
+  <button (click)="mechanic()">ADD MECHANIC</button>
+  <button
+    (click)="add()"
+    [disabled]="
+      !title ||
+      !typeOfTaskForm.get('type')?.value ||
+      !mechanicForm.get('mechanic')?.value ||
+      !price
+      // !paymentStatusForm.get('status')?.value
+    "
+  >
+    NEXT
+  </button>
+</div>

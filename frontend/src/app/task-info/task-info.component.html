@@ -2,6 +2,7 @@
   <thead>
   <tr>
     <th>ID</th>
+    <th>Title</th>
     <th>Type</th>
     <th>Payment Status</th>
     <th>Price</th>
@@ -11,12 +12,13 @@
   <tbody>
   <tr *ngFor="let task of tasks">
     <td>{{ task.id }}</td>
+    <td>{{ task.title }}</td>
     <td>{{ task.type }}</td>
     <td>{{ task.paymentStatus }}</td>
     <td>{{ task.price }}</td>
     <td>
-      <button (click)="update(task.id)" style="margin-top: 5px" >Update</button>
-      <button (click)="updateStatus(task.id)" style="margin-top: 5px" >Update Status</button>
+      <button (click)="update(task.id)">Update</button>
+      <button (click)="updateStatus(task.id)">Update Status</button>
     </td>
   </tr>
   <tr *ngIf="!tasks || tasks.length === 0">

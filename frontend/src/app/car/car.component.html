@@ -1,29 +1,33 @@
 <h2>Add car</h2>
 <p>
   <label>Brand:</label>
-  <input [(ngModel)]="carBrand">
+  <input [(ngModel)]="carBrand"  placeholder="Enter brand">
 </p>
 <p>
   <label>Model:</label>
-  <input [(ngModel)]="carModel">
+  <input [(ngModel)]="carModel" placeholder="Enter model">
 </p>
 <p>
   <label>Year:</label>
-  <input [(ngModel)]="carYear">
+  <input [(ngModel)]="carYear" placeholder="Enter year">
 </p>
 <p>
   <label>VIN number:</label>
-  <input [(ngModel)]="carNumber">
+  <input [(ngModel)]="carNumber" placeholder="Enter VIN number">
 </p>
 
 <form [formGroup]="contactForm">
   <p>
-    <label>Select Owner ID: (Optional)</label>
+    <label>Select Owner:</label>
     <select formControlName="owner">
       <option [ngValue]="null" disabled>Select Owner</option>
-      <option *ngFor="let owner of owners" [ngValue]="owner.id">{{owner.name}}</option>
+      <option *ngFor="let owner of owners" [ngValue]="owner.id">{{owner.name + " " + owner.lastName}}</option>
     </select>
   </p>
 </form>
 
-<button (click)="add()">Add</button>
+<div class="button-container">
+  <button (click)="prev()">PREV</button>
+  <button (click)="add()" [disabled]="!carBrand || !carModel || !carYear || !carNumber || !contactForm.get('owner')?.value">NEXT</button>
+  <button class="skip-btn" (click)="skip()">SKIP</button>
+</div>

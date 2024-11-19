@@ -1,7 +1,6 @@
 package com.example.autoservice.model;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -17,15 +16,21 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;
+    private String title;
+
     @Enumerated(value = EnumType.STRING)
     private TypeOfTask type;
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+
+//    @ManyToOne
+//    @JoinColumn(name = "order_id")
+//    private Order order;
+
     @OneToOne
     @JoinColumn(name = "mechanic_id")
     private Mechanic mechanic;
+
     private BigDecimal price;
+
     @Enumerated(value = EnumType.STRING)
     private PaymentStatus paymentStatus;
 
@@ -43,8 +48,11 @@ public class Task {
     }
 
     public enum PaymentStatus {
+        WAITING("Waiting"),
         PAID("Paid"),
-        NOT_PAID("Not_Paid");
+        NOT_PAID("Not_Paid"),
+        PAID_OUT("Paid_Out");
+
         private String value;
 
         PaymentStatus(String value) {
@@ -52,3 +60,4 @@ public class Task {
         }
     }
 }
+

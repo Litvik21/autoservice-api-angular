@@ -19,11 +19,8 @@ public class MechanicMapper {
         MechanicResponseDto dto = new MechanicResponseDto();
         dto.setId(mechanic.getId());
         dto.setName(mechanic.getName());
-        if (mechanic.getFinishedOrders() != null) {
-            dto.setFinishedOrdersId(mechanic.getFinishedOrders().stream()
-                    .map(Order::getId)
-                    .toList());
-        }
+        dto.setLastName(mechanic.getLastName());
+        dto.setStatus(mechanic.getStatus().name());
 
         return dto;
     }
@@ -31,11 +28,7 @@ public class MechanicMapper {
     public Mechanic toModel(MechanicRequestDto requestDto) {
         Mechanic mechanic = new Mechanic();
         mechanic.setName(requestDto.getName());
-        if (requestDto.getFinishedOrdersId() != null) {
-            mechanic.setFinishedOrders(requestDto.getFinishedOrdersId().stream()
-                    .map(orderService::getById)
-                    .toList());
-        }
+        mechanic.setLastName(requestDto.getLastName());
         return mechanic;
     }
 }

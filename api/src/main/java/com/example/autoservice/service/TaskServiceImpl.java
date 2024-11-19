@@ -1,5 +1,6 @@
 package com.example.autoservice.service;
 
+import com.example.autoservice.model.Mechanic;
 import com.example.autoservice.model.Task;
 import com.example.autoservice.repository.TaskRepository;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,10 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Task save(Task task) {
+        Mechanic mechanic = task.getMechanic();
+        mechanic.setStatus(Mechanic.Status.BUSY);
+        task.setMechanic(mechanic);
+
         return taskRepository.save(task);
     }
 

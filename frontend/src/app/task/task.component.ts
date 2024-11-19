@@ -8,6 +8,7 @@ import { Order } from '../model/order';
 import { PaymentStatus, PaymentStatusMapping } from '../model/paymentStatus';
 import { TypeOfTask, TypeOfTaskMapping } from '../model/typeOfTask';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task',
@@ -31,12 +32,14 @@ export class TaskComponent implements OnInit {
   type!: TypeOfTask;
   types = Object.values(TypeOfTask);
   TypeOfTaskMapping = TypeOfTaskMapping;
-  price = 0;
+  price!: number;
+  title = "";
 
   constructor(private taskService: TaskService,
               private orderService: OrderService,
               private mechanicService: MechanicService,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder,
+              private router: Router) { }
 
   ngOnInit() {
     this.getTasks();
@@ -62,7 +65,7 @@ export class TaskComponent implements OnInit {
   }
 
   getMechanics(): void {
-    this.mechanicService.getMechanics()
+    this.mechanicService.getFreeMechanics()
       .subscribe(mechanics => this.mechanics = mechanics);
   }
 
@@ -97,6 +100,14 @@ export class TaskComponent implements OnInit {
     }
   }
 
+  prev(): void {
+    this.router.navigate(['cars']).then(() => window.location.reload());
+  }
+
+  mechanic(): void {
+    this.router.navigate(['mechanics']).then(() => window.location.reload());
+  }
+
   add(): void {
     let id = Math.max.apply(Math, this.tasks.map(function (o) {
       return o.id!;
@@ -105,11 +116,12 @@ export class TaskComponent implements OnInit {
     this.submitTypeOfTask();
     this.submitMechanic();
     this.submitOrder();
-    this.submitPaymentStatus();
+    //this.submitPaymentStatus();
 
     this.taskService.addTask({
-      id: id + 1, typeOfTask: this.type, price: this.price,
-      order: this.newOrder, mechanic: this.newMechanic, paymentStatus: this.paymentStatus
+      id: id + 1, title: this.title, typeOfTask: this.type, price: this.price,
+      order: this.newOrder, mechanic: this.newMechanic
+      // paymentStatus: this.paymentStatus
     } as Task)
       .subscribe(task => {
         this.tasks.push(task);
@@ -118,7 +130,8 @@ export class TaskComponent implements OnInit {
     this.price = 0;
     this.orderForm.reset();
     this.mechanicForm.reset();
-    this.paymentStatusForm.reset();
+    // this.paymentStatusForm.reset();
     this.typeOfTaskForm.reset();
+    this.router.navigate(['orders']).then(() => window.location.reload());
   }
 }

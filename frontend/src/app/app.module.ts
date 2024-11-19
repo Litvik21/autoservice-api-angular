@@ -35,6 +35,9 @@ import { CarOwnerInfoComponent } from './car-owner-info/car-owner-info.component
 import { MechanicInfoComponent } from './mechanic-info/mechanic-info.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { TaskInfoComponent } from './task-info/task-info.component';
+import { MainComponent } from './main/main.component';
+import { HeaderComponent } from './header/header.component';
+import { ProductsOfOrderComponent } from './products-of-order/products-of-order.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,10 @@ import { TaskInfoComponent } from './task-info/task-info.component';
     CarOwnerInfoComponent,
     MechanicInfoComponent,
     ProductInfoComponent,
-    TaskInfoComponent
+    TaskInfoComponent,
+    MainComponent,
+    HeaderComponent,
+    ProductsOfOrderComponent
   ],
   imports: [
     BrowserModule,

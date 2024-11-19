@@ -17,6 +17,7 @@ export class MechanicUpdateComponent implements OnInit {
   mechanic: any;
   orders: Order[] = [];
   name = '';
+  lastName = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -55,6 +56,10 @@ export class MechanicUpdateComponent implements OnInit {
       .subscribe(mechanic => {
         this.mechanic = mechanic;
         this.name = mechanic.name;
+        this.lastName = mechanic.lastName;
+        this.orderForm = this.fb.group({
+          order: [this.mechanic.finishedOrdersId[0]]
+        });
       });
   }
 

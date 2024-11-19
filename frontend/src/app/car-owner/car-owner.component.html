@@ -2,32 +2,33 @@
 
 <p>
   <label>Name:</label>
-  <input [(ngModel)]="name">
+  <input [(ngModel)]="name" name="name" placeholder="Enter Name">
 </p>
 
-<form [formGroup]="carForm">
+<p>
+  <label>Surname:</label>
+  <input [(ngModel)]="lastName" name="lastName" placeholder="Enter surname">
+</p>
 
-  <p>
-    <label>Select Car VIN number: (Optional)</label>
-    <select formControlName="car">
-      <option [ngValue]="null" disabled>Select Car</option>
-      <option *ngFor="let car of cars" [ngValue]="car.id">{{car.number}}</option>
-    </select>
-  </p>
+<p>
+  <label>Phone:</label>
+  <input [(ngModel)]="phone" name="phone" placeholder="Enter phone">
+</p>
 
-</form>
+<!--<form [formGroup]="carForm">-->
 
-<form [formGroup]="orderForm">
+<!--  <p>-->
+<!--    <label>Select Car (Optional)</label>-->
+<!--    <select formControlName="car">-->
+<!--      <option [ngValue]="null" disabled>Select Car</option>-->
+<!--      <option *ngFor="let car of cars" [ngValue]="car.id">{{car.brand + " " + car.model + " " + car.year + " " + car.number}}</option>-->
+<!--    </select>-->
+<!--  </p>-->
 
-  <p>
-    <label>Select Order description: (Optional)</label>
-    <select formControlName="order">
-      <option [ngValue]="null" disabled>Select Order</option>
-      <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
-    </select>
-  </p>
+<!--</form>-->
 
-</form>
+<div class="button-container">
+  <button (click)="add()" [disabled]="!name || !lastName || !phone">NEXT</button>
+  <button class="skip-btn" (click)="skip()">SKIP</button>
+</div>
 
-
-<button (click)="add()">Add</button>

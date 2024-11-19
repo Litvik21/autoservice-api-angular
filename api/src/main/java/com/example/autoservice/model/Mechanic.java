@@ -1,14 +1,7 @@
 package com.example.autoservice.model;
 
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.*;
 
@@ -25,9 +18,17 @@ public class Mechanic {
     @EqualsAndHashCode.Include
     private Long id;
     private String name;
-    @OneToMany
-    @JoinTable(name = "masters_orders",
-            joinColumns = @JoinColumn(name = "master_id"),
-            inverseJoinColumns = @JoinColumn(name = "order_id"))
-    private List<Order> finishedOrders;
+    private String lastName;
+    @Enumerated(value = EnumType.STRING)
+    private Status status;
+
+    public enum Status {
+        BUSY("Busy"),
+        FREE("Free");
+        private String value;
+
+        Status(String value) {
+            this.value = value;
+        }
+    }
 }

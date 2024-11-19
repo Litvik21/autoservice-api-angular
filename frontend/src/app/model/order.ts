@@ -2,6 +2,7 @@ import { Car } from './car';
 import { Product } from './product';
 import { Status } from './status';
 import { Task } from './task';
+import { CarOwner } from './carOwner';
 
 export interface Order {
   id?: number;
@@ -13,4 +14,5 @@ export interface Order {
   status?: Status;
   totalPrice?: number;
   dateFinished?: Date;
+  taskIds: number[];
 }

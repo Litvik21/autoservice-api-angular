@@ -18,9 +18,9 @@
     <td>{{ order.dateFinished }}</td>
     <td>
       <button (click)="updateStatus(order.id)" >Update Status</button>
-      <button (click)="update(order.id)" style="margin-top: 5px" >Update</button>
-      <button (click)="addProduct(order.id)" style="margin-top: 5px" >Add Product</button>
-      <button (click)="getPrice(order.id)" style="margin-top: 5px" >Calculate Sum</button>
+      <button (click)="update(order.id)">Update</button>
+      <button (click)="seeProducts(order.id)">Products</button>
+      <button (click)="getPrice(order.id)">Calculate Sum</button>
     </td>
   </tr>
   <tr *ngIf="!orders || orders.length === 0">

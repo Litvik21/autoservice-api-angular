@@ -12,5 +12,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class MechanicRequestDto {
     private String name;
-    private List<Long> finishedOrdersId;
+    private String lastName;
 }

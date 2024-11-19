@@ -47,15 +47,18 @@ export class TaskService {
   }
 
   addTask(task: Task): Observable<any> {
-    if (task.typeOfTask === undefined || task.paymentStatus === undefined) {
+    if (task.typeOfTask === undefined
+      // || task.paymentStatus === undefined
+    ) {
       throw new Error('Task type is undefined');
     }
     const taskToSent = {
+      title: task.title,
       type: TypeOfTaskMapping[task.typeOfTask],
       orderId: task.order?.id,
       mechanicId: task.mechanic?.id,
       price: task.price,
-      paymentStatus: PaymentStatusMapping[task.paymentStatus]
+      // paymentStatus: PaymentStatusMapping[task.paymentStatus]
     };
     console.log(taskToSent);
     return this.http.post<any>(this.taskUrl, taskToSent, this.httpOptions).pipe(

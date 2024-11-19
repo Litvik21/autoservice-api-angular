@@ -26,12 +26,12 @@ class MechanicServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        Mechanic mechanic = new Mechanic(2L, "Vlad", Collections.emptyList());
-        Task task1 = new Task(2L, null, null, mechanic,
+        Mechanic mechanic = new Mechanic(2L, "Vlad", "Test", Mechanic.Status.FREE);
+        Task task1 = new Task(2L, "",null, mechanic,
                 BigDecimal.valueOf(155), Task.PaymentStatus.NOT_PAID);
-        Task task2 = new Task(3L, null, null, mechanic,
+        Task task2 = new Task(3L, "",null, mechanic,
                 BigDecimal.valueOf(200), Task.PaymentStatus.NOT_PAID);
-        Task task3 = new Task(5L,null, null, mechanic,
+        Task task3 = new Task(5L,"",null, mechanic,
                 BigDecimal.valueOf(375), Task.PaymentStatus.NOT_PAID);
         tasks = List.of(task1, task2, task3);
     }

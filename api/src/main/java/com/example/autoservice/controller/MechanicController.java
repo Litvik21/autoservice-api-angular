@@ -7,6 +7,7 @@ import com.example.autoservice.dto.mechanic.MechanicResponseDto;
 import com.example.autoservice.dto.order.OrderResponseDto;
 import com.example.autoservice.model.Mechanic;
 import com.example.autoservice.service.MechanicService;
+import com.example.autoservice.service.OrderService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
@@ -20,11 +21,13 @@ public class MechanicController {
     private final MechanicService mechanicService;
     private final MechanicMapper mapper;
     private final OrderMapper orderMapper;
+    private final OrderService orderService;
 
-    public MechanicController(MechanicService mechanicService, MechanicMapper mapper, OrderMapper orderMapper) {
+    public MechanicController(MechanicService mechanicService, MechanicMapper mapper, OrderMapper orderMapper, OrderService orderService) {
         this.mechanicService = mechanicService;
         this.mapper = mapper;
         this.orderMapper = orderMapper;
+        this.orderService = orderService;
     }
 
     @PostMapping
@@ -52,7 +55,7 @@ public class MechanicController {
             @PathVariable @ApiParam(value = "id of mechanic that you want to get list of orders")
             Long id) {
 
-        return mechanicService.getOrders(id).stream()
+        return orderService.getFinishedByMechanicId(id).stream()
                 .map(orderMapper::toDto)
                 .toList();
     }
@@ -79,6 +82,14 @@ public class MechanicController {
     @ApiOperation(value = "Get list of mechanics")
     public List<MechanicResponseDto> getAll() {
         return mechanicService.getAll().stream()
+                .map(mapper::toDto)
+                .toList();
+    }
+
+    @GetMapping("/free")
+    @ApiOperation(value = "Get list of free mechanics")
+    public List<MechanicResponseDto> getAllFree() {
+        return mechanicService.getAllFree().stream()
                 .map(mapper::toDto)
                 .toList();
     }

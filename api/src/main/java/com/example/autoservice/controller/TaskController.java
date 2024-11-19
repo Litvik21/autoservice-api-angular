@@ -1,6 +1,7 @@
 package com.example.autoservice.controller;
 
 import com.example.autoservice.dto.mapper.TaskMapper;
+import com.example.autoservice.dto.task.TaskCreateDto;
 import com.example.autoservice.dto.task.TaskRequestDto;
 import com.example.autoservice.dto.task.TaskResponseDto;
 import com.example.autoservice.model.Task;
@@ -24,7 +25,7 @@ public class TaskController {
 
     @PostMapping
     @ApiOperation(value = "Save a new task to DB")
-    public TaskResponseDto save(@RequestBody TaskRequestDto requestDto) {
+    public TaskResponseDto save(@RequestBody TaskCreateDto requestDto) {
         Task task = mapper.toModel(requestDto);
         return mapper.toDto(taskService.save(task));
     }

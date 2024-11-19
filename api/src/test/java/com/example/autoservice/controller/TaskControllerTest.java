@@ -51,11 +51,11 @@ class TaskControllerTest {
         Mockito.when(mechanicService.getById(52L)).thenReturn(new Mechanic());
         Mockito.when(orderService.getById(15L)).thenReturn(new Order());
         Mockito.when(taskService.save(task))
-                .thenReturn(new Task(4L, Task.TypeOfTask.OIL_CHANGE, new Order(), new Mechanic(), task.getPrice(), Task.PaymentStatus.NOT_PAID));
+                .thenReturn(new Task(4L, "",Task.TypeOfTask.OIL_CHANGE, new Mechanic(), task.getPrice(), Task.PaymentStatus.NOT_PAID));
 
         RestAssuredMockMvc.given()
                 .contentType(ContentType.JSON)
-                .body(new TaskRequestDto("Oil_Change", 15L, 52L, task.getPrice(), "Not_Paid"))
+                .body(new TaskRequestDto("","Oil_Change", 52L, task.getPrice(), "Not_Paid"))
                 .when()
                 .post("tasks")
                 .then()

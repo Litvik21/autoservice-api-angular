@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product';
 import { ProductService } from '../service/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -13,7 +14,8 @@ export class ProductComponent implements OnInit {
   title = '';
   price = 0;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+              private router: Router) { }
 
   ngOnInit() {
     this.getProducts();
@@ -24,6 +26,10 @@ export class ProductComponent implements OnInit {
       .subscribe(products => this.products = products);
   }
 
+  prev(): void {
+    this.router.navigate(['orders']).then(() => window.location.reload());
+  }
+
   add(): void {
     let id = Math.max.apply(Math, this.products.map(function (o) {return o.id;}));
 
@@ -32,5 +38,6 @@ export class ProductComponent implements OnInit {
 
     this.title = "";
     this.price = 0;
+    this.router.navigate(['orders']).then(() => window.location.reload());
   }
 }

@@ -4,7 +4,9 @@ import com.example.autoservice.dto.mapper.OrderMapper;
 import com.example.autoservice.dto.mapper.ProductMapper;
 import com.example.autoservice.dto.order.OrderRequestDto;
 import com.example.autoservice.dto.order.OrderResponseDto;
+import com.example.autoservice.dto.product.ProductForOrderReqDto;
 import com.example.autoservice.dto.product.ProductRequestDto;
+import com.example.autoservice.dto.product.ProductResponseDto;
 import com.example.autoservice.model.Order;
 import com.example.autoservice.service.OrderService;
 import io.swagger.annotations.ApiOperation;
@@ -38,8 +40,8 @@ public class OrderController {
     @PostMapping("/add-product/{id}")
     @ApiOperation(value = "add product to order by order id")
     public OrderResponseDto addProductToOrder(@PathVariable Long id,
-                                              @RequestBody ProductRequestDto product) {
-        Order order = orderService.addProduct(id, productMapper.toModel(product));
+                                              @RequestBody ProductForOrderReqDto product) {
+        Order order = orderService.addProduct(id, productMapper.toModelForOrder(product));
         return mapper.toDto(order);
     }
 
@@ -72,6 +74,26 @@ public class OrderController {
             Long id) {
 
         return orderService.getPrice(id);
+    }
+
+    @GetMapping("/product/delete/{orderId}/{productId}")
+    @ApiOperation(value = "Remove product form order")
+    public OrderResponseDto removeProductFromOrder(
+            @PathVariable @ApiParam(value = "id of order that you want to edit")
+            Long orderId,
+            @PathVariable @ApiParam(value = "id of product that you want to remove")
+            Long productId) {
+
+        return mapper.toDto(orderService.removeProduct(orderId, productId));
+    }
+
+    @GetMapping("/get-products/{id}")
+    @ApiOperation(value = "Get order by id")
+    public List<ProductResponseDto> getProductsOfOrder(
+            @PathVariable @ApiParam(value = "id of order that you want to get")
+            Long id) {
+
+        return orderService.getAllProducts(id).stream().map(productMapper::toDto).toList();
     }
 
     @GetMapping("/get/{id}")

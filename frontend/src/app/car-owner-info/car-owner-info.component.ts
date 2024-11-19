@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CarOwner } from '../model/carOwner';
 import { CarOwnerService } from '../service/carOwner.service';
 import { Router } from '@angular/router';
+import { CarService } from '../service/car.service';
+import { Car } from '../model/car';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-car-owner-info',
@@ -10,8 +13,10 @@ import { Router } from '@angular/router';
 })
 export class CarOwnerInfoComponent implements OnInit {
   owners: CarOwner[] = [];
+  cars: Car[] = [];
 
   constructor(private ownerService: CarOwnerService,
+              private carService: CarService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -19,7 +24,9 @@ export class CarOwnerInfoComponent implements OnInit {
   }
   getCarOwners(): void {
     this.ownerService.getCarOwners()
-      .subscribe(owners => this.owners = owners);
+      .subscribe(owners => {
+        this.owners = owners
+      });
   }
   update(ownerId: any): void {
     this.router.navigate(['/car-owners', ownerId]);

@@ -1,4 +1,9 @@
 <div *ngIf="task">
+  <p>
+    <label>Title:</label>
+    <input [(ngModel)]="title">
+  </p>
+
   <form [formGroup]="typeOfTaskForm">
 
     <p>
@@ -14,26 +19,24 @@
 
   </form>
 
-  <form [formGroup]="orderForm">
+<!--  <form [formGroup]="orderForm">-->
 
-    <p>
-      <label>Select Order</label>
-      <label> By Description:</label>
-      <select formControlName="order">
-        <option [ngValue]="null" disabled>Select Order</option>
-        <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
-      </select>
-    </p>
+<!--    <p>-->
+<!--      <label>Select Order</label>-->
+<!--      <select formControlName="order">-->
+<!--        <option [ngValue]="null" disabled>Select Order</option>-->
+<!--        <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>-->
+<!--      </select>-->
+<!--    </p>-->
 
-  </form>
+<!--  </form>-->
   <form [formGroup]="mechanicForm">
 
     <p>
       <label>Select Mechanic</label>
-      <label> By Name:</label>
       <select formControlName="mechanic">
         <option [ngValue]="null" disabled>Select Mechanic</option>
-        <option *ngFor="let mechanic of mechanics" [ngValue]="mechanic.id">{{mechanic.name}}</option>
+        <option *ngFor="let mechanic of mechanics" [ngValue]="mechanic.id">{{mechanic.name + " " + mechanic.lastName}}</option>
       </select>
     </p>
 
@@ -57,6 +60,19 @@
 
   </form>
 
-  <button (click)="goBack()" style="margin-top: 5px">Go Back</button>
-  <button (click)="save()" style="margin-top: 5px">Save</button>
+  <div class="button-container">
+    <button (click)="goBack()">PREV</button>
+    <button
+      (click)="save()"
+      [disabled]="
+      !title ||
+      !typeOfTaskForm.get('type')?.value ||
+      !mechanicForm.get('mechanic')?.value ||
+      !price ||
+      !paymentStatusForm.get('status')?.value
+    "
+    >
+      SAVE
+    </button>
+  </div>
 </div>

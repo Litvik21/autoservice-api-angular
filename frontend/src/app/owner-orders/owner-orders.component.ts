@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { CarOwnerService } from '../service/carOwner.service';
 import { CarOwner } from '../model/carOwner';
 import { Order } from '../model/order';
+import { OrderService } from '../service/order.service';
 
 @Component({
   selector: 'app-owner-orders',
@@ -17,6 +18,7 @@ export class OwnerOrdersComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private ownerService: CarOwnerService,
+    private orderService: OrderService,
     private location: Location
   ) {}
 
@@ -28,16 +30,15 @@ export class OwnerOrdersComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id')!;
     this.ownerService.getCarOwner(id)
       .subscribe(owner => this.owner = owner);
+
+    this.ownerService.getOrdersOfOwner(id)
+      .subscribe(orders => {
+        this.orders = orders;
+      });
   }
 
   goBack(): void {
     this.location.back();
   }
 
-  getOrders(): void {
-    this.ownerService.getOrdersOfOwner(this.owner.id)
-      .subscribe(orders => {
-        this.orders = orders;
-      });
-  }
 }

@@ -3,6 +3,8 @@
   <tr>
     <th>ID</th>
     <th>Name</th>
+    <th>Surname</th>
+    <th>Phone Number</th>
     <th>Action</th>
   </tr>
   </thead>
@@ -10,9 +12,11 @@
   <tr *ngFor="let owner of owners">
     <td>{{ owner.id }}</td>
     <td>{{ owner.name }}</td>
+    <td>{{ owner.lastName }}</td>
+    <td>{{ owner.phoneNumber }}</td>
     <td>
-      <button (click)="update(owner.id)" style="margin-top: 5px" >Update</button>
-      <button (click)="getOrdersOfOwner(owner.id)" style="margin-top: 5px" >Get Orders</button>
+      <button (click)="update(owner.id)">Update</button>
+      <button (click)="getOrdersOfOwner(owner.id)">Get Orders</button>
     </td>
   </tr>
   <tr *ngIf="!owners || owners.length === 0">

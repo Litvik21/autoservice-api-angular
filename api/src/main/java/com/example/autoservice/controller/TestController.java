@@ -42,7 +42,7 @@ public class TestController {
         car.setModel("Sportage");
         car.setYear("2019");
         car.setNumber("FKFO30329DKEN");
-        car.setOwner(owner);
+//        car.setOwner(owner);
         carService.save(car);
 
         Mechanic mechanic = new Mechanic();

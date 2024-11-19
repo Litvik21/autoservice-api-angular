@@ -24,6 +24,14 @@ export class MechanicService {
       );
   }
 
+  getFreeMechanics(): Observable<Mechanic[]> {
+    const url = this.mechanicsUrl + '/free';
+    return this.http.get<Mechanic[]>(url)
+      .pipe(
+        catchError(this.handleError<Mechanic[]>('getMechanics', []))
+      );
+  }
+
   getMechanic(id: number): Observable<Mechanic> {
     const url = `${this.mechanicsUrl}/get/${id}`;
     return this.http.get<Mechanic>(url).pipe(
@@ -55,7 +63,7 @@ export class MechanicService {
   addMechanic(mechanic: Mechanic): Observable<any> {
     const mechanicToSent = {
       name: mechanic.name,
-      finishedOrdersId: mechanic.finishedOrders ? mechanic.finishedOrders.map(order => order.id) : null
+      lastName: mechanic.lastName
     };
     return this.http.post<any>(this.mechanicsUrl, mechanicToSent, this.httpOptions).pipe(
       catchError(this.handleError<any>('addMechanic'))

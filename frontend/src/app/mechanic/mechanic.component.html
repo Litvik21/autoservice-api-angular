@@ -4,17 +4,20 @@
   <input [(ngModel)]="mechanicName">
 </p>
 
-<form [formGroup]="orderForm">
+<p>
+  <label>Surname:</label>
+  <input [(ngModel)]="lastName">
+</p>
 
-  <p>
-    <label>Select Finished Order</label>
-    <label> By Description: (Optional)</label>
-    <select formControlName="order">
-      <option [ngValue]="null" disabled>Select Order</option>
-      <option *ngFor="let order of orders" [ngValue]="order.id">{{order.description}}</option>
-    </select>
-  </p>
-
-</form>
-
-<button (click)="add()">Add</button>
+<div class="button-container">
+  <button (click)="prev()">PREV</button>
+  <button
+    (click)="add()"
+    [disabled]="
+      !mechanicName ||
+      !lastName
+    "
+  >
+    NEXT
+  </button>
+</div>
