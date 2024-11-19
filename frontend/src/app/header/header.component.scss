@@ -1,0 +1,42 @@
+/* Стили для шапки */
+header {
+  background-color: #B18845;
+  padding: 20px 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around; /* Равномерное распределение кнопок */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav-link {
+  color: #FFFFFF;
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 5px;
+}
+
+/* Подчеркивание при наведении и активное состояние */
+.nav-link:hover,
+.nav-link.active {
+  text-decoration: underline;
+}
+
+.logo-link {
+  margin-right: 20px; /* Отступ справа для отделения от других кнопок */
+}
+
+.logo-link img {
+  margin-top: -20px;
+  margin-bottom: -20px;
+  width: 120px; /* Размер изображения логотипа */
+  height: auto;
+}
