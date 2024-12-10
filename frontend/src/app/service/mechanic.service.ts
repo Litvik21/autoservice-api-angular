@@ -12,6 +12,7 @@ export class MechanicService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
   private mechanicsUrl = environment.urlPath + '/mechanics';
+  private ordersUrl = environment.urlPath + '/orders';
 
   constructor(
     private http: HttpClient) {
@@ -52,6 +53,14 @@ export class MechanicService {
       catchError(this.handleError<Number>(`getMechanic id=${id}`))
     );
   }
+
+  getSalaryReport(): Observable<any> {
+    const url = `${this.ordersUrl}/get-salary-report`;
+    return this.http.get<any>(url).pipe(
+      catchError(this.handleError<any>(`getSalaryReport`))
+    );
+  }
+
 
   updateMechanic(mechanic: Mechanic): Observable<any> {
     const url = `${this.mechanicsUrl}/${mechanic.id}`;

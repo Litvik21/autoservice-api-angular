@@ -7,5 +7,7 @@ import java.util.List;
 public interface SalaryService {
     void save(Salary salary);
 
+    List<Salary> getAll();
+
     List<Salary> findAllByMechanicId(Long mechanicId);
 }

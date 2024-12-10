@@ -67,3 +67,11 @@ button:hover {
   color: #E9B157;
   border: 1px solid #E9B157;
 }
+
+/* Кнопки в одной линии */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;  /* Расстояние между кнопками */
+  margin-top: 20px;
+}

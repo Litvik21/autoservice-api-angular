@@ -28,4 +28,6 @@ public interface OrderService {
     List<Order> getByUser(Long userId);
 
     List<Order> getFinishedByMechanicId(Long userId);
+
+    byte[] getSalaryReport();
 }

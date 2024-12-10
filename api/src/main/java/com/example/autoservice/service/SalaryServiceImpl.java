@@ -19,6 +19,11 @@ public class SalaryServiceImpl implements SalaryService {
     }
 
     @Override
+    public List<Salary> getAll() {
+        return salaryRepository.findAll();
+    }
+
+    @Override
     public List<Salary> findAllByMechanicId(Long mechanicId) {
         return salaryRepository.findAllByMechanicId(mechanicId);
     }

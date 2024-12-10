@@ -4,16 +4,20 @@ import com.example.autoservice.dto.mapper.OrderMapper;
 import com.example.autoservice.dto.mapper.ProductMapper;
 import com.example.autoservice.dto.order.OrderRequestDto;
 import com.example.autoservice.dto.order.OrderResponseDto;
+import com.example.autoservice.dto.order.Salaries;
 import com.example.autoservice.dto.product.ProductForOrderReqDto;
 import com.example.autoservice.dto.product.ProductRequestDto;
 import com.example.autoservice.dto.product.ProductResponseDto;
 import com.example.autoservice.model.Order;
+import com.example.autoservice.model.Salary;
 import com.example.autoservice.service.OrderService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.Base64;
 import java.util.List;
 
 @RestController
@@ -103,6 +107,16 @@ public class OrderController {
             Long id) {
 
         return mapper.toDto(orderService.getById(id));
+    }
+
+    @GetMapping("/get-salary-report")
+    @ApiOperation(value = "Get salaries report")
+    public Salaries getSalaryReport() {
+        byte[] salaryReport = orderService.getSalaryReport();
+
+        String base64EncodedReport = Base64.getEncoder().encodeToString(salaryReport);
+
+        return new Salaries(base64EncodedReport);
     }
 
     @GetMapping
